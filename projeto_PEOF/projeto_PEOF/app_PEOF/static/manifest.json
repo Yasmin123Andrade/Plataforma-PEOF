@@ -1,0 +1,68 @@
+{
+  "name": "PEOF - E-learning",
+  "short_name": "PEOF",
+  "description": "Plataforma de Educação Online PEOF",
+  "start_url": "/",
+  "display": "standalone",
+  "background_color": "#000000",
+  "theme_color": "#0D5E72",
+  "orientation": "portrait-primary",
+  "scope": "/",
+  "icons": [
+    {
+      "src": "/static/img/icon-192x192.png",
+      "sizes": "192x192",
+      "type": "image/png",
+      "purpose": "any maskable"
+    },
+    {
+      "src": "/static/img/icon-512x512.png",
+      "sizes": "512x512",
+      "type": "image/png",
+      "purpose": "any maskable"
+    }
+  ],
+  "screenshots": [
+    {
+      "src": "/static/img/screenshot-1.png",
+      "sizes": "540x720",
+      "type": "image/png",
+      "form_factor": "narrow"
+    },
+    {
+      "src": "/static/img/screenshot-2.png",
+      "sizes": "1280x720",
+      "type": "image/png",
+      "form_factor": "wide"
+    }
+  ],
+  "categories": ["education"],
+  "shortcuts": [
+    {
+      "name": "Entrar",
+      "short_name": "Login",
+      "description": "Ir para a página de login",
+      "url": "/accounts/login/",
+      "icons": [
+        {
+          "src": "/static/img/icon-96x96.png",
+          "sizes": "96x96",
+          "type": "image/png"
+        }
+      ]
+    },
+    {
+      "name": "Conteúdos",
+      "short_name": "Conteúdos",
+      "description": "Ver conteúdos educacionais",
+      "url": "/conteudos/",
+      "icons": [
+        {
+          "src": "/static/img/icon-96x96.png",
+          "sizes": "96x96",
+          "type": "image/png"
+        }
+      ]
+    }
+  ]
+}
