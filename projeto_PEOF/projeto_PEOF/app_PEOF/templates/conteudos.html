@@ -1,22 +1,22 @@
 {% load static %}
 <!DOCTYPE html>
-<html lang="en">
+<html lang="pt-br">
 
 <head>
     <meta charset="utf-8">
-   <title>Plataforma de Estudos para Olimpíadas de Física</title>
+    <title>Plataforma de Estudos para Olimpíadas de Física</title>
     <meta content="width=device-width, initial-scale=1.0" name="viewport">
     <meta content="" name="keywords">
     <meta content="" name="description">
 
-      <!-- Favicon -->
-<link rel="icon" type="img/x-icon" href="/favicon.ico">
-<link rel="icon" type="img/png" sizes="16x16" href="/favicon-16x16.png">
-<link rel="icon" type="img/png" sizes="32x32" href="/favicon-32x32.png">
-<link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
-<link rel="icon" type="img/png" sizes="192x192" href="/android-chrome-192x192.png">
-<link rel="icon" type="img/png" sizes="512x512" href="/android-chrome-512x512.png">
-<meta name="theme-color" content="#ffffff">
+    <!-- Favicon -->
+    <link rel="icon" type="image/x-icon" href="{% static 'favicon.ico' %}">
+    <link rel="icon" type="image/png" sizes="16x16" href="{% static 'favicon-16x16.png' %}">
+    <link rel="icon" type="image/png" sizes="32x32" href="{% static 'favicon-32x32.png' %}">
+    <link rel="apple-touch-icon" sizes="180x180" href="{% static 'apple-touch-icon.png' %}">
+    <link rel="icon" type="image/png" sizes="192x192" href="{% static 'android-chrome-192x192.png' %}">
+    <link rel="icon" type="image/png" sizes="512x512" href="{% static 'android-chrome-512x512.png' %}">
+    <meta name="theme-color" content="#ffffff">
 
     <!-- Google Web Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -42,48 +42,48 @@
     <!-- Spinner Start -->
     <div id="spinner" class="show bg-white position-fixed translate-middle w-100 vh-100 top-50 start-50 d-flex align-items-center justify-content-center">
         <div class="spinner-border text-primary" style="width: 3rem; height: 3rem;" role="status">
-            <span class="sr-only">Loading...</span>
+            <span class="sr-only">Carregando...</span>
         </div>
     </div>
     <!-- Spinner End -->
 
 
-   <!-- Navbar Start -->
-<nav class="navbar navbar-expand-lg bg-white navbar-light shadow sticky-top p-0">
-    <a href="{% url 'home' %}" class="navbar-brand d-flex align-items-center px-4 px-lg-5" style="max-width: 70%; white-space: normal;">
-        <h2 class="m-0 text-primary d-flex align-items-center" style="font-size: calc(1.2rem + 0.6vw);">
-            <img src="{% static 'img/android-chrome-512x512.png' %}" alt="PEOF" style="height:45px;" class="me-2">
-            <span class="d-none d-sm-inline">Plataforma de Estudos para Olimpíadas de Física</span>
-            <span class="d-inline d-sm-none">PEOF</span>
-        </h2>
-    </a>
-    <button type="button" class="navbar-toggler me-4" data-bs-toggle="collapse" data-bs-target="#navbarCollapse">
-        <span class="navbar-toggler-icon"></span>
-    </button>
+    <!-- Navbar Start -->
+    <nav class="navbar navbar-expand-lg bg-white navbar-light shadow sticky-top p-0">
+        <a href="{% url 'home' %}" class="navbar-brand d-flex align-items-center px-4 px-lg-5" style="max-width: 70%; white-space: normal;">
+            <h2 class="m-0 text-primary d-flex align-items-center" style="font-size: calc(1.2rem + 0.6vw);">
+                <img src="{% static 'img/android-chrome-512x512.png' %}" alt="PEOF" style="height:45px;" class="me-2">
+                <span class="d-none d-sm-inline">Plataforma de Estudos para Olimpíadas de Física</span>
+                <span class="d-inline d-sm-none">PEOF</span>
+            </h2>
+        </a>
+        <button type="button" class="navbar-toggler me-4" data-bs-toggle="collapse" data-bs-target="#navbarCollapse">
+            <span class="navbar-toggler-icon"></span>
+        </button>
 
-    <div class="collapse navbar-collapse" id="navbarCollapse">
-        <div class="navbar-nav ms-auto p-4 p-lg-0">
-            <a href="{% url 'home' %}" class="nav-item nav-link">Início</a>
-            <a href="{% url 'sobre' %}" class="nav-item nav-link nav-link-sobre">Sobre</a>
-            <a href="{% url 'conteudos' %}" class="nav-item nav-link">Conteúdos</a>
-            <div class="nav-item dropdown">
-                <a href="#" class="nav-link dropdown-toggle" data-bs-toggle="dropdown">Explorar</a>
-                <div class="dropdown-menu fade-down m-0">
-                    <a href="{% url 'medalhistas' %}" class="dropdown-item">Medalhistas</a>
-                    <a href="{% url 'depoimentos' %}" class="dropdown-item">Depoimentos</a>
-                    <a href="{% url 'materiais' %}" class="dropdown-item">Materiais</a>
+        <div class="collapse navbar-collapse" id="navbarCollapse">
+            <div class="navbar-nav ms-auto p-4 p-lg-0">
+                <a href="{% url 'home' %}" class="nav-item nav-link">Início</a>
+                <a href="{% url 'sobre' %}" class="nav-item nav-link nav-link-sobre">Sobre</a>
+                <a href="{% url 'conteudos' %}" class="nav-item nav-link">Conteúdos</a>
+                <div class="nav-item dropdown">
+                    <a href="#" class="nav-link dropdown-toggle" data-bs-toggle="dropdown">Explorar</a>
+                    <div class="dropdown-menu fade-down m-0">
+                        <a href="{% url 'medalhistas' %}" class="dropdown-item">Medalhistas</a>
+                        <a href="{% url 'depoimentos' %}" class="dropdown-item">Depoimentos</a>
+                        <a href="{% url 'materiais' %}" class="dropdown-item">Materiais</a>
+                    </div>
                 </div>
+                <a href="{% url 'contato' %}" class="nav-item nav-link">Contatos</a>
             </div>
-            <a href="{% url 'contato' %}" class="nav-item nav-link">Contatos</a>
-        </div>
 
-        <form action="{% url 'logout' %}" method="POST" style="display: inline; margin: 10px;">
-            {% csrf_token %}
-            <button type="submit" class="btn btn-danger">SAIR</button>
-        </form>
-    </div>
-</nav>
-<!-- Navbar End -->
+            <form action="{% url 'logout' %}" method="POST" style="display: inline; margin: 10px;">
+                {% csrf_token %}
+                <button type="submit" class="btn btn-danger">SAIR</button>
+            </form>
+        </div>
+    </nav>
+    <!-- Navbar End -->
 
 
     <!-- Header Start -->
@@ -94,8 +94,7 @@
                     <h1 class="display-3 text-white animated slideInDown">Conteúdos</h1>
                     <nav aria-label="breadcrumb">
                         <ol class="breadcrumb justify-content-center">
-                            <li class="breadcrumb-item"><a class="text-white" href="#">Início</a></li>
-                            <li class="breadcrumb-item"><a class="text-white" href="#">Página</a></li>
+                            <li class="breadcrumb-item"><a class="text-white" href="{% url 'home' %}">Início</a></li>
                             <li class="breadcrumb-item text-white active" aria-current="page">Conteúdos</li>
                         </ol>
                     </nav>
@@ -138,7 +137,7 @@
             </div>
         </div>
     </div>
-    <!-- Categories Start -->
+    <!-- Categories End -->
 
 
     <!-- Courses Start -->
@@ -149,13 +148,14 @@
                 <h1 class="mb-5">Livros de Física em PDF</h1>
             </div>
             <div class="row g-4 justify-content-center">
+                <!-- Card 1 -->
                 <div class="col-lg-4 col-md-6 wow fadeInUp" data-wow-delay="0.1s">
                     <div class="course-item bg-light">
                         <div class="position-relative overflow-hidden">
                             <img class="img-fluid" src="{% static 'img/fisica1.jpg' %}" alt="Livro de Física 1">
                             <div class="w-100 d-flex justify-content-center position-absolute bottom-0 start-0 mb-4">
                                 <a href="{% static 'material/Fisica - Beatriz Alvarenga - vol 1 -1.PDF' %}" target="_blank" rel="noopener noreferrer" class="flex-shrink-0 btn btn-sm btn-primary px-3 border-end" style="border-radius: 30px 0 0 30px;">Abrir PDF</a>
-                                <a href="{% static 'material/Fisica - Beatriz Alvarenga - vol1 -1.PDF' %}" target="_blank" rel="noopener noreferrer" class="flex-shrink-0 btn btn-sm btn-primary px-3" style="border-radius: 0 30px 30px 0;">Baixar</a>
+                                <a href="{% static 'material/Fisica - Beatriz Alvarenga - vol 1 -1.PDF' %}" download class="flex-shrink-0 btn btn-sm btn-primary px-3" style="border-radius: 0 30px 30px 0;">Baixar</a>
                             </div>
                         </div>
                         <div class="text-center p-4 pb-0">
@@ -167,13 +167,15 @@
                         </div>
                     </div>
                 </div>
+
+                <!-- Card 2 -->
                 <div class="col-lg-4 col-md-6 wow fadeInUp" data-wow-delay="0.3s">
                     <div class="course-item bg-light">
                         <div class="position-relative overflow-hidden">
                             <img class="img-fluid" src="{% static 'img/fisica2.jpg' %}" alt="Livro Halliday de Física 2">
                             <div class="w-100 d-flex justify-content-center position-absolute bottom-0 start-0 mb-4">
-                                <a href="material/Física 2 Halliday Gravitação Ondas Termodinâmica 10ª Edição.pdf" target="_blank" rel="noopener noreferrer" class="flex-shrink-0 btn btn-sm btn-primary px-3 border-end" style="border-radius: 30px 0 0 30px;">Abrir PDF</a>
-                                <a href="material/Física 2 Halliday Gravitação Ondas Termodinâmica 10ª Edição.pdf" target="_blank" rel="noopener noreferrer" class="flex-shrink-0 btn btn-sm btn-primary px-3" style="border-radius: 0 30px 30px 0;">Baixar</a>
+                                <a href="{% static 'material/Física 2 Halliday Gravitação Ondas Termodinâmica 10ª Edição.pdf' %}" target="_blank" rel="noopener noreferrer" class="flex-shrink-0 btn btn-sm btn-primary px-3 border-end" style="border-radius: 30px 0 0 30px;">Abrir PDF</a>
+                                <a href="{% static 'material/Física 2 Halliday Gravitação Ondas Termodinâmica 10ª Edição.pdf' %}" download class="flex-shrink-0 btn btn-sm btn-primary px-3" style="border-radius: 0 30px 30px 0;">Baixar</a>
                             </div>
                         </div>
                         <div class="text-center p-4 pb-0">
@@ -185,50 +187,55 @@
                         </div>
                     </div>
                 </div>
+
+                <!-- Card 3 -->
                 <div class="col-lg-4 col-md-6 wow fadeInUp" data-wow-delay="0.5s">
                     <div class="course-item bg-light">
                         <div class="position-relative overflow-hidden">
                             <img class="img-fluid" src="{% static 'img/fisica4.jpg' %}" alt="Livro Os Fundamentos da Física">
                             <div class="w-100 d-flex justify-content-center position-absolute bottom-0 start-0 mb-4">
-                                <a href="material/Compreendendo a Física - Vol 03 - [FB.COM_VESTGEEK] (1).pdf" target="_blank" rel="noopener noreferrer" class="flex-shrink-0 btn btn-sm btn-primary px-3 border-end" style="border-radius: 30px 0 0 30px;">Abrir PDF</a>
-                                <a href="material/Compreendendo a Física - Vol 03 - [FB.COM_VESTGEEK] (1).pdf" target="_blank" rel="noopener noreferrer" class="flex-shrink-0 btn btn-sm btn-primary px-3" style="border-radius: 0 30px 30px 0;">Baixar</a>
+                                <a href="{% static 'material/Compreendendo a Física - Vol 03 - [FB.COM_VESTGEEK] (1).pdf' %}" target="_blank" rel="noopener noreferrer" class="flex-shrink-0 btn btn-sm btn-primary px-3 border-end" style="border-radius: 30px 0 0 30px;">Abrir PDF</a>
+                                <a href="{% static 'material/Compreendendo a Física - Vol 03 - [FB.COM_VESTGEEK] (1).pdf' %}" download class="flex-shrink-0 btn btn-sm btn-primary px-3" style="border-radius: 0 30px 30px 0;">Baixar</a>
                             </div>
                         </div>
                         <div class="text-center p-4 pb-0">
-                              <h3 class="mb-0">Física 3</h3>
+                            <h3 class="mb-0">Física 3</h3>
                             <h5 class="mb-4">Eletromagnetismo e Física Moderna</h5>
-                           
                         </div>
                         <div class="d-flex border-top">
                             <small class="flex-fill text-center py-2"><i class="fa fa-book text-primary me-2"></i>Material completo</small>
                         </div>
                     </div>
                 </div>
-                  <div class="col-lg-4 col-md-6 wow fadeInUp" data-wow-delay="0.3s">
+
+                <!-- Card 4 -->
+                <div class="col-lg-4 col-md-6 wow fadeInUp" data-wow-delay="0.3s">
                     <div class="course-item bg-light">
                         <div class="position-relative overflow-hidden">
-                            <img class="img-fluid" src="{% static 'img/fisica5.jpg' %}" alt="Livro Halliday de Física 2">
+                            <img class="img-fluid" src="{% static 'img/fisica5.jpg' %}" alt="Livro Ramalho Mecânica">
                             <div class="w-100 d-flex justify-content-center position-absolute bottom-0 start-0 mb-4">
-                                <a href="material/Os Fundamentos da Fisica - Vol. 1 - 9ª Ed.- RAMALHO- Mecanica- Blog - conhecimentovaleouro.blogspot.com.pdf" target="_blank" rel="noopener noreferrer" class="flex-shrink-0 btn btn-sm btn-primary px-3 border-end" style="border-radius: 30px 0 0 30px;">Abrir PDF</a>
-                                <a href="material/Os Fundamentos da Fisica - Vol. 1 - 9ª Ed.- RAMALHO- Mecanica- Blog - conhecimentovaleouro.blogspot.com.pdf" target="_blank" rel="noopener noreferrer" class="flex-shrink-0 btn btn-sm btn-primary px-3" style="border-radius: 0 30px 30px 0;">Baixar</a>
+                                <a href="{% static 'material/Os Fundamentos da Fisica - Vol. 1 - 9ª Ed.- RAMALHO- Mecanica- Blog - conhecimentovaleouro.blogspot.com.pdf' %}" target="_blank" rel="noopener noreferrer" class="flex-shrink-0 btn btn-sm btn-primary px-3 border-end" style="border-radius: 30px 0 0 30px;">Abrir PDF</a>
+                                <a href="{% static 'material/Os Fundamentos da Fisica - Vol. 1 - 9ª Ed.- RAMALHO- Mecanica- Blog - conhecimentovaleouro.blogspot.com.pdf' %}" download class="flex-shrink-0 btn btn-sm btn-primary px-3" style="border-radius: 0 30px 30px 0;">Baixar</a>
                             </div>
                         </div>
                         <div class="text-center p-4 pb-0">
                             <h3 class="mb-0">Fundamentos da Física</h3>
-                            <h5 class="mb-4">Ramalho — Mecânica, Volume 1</h5>>
+                            <h5 class="mb-4">Ramalho — Mecânica, Volume 1</h5>
                         </div>
                         <div class="d-flex border-top">
                             <small class="flex-fill text-center py-2"><i class="fa fa-book text-primary me-2"></i>Material completo</small>
                         </div>
                     </div>
                 </div>
-                  <div class="col-lg-4 col-md-6 wow fadeInUp" data-wow-delay="0.3s">
+
+                <!-- Card 5 -->
+                <div class="col-lg-4 col-md-6 wow fadeInUp" data-wow-delay="0.3s">
                     <div class="course-item bg-light">
                         <div class="position-relative overflow-hidden">
                             <img class="img-fluid" src="{% static 'img/fisica6.jpg' %}" alt="Livro Halliday de Física 2">
                             <div class="w-100 d-flex justify-content-center position-absolute bottom-0 start-0 mb-4">
-                                <a href="material/Física 2 Halliday Gravitação Ondas Termodinâmica 10ª Edição.pdf" target="_blank" rel="noopener noreferrer" class="flex-shrink-0 btn btn-sm btn-primary px-3 border-end" style="border-radius: 30px 0 0 30px;">Abrir PDF</a>
-                                <a href="material/Física 2 Halliday Gravitação Ondas Termodinâmica 10ª Edição.pdf" target="_blank" rel="noopener noreferrer" class="flex-shrink-0 btn btn-sm btn-primary px-3" style="border-radius: 0 30px 30px 0;">Baixar</a>
+                                <a href="{% static 'material/Física 2 Halliday Gravitação Ondas Termodinâmica 10ª Edição.pdf' %}" target="_blank" rel="noopener noreferrer" class="flex-shrink-0 btn btn-sm btn-primary px-3 border-end" style="border-radius: 30px 0 0 30px;">Abrir PDF</a>
+                                <a href="{% static 'material/Física 2 Halliday Gravitação Ondas Termodinâmica 10ª Edição.pdf' %}" download class="flex-shrink-0 btn btn-sm btn-primary px-3" style="border-radius: 0 30px 30px 0;">Baixar</a>
                             </div>
                         </div>
                         <div class="text-center p-4 pb-0">
@@ -240,17 +247,19 @@
                         </div>
                     </div>
                 </div>
-                  <div class="col-lg-4 col-md-6 wow fadeInUp" data-wow-delay="0.3s">
+
+                <!-- Card 6 -->
+                <div class="col-lg-4 col-md-6 wow fadeInUp" data-wow-delay="0.3s">
                     <div class="course-item bg-light">
                         <div class="position-relative overflow-hidden">
-                            <img class="img-fluid" src="{% static 'img/fisica7.jpg' %}" alt="Livro Halliday de Física 2">
+                            <img class="img-fluid" src="{% static 'img/fisica7.jpg' %}" alt="Questões FisicaNET">
                             <div class="w-100 d-flex justify-content-center position-absolute bottom-0 start-0 mb-4">
-                                <a href="material/11.-Quest-es-de-F-sica-Resolvidas-autor-FisicaNET.pdf" target="_blank" rel="noopener noreferrer" class="flex-shrink-0 btn btn-sm btn-primary px-3 border-end" style="border-radius: 30px 0 0 30px;">Abrir PDF</a>
-                                <a href="material/11.-Quest-es-de-F-sica-Resolvidas-autor-FisicaNET.pdf" target="_blank" rel="noopener noreferrer" class="flex-shrink-0 btn btn-sm btn-primary px-3" style="border-radius: 0 30px 30px 0;">Baixar</a>
+                                <a href="{% static 'material/11.-Quest-es-de-F-sica-Resolvidas-autor-FisicaNET.pdf' %}" target="_blank" rel="noopener noreferrer" class="flex-shrink-0 btn btn-sm btn-primary px-3 border-end" style="border-radius: 30px 0 0 30px;">Abrir PDF</a>
+                                <a href="{% static 'material/11.-Quest-es-de-F-sica-Resolvidas-autor-FisicaNET.pdf' %}" download class="flex-shrink-0 btn btn-sm btn-primary px-3" style="border-radius: 0 30px 30px 0;">Baixar</a>
                             </div>
                         </div>
                         <div class="text-center p-4 pb-0">
-                            <h3 class="mb-0"> FisicaNET</h3>
+                            <h3 class="mb-0">FisicaNET</h3>
                             <h5 class="mb-4">Questões de Física Resolvidas</h5>
                         </div>
                         <div class="d-flex border-top">
@@ -282,11 +291,10 @@
                         <h5 class="mb-3">Provas antigas</h5>
                         <p class="mb-0">Seleção de questões de olimpíadas e provas anteriores para treino e revisão.</p>
                         <ul class="list-unstyled mt-3 mb-0">
-                            <li><a href="material/obanivel1.pdf" class="text-primary">Prova nível 1</a></li>
-                            <li><a href="material/obanivel2.pdf" class="text-primary">Prova nível 2</a></li>
-                            <li><a href="material/obanivel3.pdf" class="text-primary">Prova nível 3</a></li>
-                            <li><a href="material/obanivel4.pdf" class="text-primary">Prova nível 4</a></li>
-                          
+                            <li><a href="{% static 'material/obanivel1.pdf' %}" target="_blank" class="text-primary">Prova nível 1</a></li>
+                            <li><a href="{% static 'material/obanivel2.pdf' %}" target="_blank" class="text-primary">Prova nível 2</a></li>
+                            <li><a href="{% static 'material/obanivel3.pdf' %}" target="_blank" class="text-primary">Prova nível 3</a></li>
+                            <li><a href="{% static 'material/obanivel4.pdf' %}" target="_blank" class="text-primary">Prova nível 4</a></li>
                         </ul>
                     </div>
                 </div>
@@ -296,10 +304,10 @@
                         <h5 class="mb-3">Gabaritos das provas</h5>
                         <p class="mb-0">Veja abaixo o gabarito.</p>
                         <ul class="list-unstyled mt-3 mb-0">
-                           <li><a href="material/p1.pdf" class="text-primary">Gabarito prova nível 1</a></li>
-                            <li><a href="material/p2.pdf" class="text-primary">Gabarito prova nível 2</a></li>
-                            <li><a href="material/p3.pdf" class="text-primary">Gabarito prova nível 3</a></li>
-                            <li><a href="material/p4.pdf" class="text-primary">Gabarito prova nível 4</a></li>
+                            <li><a href="{% static 'material/p1.pdf' %}" target="_blank" class="text-primary">Gabarito prova nível 1</a></li>
+                            <li><a href="{% static 'material/p2.pdf' %}" target="_blank" class="text-primary">Gabarito prova nível 2</a></li>
+                            <li><a href="{% static 'material/p3.pdf' %}" target="_blank" class="text-primary">Gabarito prova nível 3</a></li>
+                            <li><a href="{% static 'material/p4.pdf' %}" target="_blank" class="text-primary">Gabarito prova nível 4</a></li>
                         </ul>
                     </div>
                 </div>
@@ -309,14 +317,13 @@
                         <h5 class="mb-3">Preparação para OBA</h5>
                         <p class="mb-0">Conteúdos organizados para estudar teoria, exercícios e estratégias de prova.</p>
                         <ul class="list-unstyled mt-3 mb-0">
-                            <li><a href="https://novo.oba.org.br/provas" class="text-primary">Provas antigas</a></li>
-                            <li><a href="https://youtu.be/7zG0m-CrXS0?si=g6FCPquA-zna5dTB" class="text-primary">Playlist estudos</a></li>
-                            <li><a href="https://drive.google.com/file/d/1bNS-XQrnhRibTWL-Am8FLn_AhPcALVEv/view" class="text-primary">Drive material</a></li>
-                            <li><a href="https://sistema.oba.org.br/site/" class="text-primary">Site da OBA</a></li>
+                            <li><a href="https://novo.oba.org.br/provas" target="_blank" class="text-primary">Provas antigas</a></li>
+                            <li><a href="https://youtu.be/7zG0m-CrXS0?si=g6FCPquA-zna5dTB" target="_blank" class="text-primary">Playlist estudos</a></li>
+                            <li><a href="https://drive.google.com/file/d/1bNS-XQrnhRibTWL-Am8FLn_AhPcALVEv/view" target="_blank" class="text-primary">Drive material</a></li>
+                            <li><a href="https://sistema.oba.org.br/site/" target="_blank" class="text-primary">Site da OBA</a></li>
                         </ul>
                     </div>
                 </div>
-               
             </div>
         </div>
     </div>
@@ -340,10 +347,10 @@
                         <h5 class="mb-3">Prova 2016</h5>
                         <p class="mb-0">Questões de provas anteriores da ONC para praticar e revisar conceitos.</p>
                         <ul class="list-unstyled mt-3 mb-0">
-                            <li><a href="material/A.pdf" class="text-primary">Prova nível A</a></li>
-                            <li><a href="material/B.pdf" class="text-primary">Prova nível B</a></li>
-                            <li><a href="material/C.pdf" class="text-primary">Prova nível C</a></li>
-                            <li><a href="material/D.pdf" class="text-primary">Prova nível D</a></li>
+                            <li><a href="{% static 'material/A.pdf' %}" target="_blank" class="text-primary">Prova nível A</a></li>
+                            <li><a href="{% static 'material/B.pdf' %}" target="_blank" class="text-primary">Prova nível B</a></li>
+                            <li><a href="{% static 'material/C.pdf' %}" target="_blank" class="text-primary">Prova nível C</a></li>
+                            <li><a href="{% static 'material/D.pdf' %}" target="_blank" class="text-primary">Prova nível D</a></li>
                         </ul>
                     </div>
                 </div>
@@ -353,22 +360,23 @@
                         <h5 class="mb-3">Prova 2025</h5>
                         <p class="mb-0">Questões de provas anteriores da ONC para praticar e revisar conceitos.</p>
                         <ul class="list-unstyled mt-3 mb-0">
-                            <li><a href="material/1.pdf" class="text-primary">Prova nível A</a></li>
-                            <li><a href="material/1B.pdf" class="text-primary">Prova nível B</a></li>
-                            <li><a href="material/1C.pdf" class="text-primary">Prova nível C</a></li>
-                            <li><a href="material/1D.pdf" class="text-primary">Prova nível D</a></li>                        </ul>
+                            <li><a href="{% static 'material/1.pdf' %}" target="_blank" class="text-primary">Prova nível A</a></li>
+                            <li><a href="{% static 'material/1B.pdf' %}" target="_blank" class="text-primary">Prova nível B</a></li>
+                            <li><a href="{% static 'material/1C.pdf' %}" target="_blank" class="text-primary">Prova nível C</a></li>
+                            <li><a href="{% static 'material/1D.pdf' %}" target="_blank" class="text-primary">Prova nível D</a></li>
+                        </ul>
                     </div>
                 </div>
                 <div class="col-lg-4 col-md-6">
                     <div class="testimonial-item text-center bg-light p-4 rounded h-100">
                         <div class="mb-3"><i class="fa fa-graduation-cap text-primary" style="font-size: 2rem;"></i></div>
-                       <h5 class="mb-3">Preparação para ONC</h5>
+                        <h5 class="mb-3">Preparação para ONC</h5>
                         <p class="mb-0">Conteúdos organizados para estudar teoria, exercícios e estratégias de prova.</p>
                         <ul class="list-unstyled mt-3 mb-0">
-                            <li><a href="https://novo.oba.org.br/provas" class="text-primary">Provas antigas</a></li>
-                            <li><a href="https://www.youtube.com/live/-lUWjc2t-IM?si=scHdBWhW9PNVAPty" class="text-primary">Playlist estudos</a></li>
-                            <li><a href="https://sites.google.com/view/luanangelo/onc/provas class="text-primary">Material</a></li>
-                            <li><a href="https://www.onciencias.org/" class="text-primary">Site da ONC</a></li>
+                            <li><a href="https://novo.oba.org.br/provas" target="_blank" class="text-primary">Provas antigas</a></li>
+                            <li><a href="https://www.youtube.com/live/-lUWjc2t-IM?si=scHdBWhW9PNVAPty" target="_blank" class="text-primary">Playlist estudos</a></li>
+                            <li><a href="https://sites.google.com/view/luanangelo/onc/provas" target="_blank" class="text-primary">Material</a></li>
+                            <li><a href="https://www.onciencias.org/" target="_blank" class="text-primary">Site da ONC</a></li>
                         </ul>
                     </div>
                 </div>
@@ -376,7 +384,7 @@
         </div>
     </div>
     <!-- ONC Materials End -->
-   
+
 
     <!-- Footer Start -->
     <div class="container-fluid bg-dark text-light footer pt-5 mt-5 wow fadeIn" data-wow-delay="0.1s">
@@ -384,41 +392,41 @@
             <div class="row g-5">
                 <div class="col-lg-3 col-md-6">
                     <h4 class="text-white mb-3">Sobre Nós</h4>
-                    <a class="btn btn-link" href="">Saiba mais</a>
-                    <a class="btn btn-link" href="">Contatos</a>
-                    <a class="btn btn-link" href="">Política de Privacidade</a>
+                    <a class="btn btn-link" href="{% url 'sobre' %}">Saiba mais</a>
+                    <a class="btn btn-link" href="{% url 'contato' %}">Contatos</a>
+                    <a class="btn btn-link" href="#">Política de Privacidade</a>
                 </div>
                 <div class="col-lg-3 col-md-6">
                     <h4 class="text-white mb-3">Contato</h4>
                     <p class="mb-2"><i class="fa fa-map-marker-alt me-3"></i>Bahia</p>
                     <p class="mb-2"><i class="fa fa-envelope me-3"></i>info@example.com</p>
                     <div class="d-flex pt-2">
-                        <a class="btn btn-outline-light btn-social" href=""><i class="fab fa-twitter"></i></a>
-                        <a class="btn btn-outline-light btn-social" href=""><i class="fab fa-facebook-f"></i></a>
-                        <a class="btn btn-outline-light btn-social" href=""><i class="fab fa-youtube"></i></a>
-                        <a class="btn btn-outline-light btn-social" href=""><i class="fab fa-linkedin-in"></i></a>
+                        <a class="btn btn-outline-light btn-social" href="#"><i class="fab fa-twitter"></i></a>
+                        <a class="btn btn-outline-light btn-social" href="#"><i class="fab fa-facebook-f"></i></a>
+                        <a class="btn btn-outline-light btn-social" href="#"><i class="fab fa-youtube"></i></a>
+                        <a class="btn btn-outline-light btn-social" href="#"><i class="fab fa-linkedin-in"></i></a>
                     </div>
                 </div>
                 <div class="col-lg-3 col-md-6">
                     <h4 class="text-white mb-3">Galeria</h4>
                     <div class="row g-2 pt-2">
                         <div class="col-4">
-                            <img class="img-fluid bg-light p-1" src="{% static 'img/WhatsApp Image 2026-07-07 at 13.20.39 (1).jpg' %}" alt="">
+                            <img class="img-fluid bg-light p-1" src="{% static 'img/WhatsApp Image 2026-07-07 at 13.20.39 (1).jpg' %}" alt="Galeria 1">
                         </div>
                         <div class="col-4">
-                            <img class="img-fluid bg-light p-1" src="{% static 'img/WhatsApp Image 2026-07-07 at 13.20.39 (2).jpg' %}" alt="">
+                            <img class="img-fluid bg-light p-1" src="{% static 'img/WhatsApp Image 2026-07-07 at 13.20.39 (2).jpg' %}" alt="Galeria 2">
                         </div>
                         <div class="col-4">
-                            <img class="img-fluid bg-light p-1" src="{% static 'img/WhatsApp Image 2026-07-07 at 13.20.39 (3).jpg' %}" alt="">
+                            <img class="img-fluid bg-light p-1" src="{% static 'img/WhatsApp Image 2026-07-07 at 13.20.39 (3).jpg' %}" alt="Galeria 3">
                         </div>
                         <div class="col-4">
-                            <img class="img-fluid bg-light p-1" src="{% static 'img/WhatsApp Image 2026-07-07 at 13.20.39 (4).jpg' %}" alt="">
+                            <img class="img-fluid bg-light p-1" src="{% static 'img/WhatsApp Image 2026-07-07 at 13.20.39 (4).jpg' %}" alt="Galeria 4">
                         </div>
                         <div class="col-4">
-                            <img class="img-fluid bg-light p-1" src="{% static 'img/WhatsApp Image 2026-07-07 at 13.20.39.jpg' %}" alt="">
+                            <img class="img-fluid bg-light p-1" src="{% static 'img/WhatsApp Image 2026-07-07 at 13.20.39.jpg' %}" alt="Galeria 5">
                         </div>
                         <div class="col-4">
-                            <img class="img-fluid bg-light p-1" src="{% static 'img/WhatsApp Image 2026-07-07 at 13.20.40.jpg' %}" alt="">
+                            <img class="img-fluid bg-light p-1" src="{% static 'img/WhatsApp Image 2026-07-07 at 13.20.40.jpg' %}" alt="Galeria 6">
                         </div>
                     </div>
                 </div>
@@ -441,8 +449,8 @@
                     </div>
                     <div class="col-md-6 text-center text-md-end">
                         <div class="footer-menu">
-                            <a href="">Início</a>
-                            <a href="">Saiba mais</a>
+                            <a href="{% url 'home' %}">Início</a>
+                            <a href="{% url 'sobre' %}">Saiba mais</a>
                         </div>
                     </div>
                 </div>
@@ -452,10 +460,8 @@
     <!-- Footer End -->
 
 
-
     <!-- Back to Top -->
     <a href="#" class="btn btn-lg btn-primary btn-lg-square back-to-top"><i class="bi bi-arrow-up"></i></a>
-
 
     <!-- JavaScript Libraries -->
     <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
