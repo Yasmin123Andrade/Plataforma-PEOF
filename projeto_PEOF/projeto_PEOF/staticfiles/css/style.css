@@ -550,3 +550,46 @@ html, body {
         font-size: 14px !important;
     }
 }
+@media (max-width: 992px) {
+  .navbar-light .navbar-nav .nav-link {
+    margin-right: 0;
+    padding: 10px 0;
+  }
+
+  .navbar-light .navbar-brand,
+  .navbar-light a.btn {
+    height: auto;
+  }
+}
+
+@media (max-width: 768px) {
+  .header-carousel .owl-carousel-item {
+    min-height: 420px;
+  }
+
+  .page-header {
+    padding: 4rem 0;
+  }
+
+  .display-3 {
+    font-size: 2.4rem;
+  }
+
+  .hero-action-btn {
+    width: 100%;
+  }
+}
+
+@media (max-width: 576px) {
+  .header-carousel .owl-carousel-item {
+    min-height: 320px;
+  }
+
+  .display-3 {
+    font-size: 1.9rem;
+  }
+
+  .footer .row > [class*="col-"] {
+    margin-bottom: 1.5rem;
+  }
+}
