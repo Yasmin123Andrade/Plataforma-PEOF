@@ -2,6 +2,7 @@
 <html lang="pt-br">
 <head>
     <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Entrar - PEOF</title>
     {% load static %}
    
@@ -11,212 +12,257 @@
     <!-- Fontawesome CDN -->
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.3.1/css/all.css" integrity="sha384-mzrmE5qonljUremFsqc01SB46JvROS7bZs3IO2EmfFsd15uHvIt+Y8vEf7N7fWAU" crossorigin="anonymous">
 
-    <!-- Estilos Customizados embutidos para evitar erros de caminhos estáticos -->
+    <!-- Estilos Customizados -->
     <style>
-        @import url('https://fonts.googleapis.com/css?family=Numans');
+        @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap');
 
-        html,body{
+        html, body {
             background-image: url('{% static "img/fundo.jpg" %}');
             background-size: cover;
+            background-position: center;
             background-repeat: no-repeat;
+            background-attachment: fixed;
             min-height: 100vh;
             height: 100%;
-            font-family: 'Numans', sans-serif;
+            font-family: 'Poppins', sans-serif;
+            color: #ffffff;
         }
 
-        .container{
+        .container {
             min-height: 100vh;
-            padding: 20px 15px;
             display: flex;
             align-items: center;
             justify-content: center;
+            padding: 20px 15px;
         }
 
-        .card{
-            /* Aumentei um pouquinho a altura máxima para acomodar a mensagem de erro do Django sem quebrar o layout */
-            min-height: 370px;
-            margin: auto;
+        /* Glassmorphism Card com fundo fosco e borda brilhante */
+        .card {
             width: 100%;
             max-width: 420px;
-            background-color: rgba(0,0,0,0.82) !important;
-            border: 1.5px solid rgba(255,255,255,0.92);
+            background: rgba(11, 23, 38, 0.85) !important;
+            backdrop-filter: blur(12px);
+            -webkit-backdrop-filter: blur(12px);
+            border: 1px solid rgba(0, 212, 255, 0.25) !important;
+            border-radius: 16px !important;
+            box-shadow: 0 15px 35px rgba(0, 0, 0, 0.6), 0 0 15px rgba(0, 212, 255, 0.15);
+            padding: 10px;
+            overflow: hidden;
         }
 
-        .social_icon span{
-            font-size: 60px;
-            margin-left: 10px;
-            color: #0D5E72;
+        .card-header {
+            background: transparent !important;
+            border-bottom: none;
+            padding: 20px 20px 10px 20px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
         }
 
-        .social_icon span:hover{
-            color: white;
+        .card-header h3 {
+            color: #ffffff;
+            font-weight: 600;
+            font-size: 1.6rem;
+            margin: 0;
+            letter-spacing: 0.5px;
+        }
+
+        .social_icon {
+            display: flex;
+            gap: 12px;
+        }
+
+        .social_icon span i {
+            font-size: 1.4rem;
+            color: #00d4ff;
+            transition: all 0.3s ease;
+        }
+
+        .social_icon span i:hover {
+            color: #ffffff;
+            transform: translateY(-2px);
             cursor: pointer;
         }
 
-        .card-header h3{
-            color: white;
+        .card-body {
+            padding: 20px;
         }
 
-        .social_icon{
-            position: absolute;
-            right: 20px;
-            top: -45px;
+        /* Input Styling */
+        .input-group {
+            margin-bottom: 1.2rem;
+            background: rgba(255, 255, 255, 0.05);
+            border: 1px solid rgba(255, 255, 255, 0.15);
+            border-radius: 8px;
+            overflow: hidden;
+            transition: all 0.3s ease;
         }
 
-        .input-group-prepend span{
-            width: 50px;
-            background-color: #0D5E72;
-            color: white;
-            border:0 !important;
+        .input-group:focus-within {
+            border-color: #00d4ff;
+            box-shadow: 0 0 8px rgba(0, 212, 255, 0.4);
         }
 
-        input:focus{
-            outline: 0 0 0 0 !important;
-            box-shadow: 0 0 0 0 !important;
+        .input-group-prepend span {
+            background: transparent;
+            color: #00d4ff;
+            border: none !important;
+            width: 45px;
+            justify-content: center;
         }
 
-        .remember{
-            color: white;
+        .form-control {
+            background: transparent !important;
+            border: none !important;
+            color: #ffffff !important;
+            font-size: 0.95rem;
+            height: 46px;
         }
 
-        .remember input{
-            width: 20px;
-            height: 20px;
-            margin-left: 15px;
-            margin-right: 5px;
+        .form-control::placeholder {
+            color: rgba(255, 255, 255, 0.5);
         }
 
-        .login_btn{
-            color: white;
-            background-color: #0D5E72;
-            width: 100px;
+        .form-control:focus {
+            background: transparent !important;
+            box-shadow: none !important;
+        }
+
+        /* Checkbox */
+        .remember {
+            color: rgba(255, 255, 255, 0.8);
+            font-size: 0.9rem;
+            display: flex;
+            align-items: center;
+            margin-bottom: 1.2rem;
+            padding-left: 2px;
+        }
+
+        .remember input {
+            accent-color: #00d4ff;
+            width: 16px;
+            height: 16px;
+            margin-right: 8px;
+            cursor: pointer;
+        }
+
+        /* Botão estilizado em destaque */
+        .login_btn {
+            color: #ffffff;
+            background: linear-gradient(135deg, #0d5e72, #00d4ff);
+            width: 100%;
+            height: 45px;
             border: none;
+            border-radius: 8px;
+            font-weight: 600;
+            letter-spacing: 0.5px;
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 12px rgba(0, 212, 255, 0.25);
         }
 
-        .login_btn:hover{
-            color: white;
-            background-color: #094855;
+        .login_btn:hover {
+            color: #ffffff;
+            background: linear-gradient(135deg, #094855, #00a3c4);
+            transform: translateY(-1px);
+            box-shadow: 0 6px 15px rgba(0, 212, 255, 0.35);
         }
 
-        .links{
-            color: white;
+        .card-footer {
+            background: transparent !important;
+            border-top: 1px solid rgba(255, 255, 255, 0.08);
+            padding: 15px 20px;
+            text-align: center;
+            font-size: 0.88rem;
         }
 
-        .links a{
-            margin-left: 4px;
-            color: #00D4FF;
-            font-weight: bold;
-            text-decoration: none;
+        .links {
+            color: rgba(255, 255, 255, 0.7);
+            margin-bottom: 6px;
         }
 
-        .links a:hover{
-            text-decoration: underline;
+        .links a, .card-footer a {
+            color: #00d4ff;
+            font-weight: 500;
+            transition: color 0.2s ease;
+            text-decoration: none !important;
         }
-        
+
+        .links a:hover, .card-footer a:hover {
+            color: #ffffff;
+            text-shadow: 0 0 5px rgba(0, 212, 255, 0.5);
+        }
+
         .error-msg {
-            color: #ff4d4d;
-            background: rgba(255, 0, 0, 0.1);
-            border: 1px solid #ff4d4d;
-            padding: 8px;
-            border-radius: 4px;
-            font-size: 14px;
+            color: #ff6b6b;
+            background: rgba(255, 107, 107, 0.12);
+            border: 1px solid rgba(255, 107, 107, 0.3);
+            padding: 10px;
+            border-radius: 8px;
+            font-size: 0.85rem;
             text-align: center;
             margin-bottom: 15px;
         }
 
         @media (max-width: 576px) {
             .card {
-                max-width: 100%;
-                padding: 20px 15px;
-            }
-
-            .social_icon {
-                position: static;
-                margin-bottom: 15px;
-                text-align: center;
-            }
-
-            .social_icon span {
-                margin-left: 5px;
-                font-size: 50px;
-            }
-
-            .card-header {
-                padding-bottom: 0.75rem;
-            }
-
-            .card-body {
-                padding: 1rem 0.75rem;
-            }
-
-            .input-group-prepend span {
-                width: 45px;
-            }
-
-            .login_btn {
-                width: 100%;
+                margin: 0 10px;
             }
         }
     </style>
 </head>
 <body>
 <div class="container">
-    <div class="d-flex justify-content-center h-100">
-        <div class="card">
-            <div class="card-header">
-                <h3>Entrar</h3>
-                <div class="d-flex justify-content-end social_icon">
-                    <span><i class="fab fa-facebook-square"></i></span>
-                    <span><i class="fab fa-google-plus-square"></i></span>
-                    <span><i class="fab fa-twitter-square"></i></span>
-                </div>
+    <div class="card">
+        <div class="card-header">
+            <h3>Entrar</h3>
+            <div class="social_icon">
+                <span><i class="fab fa-facebook-f"></i></span>
+                <span><i class="fab fa-google"></i></span>
+                <span><i class="fab fa-twitter"></i></span>
             </div>
-            <div class="card-body">
-                
-                <!-- Alerta de erro nativo do Django caso digitem dados incorretos -->
-                {% if form.errors %}
-                    <div class="error-msg">
-                        Usuário ou senha inválidos. Tem certeza que digitou certo?
-                    </div>
-                {% endif %}
+        </div>
+        
+        <div class="card-body">
+            {% if form.errors %}
+                <div class="error-msg">
+                    Usuário ou senha inválidos. Verifique os dados digitados.
+                </div>
+            {% endif %}
 
-                <!-- Formulário configurado para POST -->
-                <form method="POST">
-                    <!-- Segurança do Django obrigatória -->
-                    {% csrf_token %}
-                    
-                    <div class="input-group form-group">
-                        <div class="input-group-prepend">
-                            <span class="input-group-text"><i class="fas fa-user"></i></span>
-                        </div>
-                        <!-- Atributo name="username" adicionado -->
-                        <input type="text" name="username" class="form-control" placeholder="Usuário" required>
+            <form method="POST">
+                {% csrf_token %}
+                
+                <div class="input-group">
+                    <div class="input-group-prepend">
+                        <span class="input-group-text"><i class="fas fa-user"></i></span>
                     </div>
-                    
-                    <div class="input-group form-group">
-                        <div class="input-group-prepend">
-                            <span class="input-group-text"><i class="fas fa-key"></i></span>
-                        </div>
-                        <!-- Atributo name="password" adicionado -->
-                        <input type="password" name="password" class="form-control" placeholder="Senha" required>
+                    <input type="text" name="username" class="form-control" placeholder="Usuário" required autocomplete="username">
+                </div>
+                
+                <div class="input-group">
+                    <div class="input-group-prepend">
+                        <span class="input-group-text"><i class="fas fa-lock"></i></span>
                     </div>
-                    
-                    <div class="row align-items-center remember">
-                        <input type="checkbox">Lembre-me
-                    </div>
-                    
-                    <div class="form-group">
-                        <input type="submit" value="Entrar" class="btn float-right login_btn">
-                    </div>
-                </form>
+                    <input type="password" name="password" class="form-control" placeholder="Senha" required autocomplete="current-password">
+                </div>
+                
+                <div class="remember">
+                    <input type="checkbox" id="remember-me">
+                    <label for="remember-me" class="m-0" style="cursor: pointer;">Lembre-me</label>
+                </div>
+                
+                <div class="form-group mb-0">
+                    <input type="submit" value="Entrar" class="btn login_btn">
+                </div>
+            </form>
+        </div>
+        
+        <div class="card-footer">
+            <div class="links">
+                Ainda não tem uma conta? <a href="{% url 'register' %}">Cadastre-se</a>
             </div>
-            <div class="card-footer">
-                <div class="d-flex justify-content-center links">
-                    Ainda não tem uma conta?<a href="{% url 'register' %}"> Cadastre-se</a>
-                </div>
-                <div class="d-flex justify-content-center">
-                    <a href="{% url 'password_reset' %}">Esqueceu a senha?</a>
-                </div>
+            <div>
+                <a href="{% url 'password_reset' %}">Esqueceu a senha?</a>
             </div>
         </div>
     </div>
