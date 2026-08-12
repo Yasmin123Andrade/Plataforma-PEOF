@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Nova senha - PEOF</title>
+    <title>Criar Conta - PEOF</title>
     {% load static %}
 
     <!-- Google Fonts & FontAwesome CDN -->
@@ -78,7 +78,7 @@
             backdrop-filter: blur(4px); z-index: 1;
         }
 
-        .peof-auth-shell { position: relative; z-index: 2; width: 100%; max-width: 460px; }
+        .peof-auth-shell { position: relative; z-index: 2; width: 100%; max-width: 480px; }
 
         .peof-logo-row { display: flex; align-items: center; justify-content: center; gap: .6rem; margin-bottom: 1.6rem; }
         .peof-logo-mark { width: 40px; height: 40px; }
@@ -219,8 +219,8 @@
 
     <div class="peof-card">
       <div class="peof-card-head">
-        <h2>Redefinir senha</h2>
-        <p>Digite a nova senha para sua conta.</p>
+        <h2>Criar conta</h2>
+        <p>Preencha os dados abaixo para começar seus estudos.</p>
       </div>
 
       {% if form.errors %}
@@ -243,22 +243,34 @@
         {% csrf_token %}
 
         <div class="peof-field">
-          <label>Nova senha</label>
-          <i class="fas fa-key field-icon"></i>
-          <input type="password" name="new_password1" class="peof-input" placeholder="Nova senha" required>
+          <label>Nome do Usuário</label>
+          <i class="fas fa-user field-icon"></i>
+          <input type="text" name="username" class="peof-input" placeholder="Nome de usuário" required>
         </div>
 
         <div class="peof-field">
-          <label>Repita a senha</label>
-          <i class="fas fa-key field-icon"></i>
-          <input type="password" name="new_password2" class="peof-input" placeholder="Repita a senha" required>
+          <label>E-mail</label>
+          <i class="fas fa-envelope field-icon"></i>
+          <input type="email" name="email" class="peof-input" placeholder="Seu melhor e-mail" required>
         </div>
 
-        <button type="submit" class="peof-btn">Salvar senha</button>
+        <div class="peof-field">
+          <label>Senha</label>
+          <i class="fas fa-lock field-icon"></i>
+          <input type="password" name="password1" class="peof-input" placeholder="Crie uma senha segura" required>
+        </div>
+
+        <div class="peof-field">
+          <label>Confirmar Senha</label>
+          <i class="fas fa-key field-icon"></i>
+          <input type="password" name="password2" class="peof-input" placeholder="Repita a senha" required>
+        </div>
+
+        <button type="submit" class="peof-btn">Cadastrar</button>
       </form>
 
       <div class="peof-card-foot">
-        <a href="{% url 'login' %}">Voltar para o login</a>
+        Já possui uma conta? <a href="{% url 'login' %}">Entrar</a>
       </div>
     </div>
 
