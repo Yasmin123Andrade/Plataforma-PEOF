@@ -4,28 +4,28 @@
 
 <head>
     <meta charset="utf-8">
-    <title>Sobre - Plataforma de Estudos para Olimpíadas de Física</title>
+    <title>Sobre Nós - Plataforma de Estudos para Olimpíadas de Física (PEOF)</title>
     <meta content="width=device-width, initial-scale=1.0" name="viewport">
-    <meta content="" name="keywords">
-    <meta content="" name="description">
+    <meta content="Olimpíadas de Física, OBA, ONC, Sobre PEOF, Preparação Científica" name="keywords">
+    <meta content="Conheça a PEOF: uma plataforma completa e acessível para preparação em Olimpíadas Científicas e de Física." name="description">
 
     <!-- Favicon -->
-    <link rel="icon" type="image/x-icon" href="{% static 'img/favicon.ico' %}">
-    <link rel="icon" type="image/png" sizes="16x16" href="{% static 'img/favicon-16x16.png' %}">
-    <link rel="icon" type="image/png" sizes="32x32" href="{% static 'img/favicon-32x32.png' %}">
-    <link rel="apple-touch-icon" sizes="180x180" href="{% static 'img/apple-touch-icon.png' %}">
-    <link rel="icon" type="image/png" sizes="192x192" href="{% static 'img/android-chrome-192x192.png' %}">
-    <link rel="icon" type="image/png" sizes="512x512" href="{% static 'img/android-chrome-512x512.png' %}">
-    <meta name="theme-color" content="#0f172a">
+    <link rel="icon" type="image/x-icon" href="{% static 'favicon.ico' %}">
+    <link rel="icon" type="image/png" sizes="16x16" href="{% static 'favicon-16x16.png' %}">
+    <link rel="icon" type="image/png" sizes="32x32" href="{% static 'favicon-32x32.png' %}">
+    <link rel="apple-touch-icon" sizes="180x180" href="{% static 'apple-touch-icon.png' %}">
+    <link rel="icon" type="image/png" sizes="192x192" href="{% static 'android-chrome-192x192.png' %}">
+    <link rel="icon" type="image/png" sizes="512x512" href="{% static 'android-chrome-512x512.png' %}">
+    <meta name="theme-color" content="#2b58f0">
 
     <!-- Google Web Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Heebo:wght@400;500;600;700&family=Nunito:wght@600;700;800;900&display=swap" rel="stylesheet">
 
     <!-- Icon Font Stylesheet -->
-    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.0/font/bootstrap-icons.css" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css" rel="stylesheet">
 
     <!-- Libraries Stylesheet -->
     <link href="{% static 'lib/animate/animate.min.css' %}" rel="stylesheet">
@@ -37,32 +37,27 @@
     <!-- Template Stylesheet -->
     <link href="{% static 'css/style.css' %}" rel="stylesheet">
 
+    <!-- Estilos Customizados no Padrão de Conteúdos -->
     <style>
         :root {
-            --primary-color: #2563eb;
-            --primary-dark: #1d4ed8;
-            --accent-color: #38bdf8;
-            --bg-dark: #0f172a;
-            --bg-surface: #1e293b;
-            --text-muted: #64748b;
-            --border-color: #e2e8f0;
-            --radius-lg: 16px;
-            --radius-md: 12px;
-            --shadow-sm: 0 4px 6px -1px rgba(0, 0, 0, 0.05);
-            --shadow-lg: 0 20px 25px -5px rgba(0, 0, 0, 0.08), 0 8px 10px -6px rgba(0, 0, 0, 0.01);
+            --peof-primary: #0d6efd;
+            --peof-secondary: #0b5ed7;
+            --peof-dark: #1e293b;
+            --peof-light: #f8fafc;
+            --peof-card-shadow: 0 10px 30px rgba(0, 0, 0, 0.08);
+            --peof-hover-shadow: 0 15px 35px rgba(13, 110, 253, 0.18);
         }
 
         body {
-            font-family: 'Plus Jakarta Sans', sans-serif;
+            font-family: 'Nunito', sans-serif;
+            background-color: #f4f6f9;
             color: #334155;
-            background-color: #f8fafc;
         }
 
-        /* Navbar Modernizada */
+        /* Navbar Otimizada */
         .navbar {
-            background: rgba(255, 255, 255, 0.95) !important;
             backdrop-filter: blur(10px);
-            border-bottom: 1px solid rgba(226, 232, 240, 0.8);
+            background-color: rgba(255, 255, 255, 0.95) !important;
             transition: all 0.3s ease;
         }
 
@@ -71,147 +66,73 @@
         }
 
         .navbar-brand:hover img {
-            transform: scale(1.05);
+            transform: rotate(-5deg) scale(1.05);
         }
 
         .nav-link {
             font-weight: 600;
-            color: #475569 !important;
-            padding: 25px 16px !important;
-            transition: all 0.2s ease;
-        }
-
-        .nav-link:hover, .nav-link.active {
-            color: var(--primary-color) !important;
-        }
-
-        .dropdown-menu {
-            border: none;
-            box-shadow: var(--shadow-lg);
-            border-radius: var(--radius-md);
-            padding: 10px;
-        }
-
-        .dropdown-item {
-            border-radius: 8px;
-            padding: 10px 16px;
-            font-weight: 500;
-            color: #475569;
-            transition: all 0.2s ease;
-        }
-
-        .dropdown-item:hover {
-            background-color: #eff6ff;
-            color: var(--primary-color);
-        }
-
-        .btn-logout {
-            background-color: #ef4444;
-            color: #fff;
-            font-weight: 600;
-            border-radius: var(--radius-md);
-            padding: 8px 20px;
-            border: none;
-            transition: all 0.2s ease;
-            box-shadow: 0 4px 12px rgba(239, 68, 68, 0.2);
-        }
-
-        .btn-logout:hover {
-            background-color: #dc2626;
-            color: #fff;
-            transform: translateY(-1px);
-        }
-
-        /* Page Header Reestilizado */
-        .page-header-custom {
-            background: linear-gradient(135deg, #0f172a 0%, #1e3a8a 100%);
-            padding: 80px 0 60px;
-            position: relative;
-            overflow: hidden;
-        }
-
-        .page-header-custom::before {
-            content: '';
-            position: absolute;
-            top: -50%;
-            right: -10%;
-            width: 400px;
-            height: 400px;
-            background: radial-gradient(circle, rgba(56, 189, 248, 0.15) 0%, transparent 70%);
-            border-radius: 50%;
-        }
-
-        .breadcrumb-item a {
-            color: #94a3b8 !important;
-            text-decoration: none;
+            color: var(--peof-dark) !important;
             transition: color 0.2s ease;
         }
 
-        .breadcrumb-item a:hover {
-            color: #ffffff !important;
+        .nav-link:hover, .nav-link.active {
+            color: var(--peof-primary) !important;
         }
 
-        .breadcrumb-item.active {
-            color: var(--accent-color) !important;
+        /* Banner Header */
+        .page-header-custom {
+            background: linear-gradient(135deg, rgba(13, 110, 253, 0.95), rgba(11, 94, 215, 0.85)), url("{% static 'img/carousel-1.jpg' %}") center/cover no-repeat;
+            border-radius: 0 0 30px 30px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
         }
 
-        /* Hero Banner Badge */
-        .header-badge {
-            background: rgba(37, 99, 235, 0.25);
-            border: 1px solid rgba(56, 189, 248, 0.4);
-            color: var(--accent-color);
-            padding: 6px 18px;
-            border-radius: 50px;
-            font-weight: 700;
-            letter-spacing: 0.5px;
-            display: inline-block;
-            font-size: 0.85rem;
-        }
-
-        /* Cards de Serviços */
-        .service-card {
+        /* Design de Cards Modernos */
+        .custom-card {
+            border: none;
+            border-radius: 16px;
             background: #ffffff;
-            border-radius: var(--radius-lg);
-            border: 1px solid var(--border-color);
-            padding: 32px 24px;
-            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+            box-shadow: var(--peof-card-shadow);
+            transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
+            overflow: hidden;
             height: 100%;
-            box-shadow: var(--shadow-sm);
+            display: flex;
+            flex-direction: column;
         }
 
-        .service-card:hover {
+        .custom-card:hover {
             transform: translateY(-8px);
-            box-shadow: var(--shadow-lg);
-            border-color: rgba(37, 99, 235, 0.3);
+            box-shadow: var(--peof-hover-shadow);
         }
 
+        /* Estilização para Ícones e Recursos */
         .service-icon-wrapper {
-            width: 68px;
-            height: 68px;
-            background: linear-gradient(135deg, #eff6ff 0%, #dbeafe 100%);
-            border-radius: var(--radius-md);
+            width: 64px;
+            height: 64px;
+            background: linear-gradient(135deg, #e0e7ff 0%, #c7d2fe 100%);
+            border-radius: 50%;
             display: flex;
             align-items: center;
             justify-content: center;
             margin: 0 auto 20px;
-            color: var(--primary-color);
-            font-size: 28px;
+            color: var(--peof-primary);
+            font-size: 26px;
             transition: all 0.3s ease;
         }
 
-        .service-card:hover .service-icon-wrapper {
-            background: linear-gradient(135deg, var(--primary-color) 0%, var(--primary-dark) 100%);
+        .custom-card:hover .service-icon-wrapper {
+            background: linear-gradient(135deg, var(--peof-primary) 0%, var(--peof-secondary) 100%);
             color: #ffffff;
+            transform: scale(1.1);
         }
 
-        /* Seção Sobre */
+        /* Imagem da Seção Sobre */
         .about-img-container {
-            border-radius: var(--radius-lg);
+            border-radius: 20px;
             overflow: hidden;
-            box-shadow: var(--shadow-lg);
+            box-shadow: 0 12px 30px rgba(0,0,0,0.12);
             position: relative;
             height: 100%;
-            min-height: 480px;
+            min-height: 420px;
         }
 
         .about-img-container img {
@@ -220,141 +141,59 @@
             object-fit: cover;
         }
 
+        /* Itens de destaque na Seção Sobre */
         .about-feature-item {
             display: flex;
             align-items: center;
             gap: 12px;
             background: #ffffff;
-            padding: 12px 18px;
-            border-radius: var(--radius-md);
-            border: 1px solid var(--border-color);
-            font-weight: 600;
+            padding: 14px 20px;
+            border-radius: 12px;
+            border: 1px solid #e2e8f0;
+            font-weight: 700;
             color: #334155;
-            box-shadow: var(--shadow-sm);
-            transition: transform 0.2s ease;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.03);
+            transition: all 0.2s ease;
         }
 
         .about-feature-item:hover {
-            transform: translateX(4px);
-            border-color: var(--primary-color);
-        }
-
-        .about-feature-item i {
-            color: var(--primary-color);
-        }
-
-        /* Nova Seção: Pilares e Valores */
-        .pillar-card {
-            background: #ffffff;
-            border-radius: var(--radius-lg);
-            border: 1px solid var(--border-color);
-            padding: 30px;
-            height: 100%;
-            box-shadow: var(--shadow-sm);
-            transition: all 0.3s ease;
-        }
-
-        .pillar-card:hover {
-            box-shadow: var(--shadow-lg);
-            border-color: var(--primary-color);
-        }
-
-        .pillar-number {
-            font-size: 2.5rem;
-            font-weight: 800;
-            color: #e2e8f0;
-            line-height: 1;
-            margin-bottom: 15px;
+            transform: translateX(5px);
+            border-color: var(--peof-primary);
+            background: #f0fdf4;
         }
 
         /* Seção de Métricas */
         .stats-section {
-            background: linear-gradient(135deg, #0f172a 0%, #1e293b 100%);
-            border-radius: var(--radius-lg);
-            padding: 60px 40px;
+            background: linear-gradient(135deg, #1e293b 0%, #0f172a 100%);
+            border-radius: 24px;
+            padding: 50px 30px;
             color: #ffffff;
+            box-shadow: 0 15px 35px rgba(0,0,0,0.2);
         }
 
         .stat-item h2 {
-            font-size: 3rem;
+            font-size: 2.8rem;
             font-weight: 800;
-            color: var(--accent-color);
+            color: #38bdf8;
             margin-bottom: 5px;
         }
 
-        /* Rodapé */
-        .footer-custom {
-            background-color: var(--bg-dark);
-            color: #94a3b8;
-        }
-
-        .footer-title {
-            color: #ffffff;
+        /* Botão de Logout personalizado */
+        .btn-logout {
+            border-radius: 50px;
+            padding: 6px 20px;
             font-weight: 700;
-            position: relative;
-            padding-bottom: 12px;
-            margin-bottom: 20px;
-        }
-
-        .footer-title::after {
-            content: '';
-            position: absolute;
-            left: 0;
-            bottom: 0;
-            width: 40px;
-            height: 3px;
-            background: var(--primary-color);
-            border-radius: 2px;
-        }
-
-        .footer-link {
-            color: #94a3b8;
-            text-decoration: none;
-            display: block;
-            margin-bottom: 10px;
-            transition: color 0.2s ease, transform 0.2s ease;
-        }
-
-        .footer-link:hover {
-            color: #ffffff;
-            transform: translateX(4px);
-        }
-
-        .btn-social {
-            width: 40px;
-            height: 40px;
-            border-radius: 50%;
-            background: rgba(255, 255, 255, 0.05);
-            border: 1px solid rgba(255, 255, 255, 0.1);
-            color: #ffffff;
-            display: inline-flex;
-            align-items: center;
-            justify-content: center;
-            margin-right: 8px;
+            letter-spacing: 0.5px;
             transition: all 0.3s ease;
         }
 
-        .btn-social:hover {
-            background: var(--primary-color);
-            border-color: var(--primary-color);
-            color: #ffffff;
-            transform: translateY(-2px);
-        }
-
-        .gallery-thumb {
+        .gallery-img-hover {
             border-radius: 8px;
-            overflow: hidden;
-            border: 1px solid rgba(255, 255, 255, 0.1);
+            transition: transform 0.3s ease, filter 0.3s ease;
         }
-
-        .back-to-top {
-            border-radius: 50%;
-            width: 48px;
-            height: 48px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            box-shadow: var(--shadow-lg);
+        .gallery-img-hover:hover {
+            transform: scale(1.08);
+            filter: brightness(1.1);
         }
     </style>
 </head>
@@ -368,342 +207,315 @@
     </div>
     <!-- Spinner End -->
 
-
     <!-- Navbar Start -->
-    <nav class="navbar navbar-expand-lg sticky-top p-0 shadow-sm">
-        <a href="{% url 'home' %}" class="navbar-brand d-flex align-items-center px-4 px-lg-5" style="max-width: 70%;">
-            <h2 class="m-0 text-primary d-flex align-items-center" style="font-size: calc(1.2rem + 0.6vw); font-weight: 800;">
-                <img src="{% static 'img/android-chrome-512x512.png' %}" alt="PEOF" style="height:45px;" class="me-2">
-                <span class="d-none d-sm-inline" style="letter-spacing: -0.5px;">Plataforma de Estudos para Olimpíadas de Física</span>
-                <span class="d-inline d-sm-none">PEOF</span>
-            </h2>
-        </a>
-        <button type="button" class="navbar-toggler me-4 border-0" data-bs-toggle="collapse" data-bs-target="#navbarCollapse">
-            <span class="navbar-toggler-icon"></span>
-        </button>
+    <nav class="navbar navbar-expand-lg bg-white navbar-light shadow-sm sticky-top p-2 p-lg-0">
+        <div class="container-fluid px-4 px-lg-5">
+            <a href="{% url 'home' %}" class="navbar-brand d-flex align-items-center">
+                <h2 class="m-0 text-primary d-flex align-items-center" style="font-size: calc(1.1rem + 0.5vw);">
+                    <img src="{% static 'img/android-chrome-512x512.png' %}" alt="PEOF" style="height:45px;" class="me-2 rounded-circle shadow-sm">
+                    <span class="d-none d-sm-inline fw-bold">Plataforma de Estudos para Olimpíadas de Física</span>
+                    <span class="d-inline d-sm-none fw-bold">PEOF</span>
+                </h2>
+            </a>
+            <button type="button" class="navbar-toggler border-0" data-bs-toggle="collapse" data-bs-target="#navbarCollapse">
+                <span class="navbar-toggler-icon"></span>
+            </button>
 
-        <div class="collapse navbar-collapse" id="navbarCollapse">
-            <div class="navbar-nav ms-auto p-4 p-lg-0 align-items-lg-center">
-                <a href="{% url 'home' %}" class="nav-item nav-link">Início</a>
-                <a href="{% url 'sobre' %}" class="nav-item nav-link active nav-link-sobre">Sobre</a>
-                <a href="{% url 'conteudos' %}" class="nav-item nav-link">Conteúdos</a>
-                <div class="nav-item dropdown">
-                    <a href="#" class="nav-link dropdown-toggle" data-bs-toggle="dropdown">Explorar</a>
-                    <div class="dropdown-menu fade-down m-0">
-                        <a href="{% url 'medalhistas' %}" class="dropdown-item"><i class="fa fa-award me-2 text-primary"></i>Medalhistas</a>
-                        <a href="{% url 'depoimentos' %}" class="dropdown-item"><i class="fa fa-comment-dots me-2 text-primary"></i>Depoimentos</a>
-                        <a href="{% url 'materiais' %}" class="dropdown-item"><i class="fa fa-folder-open me-2 text-primary"></i>Materiais</a>
+            <div class="collapse navbar-collapse" id="navbarCollapse">
+                <div class="navbar-nav ms-auto p-4 p-lg-0 align-items-lg-center">
+                    <a href="{% url 'home' %}" class="nav-item nav-link">Início</a>
+                    <a href="{% url 'sobre' %}" class="nav-item nav-link active nav-link-sobre">Sobre</a>
+                    <a href="{% url 'conteudos' %}" class="nav-item nav-link">Conteúdos</a>
+                    <div class="nav-item dropdown">
+                        <a href="#" class="nav-link dropdown-toggle" data-bs-toggle="dropdown">Explorar</a>
+                        <div class="dropdown-menu border-0 shadow-lg fade-down m-0 rounded-3">
+                            <a href="{% url 'medalhistas' %}" class="dropdown-item py-2"><i class="fas fa-medal text-warning me-2"></i>Medalhistas</a>
+                            <a href="{% url 'depoimentos' %}" class="dropdown-item py-2"><i class="fas fa-comment-dots text-info me-2"></i>Depoimentos</a>
+                            <a href="{% url 'materiais' %}" class="dropdown-item py-2"><i class="fas fa-folder-open text-primary me-2"></i>Materiais</a>
+                        </div>
                     </div>
-                </div>
-                <a href="{% url 'contato' %}" class="nav-item nav-link me-lg-3">Contatos</a>
-            </div>
+                    <a href="{% url 'contato' %}" class="nav-item nav-link me-lg-3">Contatos</a>
 
-            <form action="{% url 'logout' %}" method="POST" class="d-flex align-items-center px-4 px-lg-0 me-lg-4 my-2 my-lg-0">
-                {% csrf_token %}
-                <button type="submit" class="btn btn-logout w-100">
-                    <i class="fa fa-sign-out-alt me-1"></i> SAIR
-                </button>
-            </form>
+                    <form action="{% url 'logout' %}" method="POST" class="d-inline my-2 my-lg-0">
+                        {% csrf_token %}
+                        <button type="submit" class="btn btn-outline-danger btn-logout btn-sm shadow-sm">
+                            <i class="fas fa-sign-out-alt me-1"></i> SAIR
+                        </button>
+                    </form>
+                </div>
+            </div>
         </div>
     </nav>
     <!-- Navbar End -->
 
-
     <!-- Header Start -->
-    <div class="container-fluid page-header-custom mb-5">
-        <div class="container text-center">
-            <span class="header-badge mb-3 animated slideInDown">
-                <i class="fa fa-atom me-2"></i>CONHEÇA NOSSA HISTÓRIA E PROPÓSITO
-            </span>
-            <h1 class="display-4 text-white fw-bold mb-3 animated slideInDown">Sobre a PEOF</h1>
-            <nav aria-label="breadcrumb">
-                <ol class="breadcrumb justify-content-center m-0">
-                    <li class="breadcrumb-item"><a href="{% url 'home' %}">Início</a></li>
-                    <li class="breadcrumb-item"><a href="#">Página</a></li>
-                    <li class="breadcrumb-item active" aria-current="page">Sobre</li>
-                </ol>
-            </nav>
+    <div class="container-fluid page-header-custom py-5 mb-5">
+        <div class="container py-5">
+            <div class="row justify-content-center">
+                <div class="col-lg-10 text-center">
+                    <h1 class="display-3 text-white animated slideInDown fw-bold">Sobre a PEOF</h1>
+                    <p class="text-white-50 fs-5 mb-4">Conheça nossa história, missão e o propósito de impulsionar talentos em Olimpíadas Científicas.</p>
+                    <nav aria-label="breadcrumb">
+                        <ol class="breadcrumb justify-content-center bg-transparent p-0 m-0">
+                            <li class="breadcrumb-item"><a class="text-white opacity-75" href="{% url 'home' %}">Início</a></li>
+                            <li class="breadcrumb-item text-white active fw-bold" aria-current="page">Sobre</li>
+                        </ol>
+                    </nav>
+                </div>
+            </div>
         </div>
     </div>
     <!-- Header End -->
 
-
-    <!-- Service Start -->
+    <!-- Recursos Integrados Start -->
     <div class="container-xxl py-4">
         <div class="container">
-            <div class="text-center wow fadeInUp mb-5" data-wow-delay="0.1s">
-                <h6 class="text-primary text-uppercase fw-bold mb-2">Recursos Integrados</h6>
-                <h2 class="fw-bold" style="color: #0f172a;">O que oferecemos para sua preparação</h2>
+            <div class="text-center wow fadeInUp" data-wow-delay="0.1s">
+                <h6 class="section-title bg-white text-center text-primary px-3 rounded-pill">Recursos Integrados</h6>
+                <h1 class="mb-5">O que oferecemos para sua preparação</h1>
             </div>
             <div class="row g-4">
                 <div class="col-lg-3 col-sm-6 wow fadeInUp" data-wow-delay="0.1s">
-                    <div class="service-card text-center">
+                    <div class="custom-card p-4 text-center">
                         <div class="service-icon-wrapper">
-                            <i class="fa fa-graduation-cap"></i>
+                            <i class="fas fa-graduation-cap"></i>
                         </div>
                         <h5 class="mb-3 fw-bold">Conteúdo de Física</h5>
-                        <p class="text-muted mb-0">Estude os principais assuntos da Física organizados por módulos, do básico ao avançado.</p>
+                        <p class="text-muted small mb-0">Estude os principais assuntos da Física organizados por módulos, do básico ao avançado.</p>
                     </div>
                 </div>
                 <div class="col-lg-3 col-sm-6 wow fadeInUp" data-wow-delay="0.3s">
-                    <div class="service-card text-center">
+                    <div class="custom-card p-4 text-center">
                         <div class="service-icon-wrapper">
-                            <i class="fa fa-play-circle"></i>
+                            <i class="fas fa-play-circle"></i>
                         </div>
                         <h5 class="mb-3 fw-bold">Videoaulas</h5>
-                        <p class="text-muted mb-0">Assista a aulas completas para revisar conceitos e aprender de forma prática e dinâmica.</p>
+                        <p class="text-muted small mb-0">Assista a aulas completas para revisar conceitos e aprender de forma prática e dinâmica.</p>
                     </div>
                 </div>
                 <div class="col-lg-3 col-sm-6 wow fadeInUp" data-wow-delay="0.5s">
-                    <div class="service-card text-center">
+                    <div class="custom-card p-4 text-center">
                         <div class="service-icon-wrapper">
-                            <i class="fa fa-tasks"></i>
+                            <i class="fas fa-tasks"></i>
                         </div>
                         <h5 class="mb-3 fw-bold">Exercícios e Simulados</h5>
-                        <p class="text-muted mb-0">Resolva listas de exercícios, provas anteriores e simulados das Olimpíadas de Física.</p>
+                        <p class="text-muted small mb-0">Resolva listas de exercícios, provas anteriores e simulados das Olimpíadas de Física.</p>
                     </div>
                 </div>
                 <div class="col-lg-3 col-sm-6 wow fadeInUp" data-wow-delay="0.7s">
-                    <div class="service-card text-center">
+                    <div class="custom-card p-4 text-center">
                         <div class="service-icon-wrapper">
-                            <i class="fa fa-book-open"></i>
+                            <i class="fas fa-book-open"></i>
                         </div>
                         <h5 class="mb-3 fw-bold">Materiais de Apoio</h5>
-                        <p class="text-muted mb-0">Acesse livros, apostilas, fórmulas, resumos e materiais complementares para seus estudos.</p>
+                        <p class="text-muted small mb-0">Acesse livros, apostilas, fórmulas, resumos e materiais complementares para seus estudos.</p>
                     </div>
                 </div>
             </div>
         </div>
     </div>
-    <!-- Service End -->
+    <!-- Recursos Integrados End -->
 
-
-    <!-- About Start -->
+    <!-- About Content Start -->
     <div class="container-xxl py-5 my-3">
         <div class="container">
-            <div class="row g-5 align-items-stretch">
+            <div class="row g-5 align-items-center">
                 <div class="col-lg-6 wow fadeInUp" data-wow-delay="0.1s">
                     <div class="about-img-container">
-                        <img class="img-fluid" src="{% static 'img/about.jpg' %}" alt="Sobre a PEOF">
+                        <img src="{% static 'img/about.jpg' %}" alt="Sobre a PEOF">
                     </div>
                 </div>
                 <div class="col-lg-6 wow fadeInUp d-flex flex-column justify-content-center" data-wow-delay="0.3s">
-                    <h6 class="text-primary text-uppercase fw-bold mb-2">Apresentação da Plataforma</h6>
-                    <h1 class="mb-4 fw-bold" style="color: #0f172a;">SOBRE A PEOF</h1>
-                    <p class="mb-4 text-secondary" style="line-height: 1.8;">
-                        A PEOF - Plataforma de Estudos para Olimpíadas de Física é um ambiente completo, organizado e acessível, criado para apoiar estudantes que desejam se destacar em competições científicas de Física. A plataforma foi desenvolvida com o objetivo de oferecer uma preparação sólida e estratégica, contribuindo para o desenvolvimento do raciocínio lógico, da capacidade de resolver problemas complexos e da interpretação de situações físicas, competências essenciais nas principais olimpíadas científicas. Por meio de conteúdos estruturados por níveis de dificuldade, simulados, listas de exercícios comentadas e materiais de apoio, a PEOF incentiva a autonomia, a disciplina e a constância nos estudos, ao mesmo tempo em que desperta o interesse pela Física e pelas Ciências Exatas.
+                    <h6 class="section-title bg-white text-start text-primary px-3 rounded-pill d-inline-block mb-3">Apresentação da Plataforma</h6>
+                    <h1 class="mb-4 fw-bold">SOBRE A PEOF</h1>
+                    <p class="mb-3 text-secondary" style="line-height: 1.8;">
+                        A PEOF - Plataforma de Estudos para Olimpíadas de Física é um ambiente completo, organizado e acessível, criado para apoiar estudantes que desejam se destacar em competições científicas de Física. A plataforma foi desenvolvida com o objetivo de oferecer uma preparação sólida e estratégica, contribuindo para o desenvolvimento do raciocínio lógico, da capacidade de resolver problemas complexos e da interpretação de situações físicas, competências essenciais nas principais olimpíadas científicas.
                     </p>
                     <p class="mb-4 text-secondary" style="line-height: 1.8;">
-                        Além disso, a plataforma busca democratizar o acesso à preparação olímpica, permitindo que estudantes de diferentes contextos educacionais tenham acesso a materiais de qualidade, ampliando oportunidades de aprendizagem. Outro diferencial importante é o acompanhamento do desempenho dos estudantes, que possibilita identificar dificuldades específicas e personalizar os estudos, tornando a preparação mais eficiente e direcionada. Dessa forma, a PEOF se consolida como um espaço de referência para estudos voltados às Olimpíadas de Física, funcionando como um apoio complementar ao ensino escolar tradicional e incentivando a formação acadêmica e científica dos estudantes.
+                        Por meio de conteúdos estruturados por níveis de dificuldade, simulados, listas de exercícios comentadas e materiais de apoio, a PEOF incentiva a autonomia, a disciplina e a constância nos estudos. Além disso, a plataforma busca democratizar o acesso à preparação olímpica, permitindo que estudantes de diferentes contextos educacionais tenham acesso a materiais de qualidade.
                     </p>
                     
-                    <div class="row g-3 mb-4">
+                    <!-- Destaques / Checklist (Código restaurado e aperfeiçoado) -->
+                    <div class="row g-3">
                         <div class="col-sm-6">
                             <div class="about-feature-item">
-                                <i class="fa fa-check-circle fs-5"></i>
-                                <span>Simulados e Exercícios</span>
+                                <i class="fas fa-check-circle text-success fs-5"></i>
+                                <span>Conteúdos Estruturados</span>
                             </div>
                         </div>
                         <div class="col-sm-6">
                             <div class="about-feature-item">
-                                <i class="fa fa-check-circle fs-5"></i>
-                                <span>Preparação Olímpica</span>
+                                <i class="fas fa-check-circle text-success fs-5"></i>
+                                <span>Simulados Comentados</span>
                             </div>
                         </div>
                         <div class="col-sm-6">
                             <div class="about-feature-item">
-                                <i class="fa fa-check-circle fs-5"></i>
-                                <span>Conteúdos de Física</span>
+                                <i class="fas fa-check-circle text-success fs-5"></i>
+                                <span>Apoio Didático Gratuito</span>
                             </div>
                         </div>
                         <div class="col-sm-6">
                             <div class="about-feature-item">
-                                <i class="fa fa-check-circle fs-5"></i>
-                                <span>Materiais de Apoio</span>
-                            </div>
-                        </div>
-                        <div class="col-sm-6">
-                            <div class="about-feature-item">
-                                <i class="fa fa-check-circle fs-5"></i>
-                                <span>Raciocínio Lógico</span>
-                            </div>
-                        </div>
-                        <div class="col-sm-6">
-                            <div class="about-feature-item">
-                                <i class="fa fa-check-circle fs-5"></i>
-                                <span>Resolução de Problemas</span>
+                                <i class="fas fa-check-circle text-success fs-5"></i>
+                                <span>Foco na OBA e ONC</span>
                             </div>
                         </div>
                     </div>
-                    <div>
-                        <a class="btn btn-primary rounded-pill py-3 px-5 shadow-sm fw-bold" href="{% url 'conteudos' %}">Explorar Módulos de Estudo</a>
-                    </div>
+
                 </div>
             </div>
         </div>
     </div>
-    <!-- About End -->
+    <!-- About Content End -->
 
-
-    <!-- Nova Seção: Nossos Pilares Start -->
-    <div class="container-xxl py-5 bg-light my-5" style="border-radius: var(--radius-lg);">
+    <!-- Pilares e Valores Start (Nova Seção para Aprofundamento) -->
+    <div class="container-xxl py-5 bg-white rounded-3 shadow-sm my-5 wow fadeInUp" data-wow-delay="0.1s">
         <div class="container">
-            <div class="text-center wow fadeInUp mb-5" data-wow-delay="0.1s" style="max-width: 700px; margin: 0 auto;">
-                <h6 class="text-primary text-uppercase fw-bold mb-2">Fundamentos</h6>
-                <h2 class="fw-bold" style="color: #0f172a;">Os Pilares do Nosso Método</h2>
-                <p class="text-muted">Inspiramos e guiamos alunos rumo ao alto rendimento nas olimpíadas de conhecimento através de três diretrizes fundamentais.</p>
+            <div class="text-center mb-5">
+                <h6 class="section-title bg-white text-center text-primary px-3 rounded-pill">Nossa Filosofia</h6>
+                <h1 class="mb-3">Pilares da Plataforma PEOF</h1>
+                <p class="text-muted">Princípios fundamentais que regem nossa metodologia de ensino e suporte aos estudantes.</p>
             </div>
             <div class="row g-4">
-                <div class="col-lg-4 col-md-6 wow fadeInUp" data-wow-delay="0.1s">
-                    <div class="pillar-card">
-                        <div class="pillar-number">01</div>
-                        <h4 class="fw-bold mb-3" style="color: #0f172a;">Acessibilidade e Equidade</h4>
-                        <p class="text-muted mb-0">Democratizamos o acesso a materiais de altíssimo nível acadêmico, permitindo que qualquer estudante, independente de sua rede de ensino, possa competir em igualdade.</p>
+                <div class="col-lg-4 col-md-6">
+                    <div class="custom-card p-4">
+                        <div class="d-flex align-items-center mb-3">
+                            <div class="btn-square bg-primary text-white rounded-circle me-3 flex-shrink-0" style="width: 48px; height: 48px;">
+                                <i class="fas fa-door-open fa-lg"></i>
+                            </div>
+                            <h5 class="mb-0 fw-bold">Democratização</h5>
+                        </div>
+                        <p class="text-muted small mb-0">Oferecer recursos gratuitos e de alto nível para garantir oportunidades iguais de aprendizado a estudantes de escolas públicas e privadas em todo o país.</p>
                     </div>
                 </div>
-                <div class="col-lg-4 col-md-6 wow fadeInUp" data-wow-delay="0.3s">
-                    <div class="pillar-card">
-                        <div class="pillar-number">02</div>
-                        <h4 class="fw-bold mb-3" style="color: #0f172a;">Aprendizado Estruturado</h4>
-                        <p class="text-muted mb-0">Trilhas de estudo organizadas progressivamente em tópicos essenciais, garantindo a construção do raciocínio analítico do nível básico ao avançado.</p>
+
+                <div class="col-lg-4 col-md-6">
+                    <div class="custom-card p-4">
+                        <div class="d-flex align-items-center mb-3">
+                            <div class="btn-square bg-primary text-white rounded-circle me-3 flex-shrink-0" style="width: 48px; height: 48px;">
+                                <i class="fas fa-brain fa-lg"></i>
+                            </div>
+                            <h5 class="mb-0 fw-bold">Raciocínio Crítico</h5>
+                        </div>
+                        <p class="text-muted small mb-0">Estimular o raciocínio físico em vez da simples memorização de fórmulas, preparando o aluno para resolver problemas práticos e inéditos.</p>
                     </div>
                 </div>
-                <div class="col-lg-4 col-md-6 wow fadeInUp" data-wow-delay="0.5s">
-                    <div class="pillar-card">
-                        <div class="pillar-number">03</div>
-                        <h4 class="fw-bold mb-3" style="color: #0f172a;">Inovação e IA</h4>
-                        <p class="text-muted mb-0">Integração de inteligência artificial e diagnósticos de desempenho para personalização dos estudos e superação contínua de pontos fracos.</p>
+
+                <div class="col-lg-4 col-md-6">
+                    <div class="custom-card p-4">
+                        <div class="d-flex align-items-center mb-3">
+                            <div class="btn-square bg-primary text-white rounded-circle me-3 flex-shrink-0" style="width: 48px; height: 48px;">
+                                <i class="fas fa-chart-line fa-lg"></i>
+                            </div>
+                            <h5 class="mb-0 fw-bold">Constância</h5>
+                        </div>
+                        <p class="text-muted small mb-0">Incentivar a rotina contínua de estudos por meio de módulos em etapas, cronogramas sugeridos e bancos de dados de vestibulares e olimpíadas.</p>
                     </div>
                 </div>
             </div>
         </div>
     </div>
-    <!-- Nossos Pilares End -->
+    <!-- Pilares e Valores End -->
 
-
-    <!-- Nova Seção: Métricas de Impacto Start -->
-    <div class="container-xxl py-4">
+    <!-- Métricas e Indicadores Start -->
+    <div class="container-xxl py-4 wow fadeInUp" data-wow-delay="0.1s">
         <div class="container">
-            <div class="stats-section wow fadeInUp" data-wow-delay="0.1s">
-                <div class="row g-4 text-center">
-                    <div class="col-md-3 col-6">
-                        <div class="stat-item">
-                            <h2>100%</h2>
-                            <p class="text-light mb-0 opacity-75">Acesso Gratuito</p>
-                        </div>
+            <div class="stats-section text-center">
+                <div class="row g-4">
+                    <div class="col-md-3 col-6 stat-item">
+                        <h2>+100%</h2>
+                        <p class="text-white-50 mb-0">Gratuito e Acessível</p>
                     </div>
-                    <div class="col-md-3 col-6">
-                        <div class="stat-item">
-                            <h2>+50</h2>
-                            <p class="text-light mb-0 opacity-75">Tópicos Teóricos</p>
-                        </div>
+                    <div class="col-md-3 col-6 stat-item">
+                        <h2>4+</h2>
+                        <p class="text-white-50 mb-0">Níveis da OBA/ONC</p>
                     </div>
-                    <div class="col-md-3 col-6">
-                        <div class="stat-item">
-                            <h2>+200</h2>
-                            <p class="text-light mb-0 opacity-75">Problemas Resolvidos</p>
-                        </div>
+                    <div class="col-md-3 col-6 stat-item">
+                        <h2>10+</h2>
+                        <p class="text-white-50 mb-0">Livros Didáticos e PDFs</p>
                     </div>
-                    <div class="col-md-3 col-6">
-                        <div class="stat-item">
-                            <h2>OBF / OBFEP</h2>
-                            <p class="text-light mb-0 opacity-75">Foco Olímpico</p>
-                        </div>
+                    <div class="col-md-3 col-6 stat-item">
+                        <h2>24/7</h2>
+                        <p class="text-white-50 mb-0">Disponibilidade de Estudo</p>
                     </div>
                 </div>
             </div>
         </div>
     </div>
-    <!-- Métricas de Impacto End -->
-
+    <!-- Métricas e Indicadores End -->
 
     <!-- Footer Start -->
-    <footer class="footer-custom pt-5 mt-5 wow fadeIn" data-wow-delay="0.1s">
+    <div class="container-fluid bg-dark text-light footer pt-5 mt-5 wow fadeIn" data-wow-delay="0.1s">
         <div class="container py-5">
             <div class="row g-5">
                 <div class="col-lg-3 col-md-6">
-                    <h4 class="footer-title">Sobre Nós</h4>
-                    <a class="footer-link" href="{% url 'sobre' %}">Saiba mais</a>
-                    <a class="footer-link" href="{% url 'contato' %}">Contatos</a>
-                    <a class="footer-link" href="#">Política de Privacidade</a>
+                    <h4 class="text-white mb-4">Sobre Nós</h4>
+                    <a class="btn btn-link text-white-50" href="{% url 'sobre' %}"><i class="fas fa-chevron-right me-2"></i>Saiba mais</a>
+                    <a class="btn btn-link text-white-50" href="{% url 'contato' %}"><i class="fas fa-chevron-right me-2"></i>Contatos</a>
+                    <a class="btn btn-link text-white-50" href="#"><i class="fas fa-chevron-right me-2"></i>Política de Privacidade</a>
                 </div>
                 <div class="col-lg-3 col-md-6">
-                    <h4 class="footer-title">Contato</h4>
-                    <p class="mb-2"><i class="fa fa-map-marker-alt me-3 text-primary"></i>Bahia</p>
+                    <h4 class="text-white mb-4">Contato</h4>
+                    <p class="mb-2"><i class="fa fa-map-marker-alt me-3 text-primary"></i>Bahia, Brasil</p>
                     <p class="mb-3"><i class="fa fa-envelope me-3 text-primary"></i>info@example.com</p>
                     <div class="d-flex pt-2">
-                        <a class="btn-social" href="#"><i class="fab fa-twitter"></i></a>
-                        <a class="btn-social" href="#"><i class="fab fa-facebook-f"></i></a>
-                        <a class="btn-social" href="#"><i class="fab fa-youtube"></i></a>
-                        <a class="btn-social" href="#"><i class="fab fa-linkedin-in"></i></a>
+                        <a class="btn btn-outline-light btn-social me-2 rounded-circle" href="#"><i class="fab fa-twitter"></i></a>
+                        <a class="btn btn-outline-light btn-social me-2 rounded-circle" href="#"><i class="fab fa-facebook-f"></i></a>
+                        <a class="btn btn-outline-light btn-social me-2 rounded-circle" href="#"><i class="fab fa-youtube"></i></a>
+                        <a class="btn btn-outline-light btn-social rounded-circle" href="#"><i class="fab fa-linkedin-in"></i></a>
                     </div>
                 </div>
                 <div class="col-lg-3 col-md-6">
-                    <h4 class="footer-title">Galeria</h4>
-                    <div class="row g-2 pt-1">
+                    <h4 class="text-white mb-4">Galeria</h4>
+                    <div class="row g-2 pt-2">
                         <div class="col-4">
-                            <div class="gallery-thumb">
-                                <img class="img-fluid" src="{% static 'img/WhatsApp Image 2026-07-07 at 13.20.39 (1).jpg' %}" alt="">
-                            </div>
+                            <img class="img-fluid bg-light p-1 gallery-img-hover" src="{% static 'img/WhatsApp Image 2026-07-07 at 13.20.39 (1).jpg' %}" alt="Galeria 1">
                         </div>
                         <div class="col-4">
-                            <div class="gallery-thumb">
-                                <img class="img-fluid" src="{% static 'img/WhatsApp Image 2026-07-07 at 13.20.39 (2).jpg' %}" alt="">
-                            </div>
+                            <img class="img-fluid bg-light p-1 gallery-img-hover" src="{% static 'img/WhatsApp Image 2026-07-07 at 13.20.39 (2).jpg' %}" alt="Galeria 2">
                         </div>
                         <div class="col-4">
-                            <div class="gallery-thumb">
-                                <img class="img-fluid" src="{% static 'img/WhatsApp Image 2026-07-07 at 13.20.39 (3).jpg' %}" alt="">
-                            </div>
+                            <img class="img-fluid bg-light p-1 gallery-img-hover" src="{% static 'img/WhatsApp Image 2026-07-07 at 13.20.39 (3).jpg' %}" alt="Galeria 3">
                         </div>
                         <div class="col-4">
-                            <div class="gallery-thumb">
-                                <img class="img-fluid" src="{% static 'img/WhatsApp Image 2026-07-07 at 13.20.39 (4).jpg' %}" alt="">
-                            </div>
+                            <img class="img-fluid bg-light p-1 gallery-img-hover" src="{% static 'img/WhatsApp Image 2026-07-07 at 13.20.39 (4).jpg' %}" alt="Galeria 4">
                         </div>
                         <div class="col-4">
-                            <div class="gallery-thumb">
-                                <img class="img-fluid" src="{% static 'img/WhatsApp Image 2026-07-07 at 13.20.39.jpg' %}" alt="">
-                            </div>
+                            <img class="img-fluid bg-light p-1 gallery-img-hover" src="{% static 'img/WhatsApp Image 2026-07-07 at 13.20.39.jpg' %}" alt="Galeria 5">
                         </div>
                         <div class="col-4">
-                            <div class="gallery-thumb">
-                                <img class="img-fluid" src="{% static 'img/WhatsApp Image 2026-07-07 at 13.20.40.jpg' %}" alt="">
-                            </div>
+                            <img class="img-fluid bg-light p-1 gallery-img-hover" src="{% static 'img/WhatsApp Image 2026-07-07 at 13.20.40.jpg' %}" alt="Galeria 6">
                         </div>
                     </div>
                 </div>
                 <div class="col-lg-3 col-md-6">
-                    <h4 class="footer-title">Importante</h4>
-                    <p class="small text-muted mb-3">Receba dicas, novidades e conteúdos exclusivos sobre as Olimpíadas de Física. Cadastre seu e-mail e fique por dentro das atualizações da plataforma.</p>
-                    <div class="position-relative mx-auto">
-                        <input class="form-control border-0 w-100 py-3 ps-4 pe-5" type="text" placeholder="Seu email" style="border-radius: var(--radius-md); background: rgba(255,255,255,0.08); color: #fff;">
+                    <h4 class="text-white mb-4">Newsletter</h4>
+                    <p class="text-white-50">Receba dicas, novidades e conteúdos exclusivos sobre as Olimpíadas de Física diretamente no seu e-mail.</p>
+                    <div class="position-relative mx-auto mt-3" style="max-width: 400px;">
+                        <input class="form-control border-0 w-100 py-3 ps-4 pe-5 rounded-pill" type="email" placeholder="Seu e-mail">
                         <button type="button" class="btn btn-primary py-2 position-absolute top-0 end-0 mt-2 me-2 rounded-pill px-3">Cadastrar</button>
                     </div>
                 </div>
             </div>
         </div>
-        <div class="container border-top border-secondary border-opacity-25 py-4">
-            <div class="row align-items-center">
-                <div class="col-md-6 text-center text-md-start mb-3 mb-md-0">
-                    <p class="mb-0 text-muted small">&copy; 2026 <a class="text-white text-decoration-none fw-bold" href="#">PEOF - Plataforma de Estudos para Olimpíadas de Física</a>. Todos os direitos reservados.</p>
-                    <p class="mb-0 text-muted small mt-1">Desenvolvido por <strong class="text-light">Dayse Kelly, Francielly da Paz e Yasmin Andrade</strong></p>
-                </div>
-                <div class="col-md-6 text-center text-md-end">
-                    <div class="footer-menu">
-                        <a href="{% url 'home' %}" class="text-muted text-decoration-none me-3 small">Início</a>
-                        <a href="{% url 'sobre' %}" class="text-muted text-decoration-none small">Saiba mais</a>
+        <div class="container border-top border-secondary py-4">
+            <div class="copyright">
+                <div class="row align-items-center">
+                    <div class="col-md-7 text-center text-md-start mb-3 mb-md-0">
+                        &copy; 2026 <a class="border-bottom text-white text-decoration-none" href="#">PEOF - Plataforma de Estudos para Olimpíadas de Física</a>. Todos os direitos reservados.
+                    </div>
+                    <div class="col-md-5 text-center text-md-end">
+                        <span class="text-white-50 small">Desenvolvido por <strong>Dayse Kelly & Franciele</strong></span>
                     </div>
                 </div>
             </div>
         </div>
-    </footer>
+    </div>
     <!-- Footer End -->
 
-
     <!-- Back to Top -->
-    <a href="#" class="btn btn-primary btn-lg-square back-to-top rounded-circle"><i class="bi bi-arrow-up"></i></a>
-
+    <a href="#" class="btn btn-lg btn-primary btn-lg-square back-to-top rounded-circle shadow"><i class="bi bi-arrow-up"></i></a>
 
     <!-- JavaScript Libraries -->
     <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>

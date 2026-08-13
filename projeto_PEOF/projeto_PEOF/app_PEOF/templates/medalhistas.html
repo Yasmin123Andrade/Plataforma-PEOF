@@ -1,31 +1,31 @@
 {% load static %}
 <!DOCTYPE html>
-<html lang="en">
+<html lang="pt-br">
 
 <head>
     <meta charset="utf-8">
-   <title>Plataforma de Estudos para Olimpíadas de Física</title>
+    <title>Medalhistas - Plataforma de Estudos para Olimpíadas de Física (PEOF)</title>
     <meta content="width=device-width, initial-scale=1.0" name="viewport">
-    <meta content="" name="keywords">
-    <meta content="" name="description">
+    <meta content="Olimpíadas de Física, OBA, ONC, Sobre PEOF, Preparação Científica" name="keywords">
+    <meta content="Conheça a PEOF: uma plataforma completa e acessível para preparação em Olimpíadas Científicas e de Física." name="description">
 
-   <!-- Favicon -->
-<link rel="icon" type="img/x-icon" href="/favicon.ico">
-<link rel="icon" type="img/png" sizes="16x16" href="/favicon-16x16.png">
-<link rel="icon" type="img/png" sizes="32x32" href="/favicon-32x32.png">
-<link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
-<link rel="icon" type="img/png" sizes="192x192" href="/android-chrome-192x192.png">
-<link rel="icon" type="img/png" sizes="512x512" href="/android-chrome-512x512.png">
-<meta name="theme-color" content="#ffffff">
+    <!-- Favicon -->
+    <link rel="icon" type="image/x-icon" href="{% static 'favicon.ico' %}">
+    <link rel="icon" type="image/png" sizes="16x16" href="{% static 'favicon-16x16.png' %}">
+    <link rel="icon" type="image/png" sizes="32x32" href="{% static 'favicon-32x32.png' %}">
+    <link rel="apple-touch-icon" sizes="180x180" href="{% static 'apple-touch-icon.png' %}">
+    <link rel="icon" type="image/png" sizes="192x192" href="{% static 'android-chrome-192x192.png' %}">
+    <link rel="icon" type="image/png" sizes="512x512" href="{% static 'android-chrome-512x512.png' %}">
+    <meta name="theme-color" content="#2b58f0">
 
     <!-- Google Web Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Heebo:wght@400;500;600&family=Nunito:wght@600;700;800&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Heebo:wght@400;500;600;700&family=Nunito:wght@600;700;800;900&display=swap" rel="stylesheet">
 
     <!-- Icon Font Stylesheet -->
-    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.10.0/css/all.min.css" rel="stylesheet">
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.4.1/font/bootstrap-icons.css" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css" rel="stylesheet">
 
     <!-- Libraries Stylesheet -->
     <link href="{% static 'lib/animate/animate.min.css' %}" rel="stylesheet">
@@ -36,67 +36,229 @@
 
     <!-- Template Stylesheet -->
     <link href="{% static 'css/style.css' %}" rel="stylesheet">
+
+    <!-- Estilos Customizados no Padrão de Conteúdos -->
+    <style>
+        :root {
+            --peof-primary: #0d6efd;
+            --peof-secondary: #0b5ed7;
+            --peof-dark: #1e293b;
+            --peof-light: #f8fafc;
+            --peof-card-shadow: 0 10px 30px rgba(0, 0, 0, 0.08);
+            --peof-hover-shadow: 0 15px 35px rgba(13, 110, 253, 0.18);
+        }
+
+        body {
+            font-family: 'Nunito', sans-serif;
+            background-color: #f4f6f9;
+            color: #334155;
+        }
+
+        /* Navbar Otimizada */
+        .navbar {
+            backdrop-filter: blur(10px);
+            background-color: rgba(255, 255, 255, 0.95) !important;
+            transition: all 0.3s ease;
+        }
+
+        .navbar-brand img {
+            transition: transform 0.3s ease;
+        }
+
+        .navbar-brand:hover img {
+            transform: rotate(-5deg) scale(1.05);
+        }
+
+        .nav-link {
+            font-weight: 600;
+            color: var(--peof-dark) !important;
+            transition: color 0.2s ease;
+        }
+
+        .nav-link:hover, .nav-link.active {
+            color: var(--peof-primary) !important;
+        }
+
+        /* Banner Header */
+        .page-header-custom {
+            background: linear-gradient(135deg, rgba(13, 110, 253, 0.95), rgba(11, 94, 215, 0.85)), url("{% static 'img/carousel-1.jpg' %}") center/cover no-repeat;
+            border-radius: 0 0 30px 30px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+        }
+
+        /* Design de Cards Modernos */
+        .custom-card {
+            border: none;
+            border-radius: 16px;
+            background: #ffffff;
+            box-shadow: var(--peof-card-shadow);
+            transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
+            overflow: hidden;
+            height: 100%;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .custom-card:hover {
+            transform: translateY(-8px);
+            box-shadow: var(--peof-hover-shadow);
+        }
+
+        /* Estilização para Ícones e Recursos */
+        .service-icon-wrapper {
+            width: 64px;
+            height: 64px;
+            background: linear-gradient(135deg, #e0e7ff 0%, #c7d2fe 100%);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto 20px;
+            color: var(--peof-primary);
+            font-size: 26px;
+            transition: all 0.3s ease;
+        }
+
+        .custom-card:hover .service-icon-wrapper {
+            background: linear-gradient(135deg, var(--peof-primary) 0%, var(--peof-secondary) 100%);
+            color: #ffffff;
+            transform: scale(1.1);
+        }
+
+        /* Imagem da Seção Sobre */
+        .about-img-container {
+            border-radius: 20px;
+            overflow: hidden;
+            box-shadow: 0 12px 30px rgba(0,0,0,0.12);
+            position: relative;
+            height: 100%;
+            min-height: 420px;
+        }
+
+        .about-img-container img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        /* Itens de destaque na Seção Sobre */
+        .about-feature-item {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            background: #ffffff;
+            padding: 14px 20px;
+            border-radius: 12px;
+            border: 1px solid #e2e8f0;
+            font-weight: 700;
+            color: #334155;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.03);
+            transition: all 0.2s ease;
+        }
+
+        .about-feature-item:hover {
+            transform: translateX(5px);
+            border-color: var(--peof-primary);
+            background: #f0fdf4;
+        }
+
+        /* Seção de Métricas */
+        .stats-section {
+            background: linear-gradient(135deg, #1e293b 0%, #0f172a 100%);
+            border-radius: 24px;
+            padding: 50px 30px;
+            color: #ffffff;
+            box-shadow: 0 15px 35px rgba(0,0,0,0.2);
+        }
+
+        .stat-item h2 {
+            font-size: 2.8rem;
+            font-weight: 800;
+            color: #38bdf8;
+            margin-bottom: 5px;
+        }
+
+        /* Botão de Logout personalizado */
+        .btn-logout {
+            border-radius: 50px;
+            padding: 6px 20px;
+            font-weight: 700;
+            letter-spacing: 0.5px;
+            transition: all 0.3s ease;
+        }
+
+        .gallery-img-hover {
+            border-radius: 8px;
+            transition: transform 0.3s ease, filter 0.3s ease;
+        }
+        .gallery-img-hover:hover {
+            transform: scale(1.08);
+            filter: brightness(1.1);
+        }
+    </style>
 </head>
 
 <body>
     <!-- Spinner Start -->
     <div id="spinner" class="show bg-white position-fixed translate-middle w-100 vh-100 top-50 start-50 d-flex align-items-center justify-content-center">
         <div class="spinner-border text-primary" style="width: 3rem; height: 3rem;" role="status">
-            <span class="sr-only">Loading...</span>
+            <span class="sr-only">Carregando...</span>
         </div>
     </div>
     <!-- Spinner End -->
 
-
     <!-- Navbar Start -->
-<nav class="navbar navbar-expand-lg bg-white navbar-light shadow sticky-top p-0">
-    <a href="{% url 'home' %}" class="navbar-brand d-flex align-items-center px-4 px-lg-5" style="max-width: 70%; white-space: normal;">
-        <h2 class="m-0 text-primary d-flex align-items-center" style="font-size: calc(1.2rem + 0.6vw);">
-            <img src="{% static 'img/android-chrome-512x512.png' %}" alt="PEOF" style="height:45px;" class="me-2">
-            <span class="d-none d-sm-inline">Plataforma de Estudos para Olimpíadas de Física</span>
-            <span class="d-inline d-sm-none">PEOF</span>
-        </h2>
-    </a>
-    <button type="button" class="navbar-toggler me-4" data-bs-toggle="collapse" data-bs-target="#navbarCollapse">
-        <span class="navbar-toggler-icon"></span>
-    </button>
+    <nav class="navbar navbar-expand-lg bg-white navbar-light shadow-sm sticky-top p-2 p-lg-0">
+        <div class="container-fluid px-4 px-lg-5">
+            <a href="{% url 'home' %}" class="navbar-brand d-flex align-items-center">
+                <h2 class="m-0 text-primary d-flex align-items-center" style="font-size: calc(1.1rem + 0.5vw);">
+                    <img src="{% static 'img/android-chrome-512x512.png' %}" alt="PEOF" style="height:45px;" class="me-2 rounded-circle shadow-sm">
+                    <span class="d-none d-sm-inline fw-bold">Plataforma de Estudos para Olimpíadas de Física</span>
+                    <span class="d-inline d-sm-none fw-bold">PEOF</span>
+                </h2>
+            </a>
+            <button type="button" class="navbar-toggler border-0" data-bs-toggle="collapse" data-bs-target="#navbarCollapse">
+                <span class="navbar-toggler-icon"></span>
+            </button>
 
-    <div class="collapse navbar-collapse" id="navbarCollapse">
-        <div class="navbar-nav ms-auto p-4 p-lg-0">
-            <a href="{% url 'home' %}" class="nav-item nav-link">Início</a>
-            <a href="{% url 'sobre' %}" class="nav-item nav-link nav-link-sobre">Sobre</a>
-            <a href="{% url 'conteudos' %}" class="nav-item nav-link">Conteúdos</a>
-            <div class="nav-item dropdown">
-                <a href="#" class="nav-link dropdown-toggle" data-bs-toggle="dropdown">Explorar</a>
-                <div class="dropdown-menu fade-down m-0">
-                    <a href="{% url 'medalhistas' %}" class="dropdown-item">Medalhistas</a>
-                    <a href="{% url 'depoimentos' %}" class="dropdown-item">Depoimentos</a>
-                    <a href="{% url 'materiais' %}" class="dropdown-item">Materiais</a>
+            <div class="collapse navbar-collapse" id="navbarCollapse">
+                <div class="navbar-nav ms-auto p-4 p-lg-0 align-items-lg-center">
+                    <a href="{% url 'home' %}" class="nav-item nav-link">Início</a>
+                    <a href="{% url 'sobre' %}" class="nav-item nav-link active nav-link-sobre">Sobre</a>
+                    <a href="{% url 'conteudos' %}" class="nav-item nav-link">Conteúdos</a>
+                    <div class="nav-item dropdown">
+                        <a href="#" class="nav-link dropdown-toggle" data-bs-toggle="dropdown">Explorar</a>
+                        <div class="dropdown-menu border-0 shadow-lg fade-down m-0 rounded-3">
+                            <a href="{% url 'medalhistas' %}" class="dropdown-item py-2"><i class="fas fa-medal text-warning me-2"></i>Medalhistas</a>
+                            <a href="{% url 'depoimentos' %}" class="dropdown-item py-2"><i class="fas fa-comment-dots text-info me-2"></i>Depoimentos</a>
+                            <a href="{% url 'materiais' %}" class="dropdown-item py-2"><i class="fas fa-folder-open text-primary me-2"></i>Materiais</a>
+                        </div>
+                    </div>
+                    <a href="{% url 'contato' %}" class="nav-item nav-link me-lg-3">Contatos</a>
+
+                    <form action="{% url 'logout' %}" method="POST" class="d-inline my-2 my-lg-0">
+                        {% csrf_token %}
+                        <button type="submit" class="btn btn-outline-danger btn-logout btn-sm shadow-sm">
+                            <i class="fas fa-sign-out-alt me-1"></i> SAIR
+                        </button>
+                    </form>
                 </div>
             </div>
-            <a href="{% url 'contato' %}" class="nav-item nav-link">Contatos</a>
         </div>
-
-        <form action="{% url 'logout' %}" method="POST" style="display: inline; margin: 10px;">
-            {% csrf_token %}
-            <button type="submit" class="btn btn-danger">SAIR</button>
-        </form>
-    </div>
-</nav>
-<!-- Navbar End -->
-
+    </nav>
+    <!-- Navbar End -->
 
     <!-- Header Start -->
-    <div class="container-fluid bg-primary py-5 mb-5 page-header">
+    <div class="container-fluid page-header-custom py-5 mb-5">
         <div class="container py-5">
             <div class="row justify-content-center">
                 <div class="col-lg-10 text-center">
-                    <h1 class="display-3 text-white animated slideInDown">Medalhistas</h1>
+                    <h1 class="display-3 text-white animated slideInDown fw-bold">Medalhistas</h1>
+                    <p class="text-white-50 fs-5 mb-4">Conheça nossa história, missão e o propósito de impulsionar talentos em Olimpíadas Científicas.</p>
                     <nav aria-label="breadcrumb">
-                        <ol class="breadcrumb justify-content-center">
-                            <li class="breadcrumb-item"><a class="text-white" href="#">Início</a></li>
-                            <li class="breadcrumb-item"><a class="text-white" href="#">Explorar</a></li>
-                            <li class="breadcrumb-item text-white active" aria-current="page">Medalhistas</li>
+                        <ol class="breadcrumb justify-content-center bg-transparent p-0 m-0">
+                            <li class="breadcrumb-item"><a class="text-white opacity-75" href="{% url 'home' %}">Início</a></li>
+                            <li class="breadcrumb-item text-white active fw-bold" aria-current="page">Sobre</li>
                         </ol>
                     </nav>
                 </div>
@@ -104,218 +266,235 @@
         </div>
     </div>
     <!-- Header End -->
-   
 
-<!-- Medalhistas Start -->
-<div class="container-xxl py-5">
-    <div class="container">
-
-        <div class="text-center wow fadeInUp" data-wow-delay="0.1s">
-            <h6 class="section-title bg-white text-center text-primary px-3">Medalhistas</h6>
-            <h1 class="mb-5">Destaque OBA 2026: Alunos do IF Baiano Campus Guanambi Conquistam Medalhas</h1>
-            <p>Parabenizamos os nossos estudantes do IF Baiano — Campus Guanambi pelo excelente desempenho na Olimpíada Brasileira de Astronomia e Astronáutica (OBA) edição 2026!
-
-Sob a orientação dedicada do Prof. Dr. Josenilton discente Souza, nossos alunos alcançaram o pódio e garantiram suas medalhas, reafirmando o compromisso do nosso campus com a excelência acadêmica e a pesquisa científica.</p>
-            <p>Conheça alguns estudantes que conquistaram medalhas nas Olimpíadas de Física da OBA 2026</p>
-        </div>
-
-        <div class="row g-4">
-
-            <!-- Medalhista 1 -->
-            <div class="col-lg-3 col-md-6 wow fadeInUp" data-wow-delay="0.1s">
-                <div class="team-item bg-light">
-                    <div class="overflow-hidden">
-                        <img class="img-fluid" src="{% static 'img/medalhista1.jpg' %}" alt="Medalhista">
-                    </div>
-                    <div class="text-center p-4">
-                        <h5 class="mb-1">Pedro Henrique Teixeira Pião</h5>
+    <!-- Recursos Integrados Start -->
+    <div class="container-xxl py-4">
+        <div class="container">
+            <div class="text-center wow fadeInUp" data-wow-delay="0.1s">
+                <h6 class="section-title bg-white text-center text-primary px-3 rounded-pill">Recursos Integrados</h6>
+                <h1 class="mb-5">O que oferecemos para sua preparação</h1>
+            </div>
+            <div class="row g-4">
+                <div class="col-lg-3 col-sm-6 wow fadeInUp" data-wow-delay="0.1s">
+                    <div class="custom-card p-4 text-center">
+                        <div class="service-icon-wrapper">
+                            <i class="fas fa-graduation-cap"></i>
+                        </div>
+                        <h5 class="mb-3 fw-bold">Conteúdo de Física</h5>
+                        <p class="text-muted small mb-0">Estude os principais assuntos da Física organizados por módulos, do básico ao avançado.</p>
                     </div>
                 </div>
-            </div>
- <!-- Medalhista 1 -->
-            <div class="col-lg-3 col-md-6 wow fadeInUp" data-wow-delay="0.1s">
-                <div class="team-item bg-light">
-                    <div class="overflow-hidden">
-                        <img class="img-fluid" src="{% static 'img/medalhista2.jpg' %}" alt="Medalhista">
-                    </div>
-                    <div class="text-center p-4">
-                        <h5 class="mb-1">Yasmin Andrade Souza</h5>
+                <div class="col-lg-3 col-sm-6 wow fadeInUp" data-wow-delay="0.3s">
+                    <div class="custom-card p-4 text-center">
+                        <div class="service-icon-wrapper">
+                            <i class="fas fa-play-circle"></i>
+                        </div>
+                        <h5 class="mb-3 fw-bold">Videoaulas</h5>
+                        <p class="text-muted small mb-0">Assista a aulas completas para revisar conceitos e aprender de forma prática e dinâmica.</p>
                     </div>
                 </div>
-            </div>
-
-             <!-- Medalhista 1 -->
-            <div class="col-lg-3 col-md-6 wow fadeInUp" data-wow-delay="0.1s">
-                <div class="team-item bg-light">
-                    <div class="overflow-hidden">
-                        <img class="img-fluid" src="{% static 'img/medalhista3.jpg' %}" alt="Medalhista">
-                    </div>
-                    <div class="text-center p-4">
-                        <h5 class="mb-1">Francielly da Paz Souza</h5>
+                <div class="col-lg-3 col-sm-6 wow fadeInUp" data-wow-delay="0.5s">
+                    <div class="custom-card p-4 text-center">
+                        <div class="service-icon-wrapper">
+                            <i class="fas fa-tasks"></i>
+                        </div>
+                        <h5 class="mb-3 fw-bold">Exercícios e Simulados</h5>
+                        <p class="text-muted small mb-0">Resolva listas de exercícios, provas anteriores e simulados das Olimpíadas de Física.</p>
                     </div>
                 </div>
-            </div>
- <!-- Medalhista 1 -->
-            <div class="col-lg-3 col-md-6 wow fadeInUp" data-wow-delay="0.1s">
-                <div class="team-item bg-light">
-                    <div class="overflow-hidden">
-                        <img class="img-fluid" src="{% static 'img/medalhista4.jpg' %}" alt="Medalhista">
-                    </div>
-                    <div class="text-center p-4">
-                        <h5 class="mb-1">João Pedro Bastos da Silva</h5>
-                    </div>
-                </div>
-            </div>
-            <!-- Medalhista 2 -->
-            <div class="col-lg-3 col-md-6 wow fadeInUp" data-wow-delay="0.3s">
-                <div class="team-item bg-light">
-                    <div class="overflow-hidden">
-                        <img class="img-fluid" src="{% static 'img/medalhista5.jpg' %}" alt="Medalhista">
-                    </div>
-                    <div class="text-center p-4">
-                        <h5 class="mb-1">Nome do Aluno</h5>
-                    </div>
-                </div>
-            </div>
-
-            <!-- Medalhista 3 -->
-            <div class="col-lg-3 col-md-6 wow fadeInUp" data-wow-delay="0.5s">
-                <div class="team-item bg-light">
-                    <div class="overflow-hidden">
-                        <img class="img-fluid" src="{% static 'img/medalhista6.jpg' %}" alt="Medalhista">
-                    </div>
-                    <div class="text-center p-4">
-                        <h5 class="mb-1">Nome do Aluno</h5>
-                    </div>
-                </div>
-            </div>
-
-           
-            <!-- Medalhista 3 -->
-            <div class="col-lg-3 col-md-6 wow fadeInUp" data-wow-delay="0.5s">
-                <div class="team-item bg-light">
-                    <div class="overflow-hidden">
-                        <img class="img-fluid" src="{% static 'img/medalhista7.jpg' %}" alt="Medalhista">
-                    </div>
-                    <div class="text-center p-4">
-                        <h5 class="mb-1">Nome do Aluno</h5>
+                <div class="col-lg-3 col-sm-6 wow fadeInUp" data-wow-delay="0.7s">
+                    <div class="custom-card p-4 text-center">
+                        <div class="service-icon-wrapper">
+                            <i class="fas fa-book-open"></i>
+                        </div>
+                        <h5 class="mb-3 fw-bold">Materiais de Apoio</h5>
+                        <p class="text-muted small mb-0">Acesse livros, apostilas, fórmulas, resumos e materiais complementares para seus estudos.</p>
                     </div>
                 </div>
             </div>
         </div>
-
     </div>
-</div>
-<!-- Medalhistas End -->
+    <!-- Recursos Integrados End -->
 
-  <!-- About Start -->
+    <!-- Medalhistas Start -->
     <div class="container-xxl py-5">
         <div class="container">
-            <div class="row g-5">
-                <div class="col-lg-6 wow fadeInUp" data-wow-delay="0.1s" style="min-height: 400px;">
-                    <div class="position-relative h-100">
-                        <img class="img-fluid position-absolute w-100 h-100" src="{% static 'img/about.jpg' %}" alt="" style="object-fit: cover;">
-                    </div>
-                </div>
-                <div class="col-lg-6 wow fadeInUp" data-wow-delay="0.3s">
-                    <h6 class="section-title bg-white text-start text-primary pe-3">Apresentação da Plataforma</h6>
-                    <h1 class="mb-4">SOBRE A PEOF</h1>
-                    <p class="mb-4">A PEOF - Plataforma de Estudos para Olimpíadas de Física é um ambiente completo, organizado e acessível, criado para apoiar estudantes que desejam se destacar em competições científicas de Física. A plataforma foi desenvolvida com o objetivo de oferecer uma preparação sólida e estratégica, contribuindo para o desenvolvimento do raciocínio lógico, da capacidade de resolver problemas complexos e da interpretação de situações físicas, competências essenciais nas principais olimpíadas científicas. Por meio de conteúdos estruturados por níveis de dificuldade, simulados, listas de exercícios comentadas e materiais de apoio, a PEOF incentiva a autonomia, a disciplina e a constância nos estudos, ao mesmo tempo em que desperta o interesse pela Física e pelas Ciências Exatas. </p>
-                    <p class="mb-4">Além disso, a plataforma busca democratizar o acesso à preparação olímpica, permitindo que estudantes de diferentes contextos educacionais tenham acesso a materiais de qualidade, ampliando oportunidades de aprendizagem. Outro diferencial importante é o acompanhamento do desempenho dos estudantes, que possibilita identificar dificuldades específicas e personalizar os estudos, tornando a preparação mais eficiente e direcionada. Dessa forma, a PEOF se consolida como um espaço de referência para estudos voltados às Olimpíadas de Física, funcionando como um apoio complementar ao ensino escolar tradicional e incentivando a formação acadêmica e científica dos estudantes.</p>
-                    <div class="row gy-2 gx-4 mb-4">
-                        <div class="col-sm-6">
-                            <p class="mb-0"><i class="fa fa-arrow-right text-primary me-2"></i>Simulados e Exercícios</p>
-                        </div>
-                        <div class="col-sm-6">
-                            <p class="mb-0"><i class="fa fa-arrow-right text-primary me-2"></i>Preparação Olímpica</p>
-                        </div>
-                        <div class="col-sm-6">
-                            <p class="mb-0"><i class="fa fa-arrow-right text-primary me-2"></i>Conteúdos de Física</p>
-                        </div>
-                        <div class="col-sm-6">
-                            <p class="mb-0"><i class="fa fa-arrow-right text-primary me-2"></i>Materiais de Apoio</p>
-                        </div>
-                        <div class="col-sm-6">
-                            <p class="mb-0"><i class="fa fa-arrow-right text-primary me-2"></i>Raciocínio Lógico</p>
-                        </div>
-                        <div class="col-sm-6">
-                            <p class="mb-0"><i class="fa fa-arrow-right text-primary me-2"></i>Resolução de Problemas</p>
-                        </div>
-                    </div>
-                    <a class="btn btn-primary py-3 px-5 mt-2" href="">Saiba mais</a>
-                </div>
+
+            <div class="text-center wow fadeInUp" data-wow-delay="0.1s">
+                <h6 class="section-title bg-white text-center text-primary px-3">Medalhistas</h6>
+                <h1 class="mb-4">Destaque OBA 2026: Alunos do IF Baiano Campus Guanambi Conquistam Medalhas</h1>
+                <p class="mb-3 text-secondary" style="line-height: 1.8;">
+                    Parabenizamos os nossos estudantes do IF Baiano — Campus Guanambi pelo excelente desempenho na Olimpíada Brasileira de Astronomia e Astronáutica (OBA) edição 2026!
+                    Sob a orientação dedicada do Prof. Dr. Josenilton discente Souza, nossos alunos alcançaram o pódio e garantiram suas medalhas, reafirmando o compromisso do nosso campus com a excelência acadêmica e a pesquisa científica.
+                </p>
+                <p class="mb-5 text-secondary fw-bold">
+                    Conheça alguns estudantes que conquistaram medalhas nas Olimpíadas de Física da OBA 2026:
+                </p>
             </div>
+
+            <div class="row g-4 justify-content-center">
+
+                <!-- Medalhista 1 -->
+                <div class="col-lg-3 col-md-6 wow fadeInUp" data-wow-delay="0.1s">
+                    <div class="team-item bg-light rounded overflow-hidden shadow-sm h-100">
+                        <div class="overflow-hidden">
+                            <img class="img-fluid w-100" src="{% static 'img/medalhista1.jpg' %}" alt="Pedro Henrique Teixeira Pião">
+                        </div>
+                        <div class="text-center p-4">
+                            <h5 class="mb-1">Pedro Henrique Teixeira Pião</h5>
+                            <small class="text-primary">Medalhista OBA 2026</small>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Medalhista 2 -->
+                <div class="col-lg-3 col-md-6 wow fadeInUp" data-wow-delay="0.2s">
+                    <div class="team-item bg-light rounded overflow-hidden shadow-sm h-100">
+                        <div class="overflow-hidden">
+                            <img class="img-fluid w-100" src="{% static 'img/medalhista2.jpg' %}" alt="Yasmin Andrade Souza">
+                        </div>
+                        <div class="text-center p-4">
+                            <h5 class="mb-1">Yasmin Andrade Souza</h5>
+                            <small class="text-primary">Medalhista OBA 2026</small>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Medalhista 3 -->
+                <div class="col-lg-3 col-md-6 wow fadeInUp" data-wow-delay="0.3s">
+                    <div class="team-item bg-light rounded overflow-hidden shadow-sm h-100">
+                        <div class="overflow-hidden">
+                            <img class="img-fluid w-100" src="{% static 'img/medalhista3.jpg' %}" alt="Francielly da Paz Souza">
+                        </div>
+                        <div class="text-center p-4">
+                            <h5 class="mb-1">Francielly da Paz Souza</h5>
+                            <small class="text-primary">Medalhista OBA 2026</small>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Medalhista 4 -->
+                <div class="col-lg-3 col-md-6 wow fadeInUp" data-wow-delay="0.4s">
+                    <div class="team-item bg-light rounded overflow-hidden shadow-sm h-100">
+                        <div class="overflow-hidden">
+                            <img class="img-fluid w-100" src="{% static 'img/medalhista4.jpg' %}" alt="João Pedro Bastos da Silva">
+                        </div>
+                        <div class="text-center p-4">
+                            <h5 class="mb-1">João Pedro Bastos da Silva</h5>
+                            <small class="text-primary">Medalhista OBA 2026</small>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Medalhista 5 -->
+                <div class="col-lg-3 col-md-6 wow fadeInUp" data-wow-delay="0.5s">
+                    <div class="team-item bg-light rounded overflow-hidden shadow-sm h-100">
+                        <div class="overflow-hidden">
+                            <img class="img-fluid w-100" src="{% static 'img/medalhista5.jpg' %}" alt="Medalhista OBA">
+                        </div>
+                        <div class="text-center p-4">
+                            <h5 class="mb-1">Nome do Aluno</h5>
+                            <small class="text-primary">Medalhista OBA 2026</small>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Medalhista 6 -->
+                <div class="col-lg-3 col-md-6 wow fadeInUp" data-wow-delay="0.6s">
+                    <div class="team-item bg-light rounded overflow-hidden shadow-sm h-100">
+                        <div class="overflow-hidden">
+                            <img class="img-fluid w-100" src="{% static 'img/medalhista6.jpg' %}" alt="Medalhista OBA">
+                        </div>
+                        <div class="text-center p-4">
+                            <h5 class="mb-1">Nome do Aluno</h5>
+                            <small class="text-primary">Medalhista OBA 2026</small>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Medalhista 7 -->
+                <div class="col-lg-3 col-md-6 wow fadeInUp" data-wow-delay="0.7s">
+                    <div class="team-item bg-light rounded overflow-hidden shadow-sm h-100">
+                        <div class="overflow-hidden">
+                            <img class="img-fluid w-100" src="{% static 'img/medalhista7.jpg' %}" alt="Medalhista OBA">
+                        </div>
+                        <div class="text-center p-4">
+                            <h5 class="mb-1">Nome do Aluno</h5>
+                            <small class="text-primary">Medalhista OBA 2026</small>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+
         </div>
     </div>
-    <!-- About End -->
+    <!-- Medalhistas End -->
 
-    
+
+
     <!-- Footer Start -->
     <div class="container-fluid bg-dark text-light footer pt-5 mt-5 wow fadeIn" data-wow-delay="0.1s">
         <div class="container py-5">
             <div class="row g-5">
                 <div class="col-lg-3 col-md-6">
-                    <h4 class="text-white mb-3">Sobre Nós</h4>
-                    <a class="btn btn-link" href="">Saiba mais</a>
-                    <a class="btn btn-link" href="">Contatos</a>
-                    <a class="btn btn-link" href="">Política de Privacidade</a>
+                    <h4 class="text-white mb-4">Sobre Nós</h4>
+                    <a class="btn btn-link text-white-50" href="{% url 'sobre' %}"><i class="fas fa-chevron-right me-2"></i>Saiba mais</a>
+                    <a class="btn btn-link text-white-50" href="{% url 'contato' %}"><i class="fas fa-chevron-right me-2"></i>Contatos</a>
+                    <a class="btn btn-link text-white-50" href="#"><i class="fas fa-chevron-right me-2"></i>Política de Privacidade</a>
                 </div>
                 <div class="col-lg-3 col-md-6">
-                    <h4 class="text-white mb-3">Contato</h4>
-                    <p class="mb-2"><i class="fa fa-map-marker-alt me-3"></i>Bahia</p>
-                    <p class="mb-2"><i class="fa fa-envelope me-3"></i>info@example.com</p>
+                    <h4 class="text-white mb-4">Contato</h4>
+                    <p class="mb-2"><i class="fa fa-map-marker-alt me-3 text-primary"></i>Bahia, Brasil</p>
+                    <p class="mb-3"><i class="fa fa-envelope me-3 text-primary"></i>info@example.com</p>
                     <div class="d-flex pt-2">
-                        <a class="btn btn-outline-light btn-social" href=""><i class="fab fa-twitter"></i></a>
-                        <a class="btn btn-outline-light btn-social" href=""><i class="fab fa-facebook-f"></i></a>
-                        <a class="btn btn-outline-light btn-social" href=""><i class="fab fa-youtube"></i></a>
-                        <a class="btn btn-outline-light btn-social" href=""><i class="fab fa-linkedin-in"></i></a>
+                        <a class="btn btn-outline-light btn-social me-2 rounded-circle" href="#"><i class="fab fa-twitter"></i></a>
+                        <a class="btn btn-outline-light btn-social me-2 rounded-circle" href="#"><i class="fab fa-facebook-f"></i></a>
+                        <a class="btn btn-outline-light btn-social me-2 rounded-circle" href="#"><i class="fab fa-youtube"></i></a>
+                        <a class="btn btn-outline-light btn-social rounded-circle" href="#"><i class="fab fa-linkedin-in"></i></a>
                     </div>
                 </div>
                 <div class="col-lg-3 col-md-6">
-                    <h4 class="text-white mb-3">Galeria</h4>
+                    <h4 class="text-white mb-4">Galeria</h4>
                     <div class="row g-2 pt-2">
                         <div class="col-4">
-                            <img class="img-fluid bg-light p-1" src="{% static 'img/WhatsApp Image 2026-07-07 at 13.20.39 (1).jpg' %}" alt="">
+                            <img class="img-fluid bg-light p-1 gallery-img-hover" src="{% static 'img/WhatsApp Image 2026-07-07 at 13.20.39 (1).jpg' %}" alt="Galeria 1">
                         </div>
                         <div class="col-4">
-                            <img class="img-fluid bg-light p-1" src="{% static 'img/WhatsApp Image 2026-07-07 at 13.20.39 (2).jpg' %}" alt="">
+                            <img class="img-fluid bg-light p-1 gallery-img-hover" src="{% static 'img/WhatsApp Image 2026-07-07 at 13.20.39 (2).jpg' %}" alt="Galeria 2">
                         </div>
                         <div class="col-4">
-                            <img class="img-fluid bg-light p-1" src="{% static 'img/WhatsApp Image 2026-07-07 at 13.20.39 (3).jpg' %}" alt="">
+                            <img class="img-fluid bg-light p-1 gallery-img-hover" src="{% static 'img/WhatsApp Image 2026-07-07 at 13.20.39 (3).jpg' %}" alt="Galeria 3">
                         </div>
                         <div class="col-4">
-                            <img class="img-fluid bg-light p-1" src="{% static 'img/WhatsApp Image 2026-07-07 at 13.20.39 (4).jpg' %}" alt="">
+                            <img class="img-fluid bg-light p-1 gallery-img-hover" src="{% static 'img/WhatsApp Image 2026-07-07 at 13.20.39 (4).jpg' %}" alt="Galeria 4">
                         </div>
                         <div class="col-4">
-                            <img class="img-fluid bg-light p-1" src="{% static 'img/WhatsApp Image 2026-07-07 at 13.20.39.jpg' %}" alt="">
+                            <img class="img-fluid bg-light p-1 gallery-img-hover" src="{% static 'img/WhatsApp Image 2026-07-07 at 13.20.39.jpg' %}" alt="Galeria 5">
                         </div>
                         <div class="col-4">
-                            <img class="img-fluid bg-light p-1" src="{% static 'img/WhatsApp Image 2026-07-07 at 13.20.40.jpg' %}" alt="">
+                            <img class="img-fluid bg-light p-1 gallery-img-hover" src="{% static 'img/WhatsApp Image 2026-07-07 at 13.20.40.jpg' %}" alt="Galeria 6">
                         </div>
                     </div>
                 </div>
                 <div class="col-lg-3 col-md-6">
-                    <h4 class="text-white mb-3">Importante</h4>
-                    <p>Receba dicas, novidades e conteúdos exclusivos sobre as Olimpíadas de Física. Cadastre seu e-mail e fique por dentro das atualizações da plataforma.</p>
-                    <div class="position-relative mx-auto" style="max-width: 400px;">
-                        <input class="form-control border-0 w-100 py-3 ps-4 pe-5" type="text" placeholder="Seu email">
-                        <button type="button" class="btn btn-primary py-2 position-absolute top-0 end-0 mt-2 me-2">Cadastrar</button>
+                    <h4 class="text-white mb-4">Newsletter</h4>
+                    <p class="text-white-50">Receba dicas, novidades e conteúdos exclusivos sobre as Olimpíadas de Física diretamente no seu e-mail.</p>
+                    <div class="position-relative mx-auto mt-3" style="max-width: 400px;">
+                        <input class="form-control border-0 w-100 py-3 ps-4 pe-5 rounded-pill" type="email" placeholder="Seu e-mail">
+                        <button type="button" class="btn btn-primary py-2 position-absolute top-0 end-0 mt-2 me-2 rounded-pill px-3">Cadastrar</button>
                     </div>
                 </div>
             </div>
         </div>
-        <div class="container">
+        <div class="container border-top border-secondary py-4">
             <div class="copyright">
-                <div class="row">
-                    <div class="col-md-6 text-center text-md-start mb-3 mb-md-0">
-                        &copy; 2026 <a class="border-bottom" href="#">PEOF - Plataforma de Estudos para Olimpíadas de Física</a>. Todos os direitos reservados.<br><br>
-                        Desenvolvido por <strong>Dayse Kelly, Francielly da Paz e Yasmin Andrade</strong><br>
+                <div class="row align-items-center">
+                    <div class="col-md-7 text-center text-md-start mb-3 mb-md-0">
+                        &copy; 2026 <a class="border-bottom text-white text-decoration-none" href="#">PEOF - Plataforma de Estudos para Olimpíadas de Física</a>. Todos os direitos reservados.
                     </div>
-                    <div class="col-md-6 text-center text-md-end">
-                        <div class="footer-menu">
-                            <a href="">Início</a>
-                            <a href="">Saiba mais</a>
-                        </div>
+                    <div class="col-md-5 text-center text-md-end">
+                        <span class="text-white-50 small">Desenvolvido por <strong>Dayse Kelly & Franciele</strong></span>
                     </div>
                 </div>
             </div>
@@ -323,11 +502,8 @@ Sob a orientação dedicada do Prof. Dr. Josenilton discente Souza, nossos aluno
     </div>
     <!-- Footer End -->
 
-
-
     <!-- Back to Top -->
-    <a href="#" class="btn btn-lg btn-primary btn-lg-square back-to-top"><i class="bi bi-arrow-up"></i></a>
-
+    <a href="#" class="btn btn-lg btn-primary btn-lg-square back-to-top rounded-circle shadow"><i class="bi bi-arrow-up"></i></a>
 
     <!-- JavaScript Libraries -->
     <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
@@ -342,3 +518,5 @@ Sob a orientação dedicada do Prof. Dr. Josenilton discente Souza, nossos aluno
 </body>
 
 </html>
+
+    

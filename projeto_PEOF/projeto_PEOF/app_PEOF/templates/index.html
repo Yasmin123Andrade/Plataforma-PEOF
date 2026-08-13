@@ -397,50 +397,52 @@
             justify-content: center;
             box-shadow: var(--shadow-lg);
         }
+        
     </style>
 </head>
 
 <body>
 
-    <!-- Navbar Start -->
-    <nav class="navbar navbar-expand-lg sticky-top p-0 shadow-sm">
-        <a href="{% url 'home' %}" class="navbar-brand d-flex align-items-center px-4 px-lg-5" style="max-width: 70%;">
-            <h2 class="m-0 text-primary d-flex align-items-center" style="font-size: calc(1.2rem + 0.6vw); font-weight: 800;">
-                <img src="{% static 'img/android-chrome-512x512.png' %}" alt="PEOF" style="height:45px;" class="me-2">
-                <span class="d-none d-sm-inline" style="letter-spacing: -0.5px;">Plataforma de Estudos para Olimpíadas de Física</span>
-                <span class="d-inline d-sm-none">PEOF</span>
-            </h2>
-        </a>
-        <button type="button" class="navbar-toggler me-4 border-0" data-bs-toggle="collapse" data-bs-target="#navbarCollapse">
-            <span class="navbar-toggler-icon"></span>
-        </button>
+     <!-- Navbar Start -->
+    <nav class="navbar navbar-expand-lg bg-white navbar-light shadow-sm sticky-top p-2 p-lg-0">
+        <div class="container-fluid px-4 px-lg-5">
+            <a href="{% url 'home' %}" class="navbar-brand d-flex align-items-center">
+                <h2 class="m-0 text-primary d-flex align-items-center" style="font-size: calc(1.1rem + 0.5vw);">
+                    <img src="{% static 'img/android-chrome-512x512.png' %}" alt="PEOF" style="height:45px;" class="me-2 rounded-circle shadow-sm">
+                    <span class="d-none d-sm-inline fw-bold">Plataforma de Estudos para Olimpíadas de Física</span>
+                    <span class="d-inline d-sm-none fw-bold">PEOF</span>
+                </h2>
+            </a>
+            <button type="button" class="navbar-toggler border-0" data-bs-toggle="collapse" data-bs-target="#navbarCollapse">
+                <span class="navbar-toggler-icon"></span>
+            </button>
 
-        <div class="collapse navbar-collapse" id="navbarCollapse">
-            <div class="navbar-nav ms-auto p-4 p-lg-0 align-items-lg-center">
-                <a href="{% url 'home' %}" class="nav-item nav-link active">Início</a>
-                <a href="{% url 'sobre' %}" class="nav-item nav-link nav-link-sobre">Sobre</a>
-                <a href="{% url 'conteudos' %}" class="nav-item nav-link">Conteúdos</a>
-                <div class="nav-item dropdown">
-                    <a href="#" class="nav-link dropdown-toggle" data-bs-toggle="dropdown">Explorar</a>
-                    <div class="dropdown-menu fade-down m-0">
-                        <a href="{% url 'medalhistas' %}" class="dropdown-item"><i class="fa fa-award me-2 text-primary"></i>Medalhistas</a>
-                        <a href="{% url 'depoimentos' %}" class="dropdown-item"><i class="fa fa-comment-dots me-2 text-primary"></i>Depoimentos</a>
-                        <a href="{% url 'materiais' %}" class="dropdown-item"><i class="fa fa-folder-open me-2 text-primary"></i>Materiais</a>
+            <div class="collapse navbar-collapse" id="navbarCollapse">
+                <div class="navbar-nav ms-auto p-4 p-lg-0 align-items-lg-center">
+                    <a href="{% url 'home' %}" class="nav-item nav-link">Início</a>
+                    <a href="{% url 'sobre' %}" class="nav-item nav-link nav-link-sobre">Sobre</a>
+                    <a href="{% url 'conteudos' %}" class="nav-item nav-link active">Conteúdos</a>
+                    <div class="nav-item dropdown">
+                        <a href="#" class="nav-link dropdown-toggle" data-bs-toggle="dropdown">Explorar</a>
+                        <div class="dropdown-menu border-0 shadow-lg fade-down m-0 rounded-3">
+                            <a href="{% url 'medalhistas' %}" class="dropdown-item py-2"><i class="fas fa-medal text-warning me-2"></i>Medalhistas</a>
+                            <a href="{% url 'depoimentos' %}" class="dropdown-item py-2"><i class="fas fa-comment-dots text-info me-2"></i>Depoimentos</a>
+                            <a href="{% url 'materiais' %}" class="dropdown-item py-2"><i class="fas fa-folder-open text-primary me-2"></i>Materiais</a>
+                        </div>
                     </div>
-                </div>
-                <a href="{% url 'contato' %}" class="nav-item nav-link me-lg-3">Contatos</a>
-            </div>
+                    <a href="{% url 'contato' %}" class="nav-item nav-link me-lg-3">Contatos</a>
 
-            <form action="{% url 'logout' %}" method="POST" class="d-flex align-items-center px-4 px-lg-0 me-lg-4 my-2 my-lg-0">
-                {% csrf_token %}
-                <button type="submit" class="btn btn-logout w-100">
-                    <i class="fa fa-sign-out-alt me-1"></i> SAIR
-                </button>
-            </form>
+                    <form action="{% url 'logout' %}" method="POST" class="d-inline my-2 my-lg-0">
+                        {% csrf_token %}
+                        <button type="submit" class="btn btn-outline-danger btn-logout btn-sm shadow-sm">
+                            <i class="fas fa-sign-out-alt me-1"></i> SAIR
+                        </button>
+                    </form>
+                </div>
+            </div>
         </div>
     </nav>
     <!-- Navbar End -->
-
 
     <!-- Carousel Start -->
     <div class="container-fluid p-0 mb-5">
