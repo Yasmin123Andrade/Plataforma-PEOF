@@ -4,10 +4,10 @@
 
 <head>
     <meta charset="utf-8">
-    <title>Questões- Plataforma de Estudos para Olimpíadas de Física (PEOF)</title>
+    <title>Questões - Plataforma de Estudos para Olimpíadas de Física (PEOF)</title>
     <meta content="width=device-width, initial-scale=1.0" name="viewport">
-    <meta content="Olimpíadas de Física, OBA, ONC, Sobre PEOF, Preparação Científica" name="keywords">
-    <meta content="Conheça a PEOF: uma plataforma completa e acessível para preparação em Olimpíadas Científicas e de Física." name="description">
+    <meta content="Olimpíadas de Física, OBA, ONC, Banco de Questões, Preparação Científica" name="keywords">
+    <meta content="Resolva questões de Física no estilo OBA/ONC com correção automática na PEOF." name="description">
 
     <!-- Favicon -->
     <link rel="icon" type="image/x-icon" href="{% static 'favicon.ico' %}">
@@ -37,13 +37,15 @@
     <!-- Template Stylesheet -->
     <link href="{% static 'css/style.css' %}" rel="stylesheet">
 
-    <!-- Estilos Customizados no Padrão de Conteúdos -->
+    <!-- Estilos Customizados -->
     <style>
         :root {
             --peof-primary: #0d6efd;
             --peof-secondary: #0b5ed7;
             --peof-dark: #1e293b;
             --peof-light: #f8fafc;
+            --peof-success: #16a34a;
+            --peof-danger: #dc2626;
             --peof-card-shadow: 0 10px 30px rgba(0, 0, 0, 0.08);
             --peof-hover-shadow: 0 15px 35px rgba(13, 110, 253, 0.18);
         }
@@ -54,7 +56,6 @@
             color: #334155;
         }
 
-        /* Navbar Otimizada */
         .navbar {
             backdrop-filter: blur(10px);
             background-color: rgba(255, 255, 255, 0.95) !important;
@@ -79,14 +80,12 @@
             color: var(--peof-primary) !important;
         }
 
-        /* Banner Header */
         .page-header-custom {
             background: linear-gradient(135deg, rgba(13, 110, 253, 0.95), rgba(11, 94, 215, 0.85)), url("{% static 'img/carousel-1.jpg' %}") center/cover no-repeat;
             border-radius: 0 0 30px 30px;
             box-shadow: 0 10px 30px rgba(0,0,0,0.1);
         }
 
-        /* Design de Cards Modernos */
         .custom-card {
             border: none;
             border-radius: 16px;
@@ -94,91 +93,8 @@
             box-shadow: var(--peof-card-shadow);
             transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
             overflow: hidden;
-            height: 100%;
-            display: flex;
-            flex-direction: column;
         }
 
-        .custom-card:hover {
-            transform: translateY(-8px);
-            box-shadow: var(--peof-hover-shadow);
-        }
-
-        /* Estilização para Ícones e Recursos */
-        .service-icon-wrapper {
-            width: 64px;
-            height: 64px;
-            background: linear-gradient(135deg, #e0e7ff 0%, #c7d2fe 100%);
-            border-radius: 50%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            margin: 0 auto 20px;
-            color: var(--peof-primary);
-            font-size: 26px;
-            transition: all 0.3s ease;
-        }
-
-        .custom-card:hover .service-icon-wrapper {
-            background: linear-gradient(135deg, var(--peof-primary) 0%, var(--peof-secondary) 100%);
-            color: #ffffff;
-            transform: scale(1.1);
-        }
-
-        /* Imagem da Seção Sobre */
-        .about-img-container {
-            border-radius: 20px;
-            overflow: hidden;
-            box-shadow: 0 12px 30px rgba(0,0,0,0.12);
-            position: relative;
-            height: 100%;
-            min-height: 420px;
-        }
-
-        .about-img-container img {
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
-        }
-
-        /* Itens de destaque na Seção Sobre */
-        .about-feature-item {
-            display: flex;
-            align-items: center;
-            gap: 12px;
-            background: #ffffff;
-            padding: 14px 20px;
-            border-radius: 12px;
-            border: 1px solid #e2e8f0;
-            font-weight: 700;
-            color: #334155;
-            box-shadow: 0 4px 12px rgba(0,0,0,0.03);
-            transition: all 0.2s ease;
-        }
-
-        .about-feature-item:hover {
-            transform: translateX(5px);
-            border-color: var(--peof-primary);
-            background: #f0fdf4;
-        }
-
-        /* Seção de Métricas */
-        .stats-section {
-            background: linear-gradient(135deg, #1e293b 0%, #0f172a 100%);
-            border-radius: 24px;
-            padding: 50px 30px;
-            color: #ffffff;
-            box-shadow: 0 15px 35px rgba(0,0,0,0.2);
-        }
-
-        .stat-item h2 {
-            font-size: 2.8rem;
-            font-weight: 800;
-            color: #38bdf8;
-            margin-bottom: 5px;
-        }
-
-        /* Botão de Logout personalizado */
         .btn-logout {
             border-radius: 50px;
             padding: 6px 20px;
@@ -187,13 +103,162 @@
             transition: all 0.3s ease;
         }
 
-        .gallery-img-hover {
-            border-radius: 8px;
-            transition: transform 0.3s ease, filter 0.3s ease;
+        /* ===== Banco de Questões ===== */
+        .quiz-toolbar {
+            background: #ffffff;
+            border-radius: 16px;
+            box-shadow: var(--peof-card-shadow);
+            padding: 18px 24px;
         }
-        .gallery-img-hover:hover {
-            transform: scale(1.08);
-            filter: brightness(1.1);
+
+        .quiz-progress {
+            height: 10px;
+            border-radius: 50px;
+            background: #e2e8f0;
+            overflow: hidden;
+        }
+
+        .quiz-progress-bar {
+            height: 100%;
+            width: 0%;
+            background: linear-gradient(90deg, var(--peof-primary), var(--peof-secondary));
+            transition: width 0.4s ease;
+        }
+
+        .question-card {
+            border-radius: 16px;
+            background: #ffffff;
+            box-shadow: var(--peof-card-shadow);
+            padding: 28px;
+            margin-bottom: 24px;
+            border-left: 6px solid var(--peof-primary);
+            transition: box-shadow 0.3s ease;
+        }
+
+        .question-card.is-correct {
+            border-left-color: var(--peof-success);
+        }
+
+        .question-card.is-wrong {
+            border-left-color: var(--peof-danger);
+        }
+
+        .question-meta {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            flex-wrap: wrap;
+            gap: 8px;
+            margin-bottom: 14px;
+        }
+
+        .question-number {
+            font-weight: 800;
+            color: var(--peof-primary);
+        }
+
+        .badge-topic {
+            background: #e0e7ff;
+            color: var(--peof-secondary);
+            font-weight: 700;
+            padding: 5px 14px;
+            border-radius: 50px;
+            font-size: 0.78rem;
+        }
+
+        .badge-level {
+            background: #fef3c7;
+            color: #b45309;
+            font-weight: 700;
+            padding: 5px 14px;
+            border-radius: 50px;
+            font-size: 0.78rem;
+        }
+
+        .option-label {
+            display: flex;
+            align-items: flex-start;
+            gap: 12px;
+            padding: 12px 16px;
+            border: 2px solid #e2e8f0;
+            border-radius: 12px;
+            margin-bottom: 10px;
+            cursor: pointer;
+            transition: all 0.2s ease;
+            font-weight: 600;
+            color: #334155;
+        }
+
+        .option-label:hover {
+            border-color: var(--peof-primary);
+            background: #f5f8ff;
+        }
+
+        .option-label input {
+            margin-top: 3px;
+        }
+
+        .option-label.selected {
+            border-color: var(--peof-primary);
+            background: #eef3ff;
+        }
+
+        .option-label.correct-answer {
+            border-color: var(--peof-success);
+            background: #ecfdf3;
+            color: #166534;
+        }
+
+        .option-label.wrong-answer {
+            border-color: var(--peof-danger);
+            background: #fef2f2;
+            color: #991b1b;
+        }
+
+        .option-label input:disabled {
+            cursor: not-allowed;
+        }
+
+        .option-letter {
+            font-weight: 800;
+            min-width: 22px;
+        }
+
+        .feedback-box {
+            display: none;
+            margin-top: 16px;
+            padding: 16px 18px;
+            border-radius: 12px;
+            font-size: 0.92rem;
+            line-height: 1.6;
+        }
+
+        .feedback-box.feedback-correct {
+            background: #ecfdf3;
+            border: 1px solid #bbf7d0;
+            color: #166534;
+        }
+
+        .feedback-box.feedback-wrong {
+            background: #fef2f2;
+            border: 1px solid #fecaca;
+            color: #991b1b;
+        }
+
+        .result-summary {
+            display: none;
+            border-radius: 20px;
+            padding: 40px;
+            text-align: center;
+            background: linear-gradient(135deg, #1e293b 0%, #0f172a 100%);
+            color: #ffffff;
+            box-shadow: 0 15px 35px rgba(0,0,0,0.2);
+        }
+
+        .result-summary h2 {
+            font-size: 3rem;
+            font-weight: 800;
+            color: #38bdf8;
         }
     </style>
 </head>
@@ -253,12 +318,12 @@
         <div class="container py-5">
             <div class="row justify-content-center">
                 <div class="col-lg-10 text-center">
-                    <h1 class="display-3 text-white animated slideInDown fw-bold">Questões</h1>
-                    <p class="text-white-50 fs-5 mb-4">Conheça nossa história, missão e o propósito de impulsionar talentos em Olimpíadas Científicas.</p>
+                    <h1 class="display-3 text-white animated slideInDown fw-bold">Banco de Questões</h1>
+                    <p class="text-white-50 fs-5 mb-4">Pratique com questões no estilo OBA/ONC, responda e receba a correção na hora.</p>
                     <nav aria-label="breadcrumb">
                         <ol class="breadcrumb justify-content-center bg-transparent p-0 m-0">
                             <li class="breadcrumb-item"><a class="text-white opacity-75" href="{% url 'home' %}">Início</a></li>
-                            <li class="breadcrumb-item text-white active fw-bold" aria-current="page">Sobre</li>
+                            <li class="breadcrumb-item text-white active fw-bold" aria-current="page">Questões</li>
                         </ol>
                     </nav>
                 </div>
@@ -267,183 +332,162 @@
     </div>
     <!-- Header End -->
 
-    <!-- Recursos Integrados Start -->
+    <!-- Quiz Start -->
     <div class="container-xxl py-4">
         <div class="container">
-            <div class="text-center wow fadeInUp" data-wow-delay="0.1s">
-                <h6 class="section-title bg-white text-center text-primary px-3 rounded-pill">Recursos Integrados</h6>
-                <h1 class="mb-5">O que oferecemos para sua preparação</h1>
-            </div>
-            <div class="row g-4">
-                <div class="col-lg-3 col-sm-6 wow fadeInUp" data-wow-delay="0.1s">
-                    <div class="custom-card p-4 text-center">
-                        <div class="service-icon-wrapper">
-                            <i class="fas fa-graduation-cap"></i>
-                        </div>
-                        <h5 class="mb-3 fw-bold">Conteúdo de Física</h5>
-                        <p class="text-muted small mb-0">Estude os principais assuntos da Física organizados por módulos, do básico ao avançado.</p>
+
+            <!-- Toolbar -->
+            <div class="quiz-toolbar d-flex flex-wrap align-items-center justify-content-between gap-3 mb-4 wow fadeInUp" data-wow-delay="0.1s">
+                <div class="flex-grow-1" style="min-width: 220px;">
+                    <div class="d-flex justify-content-between mb-2">
+                        <span class="fw-bold small text-secondary">Progresso</span>
+                        <span class="fw-bold small text-primary" id="progressLabel">0 de 5 respondidas</span>
+                    </div>
+                    <div class="quiz-progress">
+                        <div class="quiz-progress-bar" id="progressBar"></div>
                     </div>
                 </div>
-                <div class="col-lg-3 col-sm-6 wow fadeInUp" data-wow-delay="0.3s">
-                    <div class="custom-card p-4 text-center">
-                        <div class="service-icon-wrapper">
-                            <i class="fas fa-play-circle"></i>
-                        </div>
-                        <h5 class="mb-3 fw-bold">Videoaulas</h5>
-                        <p class="text-muted small mb-0">Assista a aulas completas para revisar conceitos e aprender de forma prática e dinâmica.</p>
-                    </div>
-                </div>
-                <div class="col-lg-3 col-sm-6 wow fadeInUp" data-wow-delay="0.5s">
-                    <div class="custom-card p-4 text-center">
-                        <div class="service-icon-wrapper">
-                            <i class="fas fa-tasks"></i>
-                        </div>
-                        <h5 class="mb-3 fw-bold">Exercícios e Simulados</h5>
-                        <p class="text-muted small mb-0">Resolva listas de exercícios, provas anteriores e simulados das Olimpíadas de Física.</p>
-                    </div>
-                </div>
-                <div class="col-lg-3 col-sm-6 wow fadeInUp" data-wow-delay="0.7s">
-                    <div class="custom-card p-4 text-center">
-                        <div class="service-icon-wrapper">
-                            <i class="fas fa-book-open"></i>
-                        </div>
-                        <h5 class="mb-3 fw-bold">Materiais de Apoio</h5>
-                        <p class="text-muted small mb-0">Acesse livros, apostilas, fórmulas, resumos e materiais complementares para seus estudos.</p>
-                    </div>
+                <div class="d-flex gap-2">
+                    <button type="button" class="btn btn-primary rounded-pill px-4 fw-bold" id="btnCorrigir">
+                        <i class="fas fa-check-double me-1"></i> Corrigir
+                    </button>
+                    <button type="button" class="btn btn-outline-secondary rounded-pill px-4 fw-bold" id="btnReiniciar">
+                        <i class="fas fa-redo me-1"></i> Reiniciar
+                    </button>
                 </div>
             </div>
+
+            <!-- Resumo do Resultado -->
+            <div class="result-summary mb-4" id="resultSummary">
+                <h6 class="text-uppercase text-info fw-bold mb-2">Resultado</h6>
+                <h2 id="resultScore">0/5</h2>
+                <p class="text-white-50 mb-0" id="resultMessage">Corrija o simulado para ver seu desempenho.</p>
+            </div>
+
+            <!-- Questão 1 -->
+            <div class="question-card wow fadeInUp" data-wow-delay="0.1s" data-question="1" data-correct="c">
+                <div class="question-meta">
+                    <span class="question-number">Questão 1</span>
+                    <div class="d-flex gap-2">
+                        <span class="badge-topic">Cinemática</span>
+                        <span class="badge-level">Nível 1</span>
+                    </div>
+                </div>
+                <p class="fw-bold mb-3">Um carro parte do repouso e acelera uniformemente a 2 m/s². Qual é a sua velocidade após 5 segundos?</p>
+
+                <label class="option-label"><input type="radio" name="q1" value="a"><span><span class="option-letter">A)</span> 2,5 m/s</span></label>
+                <label class="option-label"><input type="radio" name="q1" value="b"><span><span class="option-letter">B)</span> 5 m/s</span></label>
+                <label class="option-label"><input type="radio" name="q1" value="c"><span><span class="option-letter">C)</span> 10 m/s</span></label>
+                <label class="option-label"><input type="radio" name="q1" value="d"><span><span class="option-letter">D)</span> 20 m/s</span></label>
+                <label class="option-label"><input type="radio" name="q1" value="e"><span><span class="option-letter">E)</span> 25 m/s</span></label>
+
+                <div class="feedback-box">
+                    <strong><i class="fas fa-lightbulb me-1"></i> Explicação:</strong>
+                    Usando v = v0 + a·t, com v0 = 0, a = 2 m/s² e t = 5 s, temos v = 2 × 5 = 10 m/s. Resposta correta: C.
+                </div>
+            </div>
+
+            <!-- Questão 2 -->
+            <div class="question-card wow fadeInUp" data-wow-delay="0.15s" data-question="2" data-correct="b">
+                <div class="question-meta">
+                    <span class="question-number">Questão 2</span>
+                    <div class="d-flex gap-2">
+                        <span class="badge-topic">Dinâmica</span>
+                        <span class="badge-level">Nível 1</span>
+                    </div>
+                </div>
+                <p class="fw-bold mb-3">Um bloco de massa 4 kg está sujeito a uma força resultante de 12 N. Qual é a aceleração adquirida pelo bloco?</p>
+
+                <label class="option-label"><input type="radio" name="q2" value="a"><span><span class="option-letter">A)</span> 2 m/s²</span></label>
+                <label class="option-label"><input type="radio" name="q2" value="b"><span><span class="option-letter">B)</span> 3 m/s²</span></label>
+                <label class="option-label"><input type="radio" name="q2" value="c"><span><span class="option-letter">C)</span> 4 m/s²</span></label>
+                <label class="option-label"><input type="radio" name="q2" value="d"><span><span class="option-letter">D)</span> 6 m/s²</span></label>
+                <label class="option-label"><input type="radio" name="q2" value="e"><span><span class="option-letter">E)</span> 48 m/s²</span></label>
+
+                <div class="feedback-box">
+                    <strong><i class="fas fa-lightbulb me-1"></i> Explicação:</strong>
+                    Pela 2ª Lei de Newton, F = m·a, logo a = F/m = 12/4 = 3 m/s². Resposta correta: B.
+                </div>
+            </div>
+
+            <!-- Questão 3 -->
+            <div class="question-card wow fadeInUp" data-wow-delay="0.2s" data-question="3" data-correct="d">
+                <div class="question-meta">
+                    <span class="question-number">Questão 3</span>
+                    <div class="d-flex gap-2">
+                        <span class="badge-topic">Energia</span>
+                        <span class="badge-level">Nível 2</span>
+                    </div>
+                </div>
+                <p class="fw-bold mb-3">Um objeto de 2 kg é erguido a uma altura de 10 m. Considerando g = 10 m/s², qual é a energia potencial gravitacional adquirida?</p>
+
+                <label class="option-label"><input type="radio" name="q3" value="a"><span><span class="option-letter">A)</span> 20 J</span></label>
+                <label class="option-label"><input type="radio" name="q3" value="b"><span><span class="option-letter">B)</span> 50 J</span></label>
+                <label class="option-label"><input type="radio" name="q3" value="c"><span><span class="option-letter">C)</span> 100 J</span></label>
+                <label class="option-label"><input type="radio" name="q3" value="d"><span><span class="option-letter">D)</span> 200 J</span></label>
+                <label class="option-label"><input type="radio" name="q3" value="e"><span><span class="option-letter">E)</span> 400 J</span></label>
+
+                <div class="feedback-box">
+                    <strong><i class="fas fa-lightbulb me-1"></i> Explicação:</strong>
+                    Ep = m·g·h = 2 × 10 × 10 = 200 J. Resposta correta: D.
+                </div>
+            </div>
+
+            <!-- Questão 4 -->
+            <div class="question-card wow fadeInUp" data-wow-delay="0.25s" data-question="4" data-correct="a">
+                <div class="question-meta">
+                    <span class="question-number">Questão 4</span>
+                    <div class="d-flex gap-2">
+                        <span class="badge-topic">Ondulatória</span>
+                        <span class="badge-level">Nível 2</span>
+                    </div>
+                </div>
+                <p class="fw-bold mb-3">Uma onda tem frequência de 50 Hz e comprimento de onda de 4 m. Qual é a velocidade de propagação dessa onda?</p>
+
+                <label class="option-label"><input type="radio" name="q4" value="a"><span><span class="option-letter">A)</span> 200 m/s</span></label>
+                <label class="option-label"><input type="radio" name="q4" value="b"><span><span class="option-letter">B)</span> 54 m/s</span></label>
+                <label class="option-label"><input type="radio" name="q4" value="c"><span><span class="option-letter">C)</span> 12,5 m/s</span></label>
+                <label class="option-label"><input type="radio" name="q4" value="d"><span><span class="option-letter">D)</span> 46 m/s</span></label>
+                <label class="option-label"><input type="radio" name="q4" value="e"><span><span class="option-letter">E)</span> 100 m/s</span></label>
+
+                <div class="feedback-box">
+                    <strong><i class="fas fa-lightbulb me-1"></i> Explicação:</strong>
+                    A velocidade de propagação é v = f × λ = 50 × 4 = 200 m/s. Resposta correta: A.
+                </div>
+            </div>
+
+            <!-- Questão 5 -->
+            <div class="question-card wow fadeInUp" data-wow-delay="0.3s" data-question="5" data-correct="e">
+                <div class="question-meta">
+                    <span class="question-number">Questão 5</span>
+                    <div class="d-flex gap-2">
+                        <span class="badge-topic">Termologia</span>
+                        <span class="badge-level">Nível 1</span>
+                    </div>
+                </div>
+                <p class="fw-bold mb-3">Uma temperatura de 25°C corresponde a qual valor aproximado na escala Kelvin?</p>
+
+                <label class="option-label"><input type="radio" name="q5" value="a"><span><span class="option-letter">A)</span> 25 K</span></label>
+                <label class="option-label"><input type="radio" name="q5" value="b"><span><span class="option-letter">B)</span> 77 K</span></label>
+                <label class="option-label"><input type="radio" name="q5" value="c"><span><span class="option-letter">C)</span> 248 K</span></label>
+                <label class="option-label"><input type="radio" name="q5" value="d"><span><span class="option-letter">D)</span> 273 K</span></label>
+                <label class="option-label"><input type="radio" name="q5" value="e"><span><span class="option-letter">E)</span> 298 K</span></label>
+
+                <div class="feedback-box">
+                    <strong><i class="fas fa-lightbulb me-1"></i> Explicação:</strong>
+                    T(K) = T(°C) + 273 = 25 + 273 = 298 K. Resposta correta: E.
+                </div>
+            </div>
+
+            <div class="text-center mt-2 mb-5">
+                <button type="button" class="btn btn-primary rounded-pill px-5 py-3 fw-bold" id="btnCorrigirBottom">
+                    <i class="fas fa-check-double me-1"></i> Corrigir Simulado
+                </button>
+            </div>
+
         </div>
     </div>
-    <!-- Recursos Integrados End -->
-
-    <!-- About Content Start -->
-    <div class="container-xxl py-5 my-3">
-        <div class="container">
-            <div class="row g-5 align-items-center">
-                <div class="col-lg-6 wow fadeInUp" data-wow-delay="0.1s">
-                    <div class="about-img-container">
-                        <img src="{% static 'img/about.jpg' %}" alt="Sobre a PEOF">
-                    </div>
-                </div>
-                <div class="col-lg-6 wow fadeInUp d-flex flex-column justify-content-center" data-wow-delay="0.3s">
-                    <h6 class="section-title bg-white text-start text-primary px-3 rounded-pill d-inline-block mb-3">Apresentação da Plataforma</h6>
-                    <h1 class="mb-4 fw-bold">SOBRE A PEOF</h1>
-                    <p class="mb-3 text-secondary" style="line-height: 1.8;">
-                        A PEOF - Plataforma de Estudos para Olimpíadas de Física é um ambiente completo, organizado e acessível, criado para apoiar estudantes que desejam se destacar em competições científicas de Física. A plataforma foi desenvolvida com o objetivo de oferecer uma preparação sólida e estratégica, contribuindo para o desenvolvimento do raciocínio lógico, da capacidade de resolver problemas complexos e da interpretação de situações físicas, competências essenciais nas principais olimpíadas científicas.
-                    </p>
-                    <p class="mb-4 text-secondary" style="line-height: 1.8;">
-                        Por meio de conteúdos estruturados por níveis de dificuldade, simulados, listas de exercícios comentadas e materiais de apoio, a PEOF incentiva a autonomia, a disciplina e a constância nos estudos. Além disso, a plataforma busca democratizar o acesso à preparação olímpica, permitindo que estudantes de diferentes contextos educacionais tenham acesso a materiais de qualidade.
-                    </p>
-                    
-                    <!-- Destaques / Checklist (Código restaurado e aperfeiçoado) -->
-                    <div class="row g-3">
-                        <div class="col-sm-6">
-                            <div class="about-feature-item">
-                                <i class="fas fa-check-circle text-success fs-5"></i>
-                                <span>Conteúdos Estruturados</span>
-                            </div>
-                        </div>
-                        <div class="col-sm-6">
-                            <div class="about-feature-item">
-                                <i class="fas fa-check-circle text-success fs-5"></i>
-                                <span>Simulados Comentados</span>
-                            </div>
-                        </div>
-                        <div class="col-sm-6">
-                            <div class="about-feature-item">
-                                <i class="fas fa-check-circle text-success fs-5"></i>
-                                <span>Apoio Didático Gratuito</span>
-                            </div>
-                        </div>
-                        <div class="col-sm-6">
-                            <div class="about-feature-item">
-                                <i class="fas fa-check-circle text-success fs-5"></i>
-                                <span>Foco na OBA e ONC</span>
-                            </div>
-                        </div>
-                    </div>
-
-                </div>
-            </div>
-        </div>
-    </div>
-    <!-- About Content End -->
-
-    <!-- Pilares e Valores Start (Nova Seção para Aprofundamento) -->
-    <div class="container-xxl py-5 bg-white rounded-3 shadow-sm my-5 wow fadeInUp" data-wow-delay="0.1s">
-        <div class="container">
-            <div class="text-center mb-5">
-                <h6 class="section-title bg-white text-center text-primary px-3 rounded-pill">Nossa Filosofia</h6>
-                <h1 class="mb-3">Pilares da Plataforma PEOF</h1>
-                <p class="text-muted">Princípios fundamentais que regem nossa metodologia de ensino e suporte aos estudantes.</p>
-            </div>
-            <div class="row g-4">
-                <div class="col-lg-4 col-md-6">
-                    <div class="custom-card p-4">
-                        <div class="d-flex align-items-center mb-3">
-                            <div class="btn-square bg-primary text-white rounded-circle me-3 flex-shrink-0" style="width: 48px; height: 48px;">
-                                <i class="fas fa-door-open fa-lg"></i>
-                            </div>
-                            <h5 class="mb-0 fw-bold">Democratização</h5>
-                        </div>
-                        <p class="text-muted small mb-0">Oferecer recursos gratuitos e de alto nível para garantir oportunidades iguais de aprendizado a estudantes de escolas públicas e privadas em todo o país.</p>
-                    </div>
-                </div>
-
-                <div class="col-lg-4 col-md-6">
-                    <div class="custom-card p-4">
-                        <div class="d-flex align-items-center mb-3">
-                            <div class="btn-square bg-primary text-white rounded-circle me-3 flex-shrink-0" style="width: 48px; height: 48px;">
-                                <i class="fas fa-brain fa-lg"></i>
-                            </div>
-                            <h5 class="mb-0 fw-bold">Raciocínio Crítico</h5>
-                        </div>
-                        <p class="text-muted small mb-0">Estimular o raciocínio físico em vez da simples memorização de fórmulas, preparando o aluno para resolver problemas práticos e inéditos.</p>
-                    </div>
-                </div>
-
-                <div class="col-lg-4 col-md-6">
-                    <div class="custom-card p-4">
-                        <div class="d-flex align-items-center mb-3">
-                            <div class="btn-square bg-primary text-white rounded-circle me-3 flex-shrink-0" style="width: 48px; height: 48px;">
-                                <i class="fas fa-chart-line fa-lg"></i>
-                            </div>
-                            <h5 class="mb-0 fw-bold">Constância</h5>
-                        </div>
-                        <p class="text-muted small mb-0">Incentivar a rotina contínua de estudos por meio de módulos em etapas, cronogramas sugeridos e bancos de dados de vestibulares e olimpíadas.</p>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-    <!-- Pilares e Valores End -->
-
-    <!-- Métricas e Indicadores Start -->
-    <div class="container-xxl py-4 wow fadeInUp" data-wow-delay="0.1s">
-        <div class="container">
-            <div class="stats-section text-center">
-                <div class="row g-4">
-                    <div class="col-md-3 col-6 stat-item">
-                        <h2>+100%</h2>
-                        <p class="text-white-50 mb-0">Gratuito e Acessível</p>
-                    </div>
-                    <div class="col-md-3 col-6 stat-item">
-                        <h2>4+</h2>
-                        <p class="text-white-50 mb-0">Níveis da OBA/ONC</p>
-                    </div>
-                    <div class="col-md-3 col-6 stat-item">
-                        <h2>10+</h2>
-                        <p class="text-white-50 mb-0">Livros Didáticos e PDFs</p>
-                    </div>
-                    <div class="col-md-3 col-6 stat-item">
-                        <h2>24/7</h2>
-                        <p class="text-white-50 mb-0">Disponibilidade de Estudo</p>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-    <!-- Métricas e Indicadores End -->
+    <!-- Quiz End -->
 
     <!-- Footer Start -->
     <div class="container-fluid bg-dark text-light footer pt-5 mt-5 wow fadeIn" data-wow-delay="0.1s">
@@ -469,24 +513,12 @@
                 <div class="col-lg-3 col-md-6">
                     <h4 class="text-white mb-4">Galeria</h4>
                     <div class="row g-2 pt-2">
-                        <div class="col-4">
-                            <img class="img-fluid bg-light p-1 gallery-img-hover" src="{% static 'img/WhatsApp Image 2026-07-07 at 13.20.39 (1).jpg' %}" alt="Galeria 1">
-                        </div>
-                        <div class="col-4">
-                            <img class="img-fluid bg-light p-1 gallery-img-hover" src="{% static 'img/WhatsApp Image 2026-07-07 at 13.20.39 (2).jpg' %}" alt="Galeria 2">
-                        </div>
-                        <div class="col-4">
-                            <img class="img-fluid bg-light p-1 gallery-img-hover" src="{% static 'img/WhatsApp Image 2026-07-07 at 13.20.39 (3).jpg' %}" alt="Galeria 3">
-                        </div>
-                        <div class="col-4">
-                            <img class="img-fluid bg-light p-1 gallery-img-hover" src="{% static 'img/WhatsApp Image 2026-07-07 at 13.20.39 (4).jpg' %}" alt="Galeria 4">
-                        </div>
-                        <div class="col-4">
-                            <img class="img-fluid bg-light p-1 gallery-img-hover" src="{% static 'img/WhatsApp Image 2026-07-07 at 13.20.39.jpg' %}" alt="Galeria 5">
-                        </div>
-                        <div class="col-4">
-                            <img class="img-fluid bg-light p-1 gallery-img-hover" src="{% static 'img/WhatsApp Image 2026-07-07 at 13.20.40.jpg' %}" alt="Galeria 6">
-                        </div>
+                        <div class="col-4"><img class="img-fluid bg-light p-1" src="{% static 'img/WhatsApp Image 2026-07-07 at 13.20.39 (1).jpg' %}" alt="Galeria 1"></div>
+                        <div class="col-4"><img class="img-fluid bg-light p-1" src="{% static 'img/WhatsApp Image 2026-07-07 at 13.20.39 (2).jpg' %}" alt="Galeria 2"></div>
+                        <div class="col-4"><img class="img-fluid bg-light p-1" src="{% static 'img/WhatsApp Image 2026-07-07 at 13.20.39 (3).jpg' %}" alt="Galeria 3"></div>
+                        <div class="col-4"><img class="img-fluid bg-light p-1" src="{% static 'img/WhatsApp Image 2026-07-07 at 13.20.39 (4).jpg' %}" alt="Galeria 4"></div>
+                        <div class="col-4"><img class="img-fluid bg-light p-1" src="{% static 'img/WhatsApp Image 2026-07-07 at 13.20.39.jpg' %}" alt="Galeria 5"></div>
+                        <div class="col-4"><img class="img-fluid bg-light p-1" src="{% static 'img/WhatsApp Image 2026-07-07 at 13.20.40.jpg' %}" alt="Galeria 6"></div>
                     </div>
                 </div>
                 <div class="col-lg-3 col-md-6">
@@ -527,6 +559,134 @@
 
     <!-- Template Javascript -->
     <script src="{% static 'js/main.js' %}"></script>
+
+    <!-- Lógica do Banco de Questões -->
+    <script>
+    (function () {
+        var questionCards = document.querySelectorAll('.question-card');
+        var progressLabel = document.getElementById('progressLabel');
+        var progressBar = document.getElementById('progressBar');
+        var resultSummary = document.getElementById('resultSummary');
+        var resultScore = document.getElementById('resultScore');
+        var resultMessage = document.getElementById('resultMessage');
+        var totalQuestions = questionCards.length;
+
+        function updateProgress() {
+            var answered = 0;
+            questionCards.forEach(function (card) {
+                var name = card.querySelector('input[type="radio"]').name;
+                if (document.querySelector('input[name="' + name + '"]:checked')) {
+                    answered++;
+                }
+            });
+            progressLabel.textContent = answered + ' de ' + totalQuestions + ' respondidas';
+            progressBar.style.width = (answered / totalQuestions * 100) + '%';
+        }
+
+        function highlightSelection(card) {
+            var labels = card.querySelectorAll('.option-label');
+            labels.forEach(function (label) {
+                var input = label.querySelector('input');
+                if (input.checked) {
+                    label.classList.add('selected');
+                } else {
+                    label.classList.remove('selected');
+                }
+            });
+        }
+
+        questionCards.forEach(function (card) {
+            card.querySelectorAll('input[type="radio"]').forEach(function (input) {
+                input.addEventListener('change', function () {
+                    highlightSelection(card);
+                    updateProgress();
+                });
+            });
+        });
+
+        function corrigirTudo() {
+            var acertos = 0;
+            var respondidas = 0;
+
+            questionCards.forEach(function (card) {
+                var correctValue = card.getAttribute('data-correct');
+                var name = card.querySelector('input[type="radio"]').name;
+                var checked = document.querySelector('input[name="' + name + '"]:checked');
+                var feedbackBox = card.querySelector('.feedback-box');
+                var labels = card.querySelectorAll('.option-label');
+
+                labels.forEach(function (label) {
+                    var input = label.querySelector('input');
+                    input.disabled = true;
+
+                    if (input.value === correctValue) {
+                        label.classList.add('correct-answer');
+                    }
+                    if (checked && input === checked && input.value !== correctValue) {
+                        label.classList.add('wrong-answer');
+                    }
+                });
+
+                card.classList.remove('is-correct', 'is-wrong');
+                feedbackBox.classList.remove('feedback-correct', 'feedback-wrong');
+                feedbackBox.style.display = 'block';
+
+                if (checked) {
+                    respondidas++;
+                    if (checked.value === correctValue) {
+                        acertos++;
+                        card.classList.add('is-correct');
+                        feedbackBox.classList.add('feedback-correct');
+                    } else {
+                        card.classList.add('is-wrong');
+                        feedbackBox.classList.add('feedback-wrong');
+                    }
+                } else {
+                    card.classList.add('is-wrong');
+                    feedbackBox.classList.add('feedback-wrong');
+                }
+            });
+
+            resultSummary.style.display = 'block';
+            resultScore.textContent = acertos + '/' + totalQuestions;
+
+            if (respondidas < totalQuestions) {
+                resultMessage.textContent = (totalQuestions - respondidas) + ' questão(ões) ficaram sem resposta.';
+            } else if (acertos === totalQuestions) {
+                resultMessage.textContent = 'Excelente! Você acertou todas as questões.';
+            } else if (acertos >= totalQuestions / 2) {
+                resultMessage.textContent = 'Bom trabalho! Revise as questões erradas para melhorar.';
+            } else {
+                resultMessage.textContent = 'Continue estudando! Revise o conteúdo das questões erradas.';
+            }
+
+            resultSummary.scrollIntoView({ behavior: 'smooth', block: 'center' });
+        }
+
+        function reiniciar() {
+            questionCards.forEach(function (card) {
+                var labels = card.querySelectorAll('.option-label');
+                labels.forEach(function (label) {
+                    var input = label.querySelector('input');
+                    input.checked = false;
+                    input.disabled = false;
+                    label.classList.remove('selected', 'correct-answer', 'wrong-answer');
+                });
+                card.classList.remove('is-correct', 'is-wrong');
+                card.querySelector('.feedback-box').style.display = 'none';
+            });
+            resultSummary.style.display = 'none';
+            updateProgress();
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+        }
+
+        document.getElementById('btnCorrigir').addEventListener('click', corrigirTudo);
+        document.getElementById('btnCorrigirBottom').addEventListener('click', corrigirTudo);
+        document.getElementById('btnReiniciar').addEventListener('click', reiniciar);
+
+        updateProgress();
+    })();
+    </script>
 </body>
 
 </html>
