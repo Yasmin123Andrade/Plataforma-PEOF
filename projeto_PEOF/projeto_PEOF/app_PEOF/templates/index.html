@@ -6,8 +6,8 @@
     <meta charset="utf-8">
     <title>Plataforma de Estudos para Olimpíadas de Física</title>
     <meta content="width=device-width, initial-scale=1.0" name="viewport">
-    <meta content="" name="keywords">
-    <meta content="" name="description">
+    <meta content="olimpíada de física, estudos, física, simulados, exercícios" name="keywords">
+    <meta content="PEOF - Plataforma de Estudos para Olimpíadas de Física: conteúdos, videoaulas, simulados e materiais de apoio para você se destacar nas olimpíadas científicas." name="description">
 
     <!-- Favicon -->
     <link rel="icon" type="image/x-icon" href="{% static 'img/favicon.ico' %}">
@@ -21,7 +21,7 @@
     <!-- Google Web Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=Lexend:wght@500;600;700;800&display=swap" rel="stylesheet">
 
     <!-- Icon Font Stylesheet -->
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
@@ -42,6 +42,7 @@
             --primary-color: #2563eb;
             --primary-dark: #1d4ed8;
             --accent-color: #38bdf8;
+            --accent-warm: #f59e0b;
             --bg-dark: #0f172a;
             --bg-surface: #1e293b;
             --text-muted: #64748b;
@@ -52,10 +53,23 @@
             --shadow-lg: 0 20px 25px -5px rgba(0, 0, 0, 0.08), 0 8px 10px -6px rgba(0, 0, 0, 0.01);
         }
 
+        html {
+            scroll-behavior: smooth;
+        }
+
         body {
             font-family: 'Plus Jakarta Sans', sans-serif;
             color: #334155;
             background-color: #f8fafc;
+            overflow-x: hidden;
+        }
+
+        h1, h2, h3, h4, h5, h6 {
+            font-family: 'Lexend', 'Plus Jakarta Sans', sans-serif;
+        }
+
+        .section-eyebrow {
+            letter-spacing: 1.5px;
         }
 
         /* Navbar Modernizada */
@@ -79,10 +93,22 @@
             color: #475569 !important;
             padding: 25px 16px !important;
             transition: all 0.2s ease;
+            position: relative;
         }
 
         .nav-link:hover, .nav-link.active {
             color: var(--primary-color) !important;
+        }
+
+        .nav-link.active::after {
+            content: '';
+            position: absolute;
+            left: 16px;
+            right: 16px;
+            bottom: 18px;
+            height: 3px;
+            border-radius: 2px;
+            background: var(--primary-color);
         }
 
         .dropdown-menu {
@@ -124,7 +150,7 @@
 
         /* Carousel Hero - Imagem Crescida e sem Cortar o Grupo */
         .owl-carousel-item {
-            height: 480px !important; /* Altura ideal para a foto crescer em tela inteira */
+            height: 560px;
             background-color: var(--bg-dark);
             overflow: hidden;
         }
@@ -132,12 +158,12 @@
         .hero-carousel-img {
             height: 100% !important;
             width: 100% !important;
-            object-fit: cover !important; /* Preenche toda a largura */
-            object-position: center 30% !important; /* Foca nas pessoas sem cortar */
+            object-fit: cover !important;
+            object-position: center 30% !important;
         }
 
         .hero-overlay {
-            background: linear-gradient(135deg, rgba(15, 23, 42, 0.75) 0%, rgba(30, 58, 138, 0.6) 100%);
+            background: linear-gradient(135deg, rgba(15, 23, 42, 0.8) 0%, rgba(30, 58, 138, 0.6) 100%);
         }
 
         .hero-badge {
@@ -150,6 +176,33 @@
             letter-spacing: 1px;
             display: inline-block;
             font-size: 0.85rem;
+        }
+
+        .hero-title {
+            font-size: clamp(1.8rem, 3.5vw, 3rem);
+            line-height: 1.15;
+        }
+
+        .hero-stats {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 28px;
+            margin-top: 8px;
+        }
+
+        .hero-stats .stat-num {
+            font-family: 'Lexend', sans-serif;
+            font-weight: 800;
+            font-size: clamp(1.4rem, 2.2vw, 2rem);
+            color: #fff;
+            line-height: 1;
+        }
+
+        .hero-stats .stat-label {
+            font-size: 0.8rem;
+            color: rgba(255,255,255,0.75);
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
         }
 
         /* Cards de Serviços / Diferenciais */
@@ -187,6 +240,33 @@
             color: #ffffff;
         }
 
+        /* Faixa de estatísticas */
+        .stats-strip {
+            background: linear-gradient(135deg, var(--bg-dark) 0%, #1e3a8a 100%);
+            border-radius: var(--radius-lg);
+            padding: 48px 24px;
+            color: #fff;
+        }
+
+        .stats-strip .stat-block {
+            text-align: center;
+            padding: 12px;
+        }
+
+        .stats-strip .stat-block .num {
+            font-family: 'Lexend', sans-serif;
+            font-weight: 800;
+            font-size: clamp(1.8rem, 3vw, 2.6rem);
+            color: var(--accent-color);
+            display: block;
+        }
+
+        .stats-strip .stat-block .label {
+            color: rgba(255,255,255,0.75);
+            font-weight: 600;
+            font-size: 0.9rem;
+        }
+
         /* Seção Sobre */
         .about-img-container {
             border-radius: var(--radius-lg);
@@ -194,7 +274,7 @@
             box-shadow: var(--shadow-lg);
             position: relative;
             height: 100%;
-            min-height: 480px;
+            min-height: 420px;
         }
 
         .about-img-container img {
@@ -220,12 +300,128 @@
             color: var(--primary-color);
         }
 
-        /* Seção Apresentação Video */
+        /* Trilhas de Conteúdo (novo) */
+        .topic-card {
+            background: #ffffff;
+            border-radius: var(--radius-lg);
+            border: 1px solid var(--border-color);
+            padding: 26px;
+            height: 100%;
+            transition: all 0.3s ease;
+            border-left: 4px solid transparent;
+        }
+
+        .topic-card:hover {
+            border-left-color: var(--primary-color);
+            box-shadow: var(--shadow-lg);
+            transform: translateY(-4px);
+        }
+
+        .topic-card .topic-icon {
+            width: 52px;
+            height: 52px;
+            border-radius: 12px;
+            background: #eff6ff;
+            color: var(--primary-color);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 22px;
+            margin-bottom: 16px;
+        }
+
+        .topic-card .topic-level {
+            display: inline-block;
+            font-size: 0.72rem;
+            font-weight: 700;
+            letter-spacing: 0.5px;
+            text-transform: uppercase;
+            padding: 3px 10px;
+            border-radius: 20px;
+            background: #f1f5f9;
+            color: var(--text-muted);
+        }
+
+        /* Seção Apresentação Video - AMPLIADA */
+        .video-section-wrapper {
+            max-width: 1180px;
+            margin: 0 auto;
+        }
+
         .video-wrapper {
             border-radius: var(--radius-lg);
             overflow: hidden;
-            box-shadow: 0 25px 50px -12px rgba(15, 23, 42, 0.25);
-            border: 4px solid #ffffff;
+            box-shadow: 0 30px 60px -12px rgba(15, 23, 42, 0.3);
+            border: 5px solid #ffffff;
+        }
+
+        .video-wrapper .ratio {
+            --bs-aspect-ratio: 52.5%; /* aproxima 16:9 em área maior */
+        }
+
+        /* Percurso / Como funciona (novo) */
+        .journey-step {
+            position: relative;
+            padding: 28px 22px;
+            background: #fff;
+            border-radius: var(--radius-lg);
+            border: 1px solid var(--border-color);
+            height: 100%;
+        }
+
+        .journey-step .journey-number {
+            font-family: 'Lexend', sans-serif;
+            font-weight: 800;
+            font-size: 2.2rem;
+            color: #dbeafe;
+            line-height: 1;
+            margin-bottom: 10px;
+        }
+
+        /* FAQ */
+        .accordion-button {
+            font-weight: 700;
+            color: #0f172a;
+            border-radius: var(--radius-md) !important;
+        }
+
+        .accordion-button:not(.collapsed) {
+            color: var(--primary-color);
+            background-color: #eff6ff;
+            box-shadow: none;
+        }
+
+        .accordion-button:focus {
+            box-shadow: none;
+            border-color: var(--border-color);
+        }
+
+        .accordion-item {
+            border: 1px solid var(--border-color);
+            border-radius: var(--radius-md) !important;
+            overflow: hidden;
+            margin-bottom: 12px;
+        }
+
+        /* CTA final */
+        .cta-band {
+            background: linear-gradient(135deg, var(--primary-color) 0%, #1e40af 100%);
+            border-radius: var(--radius-lg);
+            padding: 56px 32px;
+            color: #fff;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .cta-band::before {
+            content: '';
+            position: absolute;
+            width: 340px;
+            height: 340px;
+            border-radius: 50%;
+            background: rgba(255,255,255,0.06);
+            top: -160px;
+            right: -100px;
         }
 
         /* Galeria de Fotos */
@@ -397,7 +593,70 @@
             justify-content: center;
             box-shadow: var(--shadow-lg);
         }
-        
+
+        /* ===== Responsividade ===== */
+        @media (max-width: 991.98px) {
+            .nav-link {
+                padding: 12px 8px !important;
+            }
+
+            .owl-carousel-item {
+                height: 460px;
+            }
+
+            .about-img-container {
+                min-height: 320px;
+            }
+        }
+
+        @media (max-width: 767.98px) {
+            .owl-carousel-item {
+                height: 480px;
+            }
+
+            .hero-carousel-img {
+                object-position: center 20% !important;
+            }
+
+            .hero-stats {
+                gap: 20px;
+            }
+
+            .student-img-box {
+                height: 340px;
+            }
+
+            .stats-strip {
+                padding: 32px 16px;
+            }
+
+            .cta-band {
+                padding: 40px 20px;
+                text-align: center;
+            }
+
+            .video-wrapper .ratio {
+                --bs-aspect-ratio: 62%;
+            }
+        }
+
+        @media (max-width: 575.98px) {
+            .owl-carousel-item {
+                height: 420px;
+            }
+
+            .service-card {
+                padding: 26px 18px;
+            }
+
+            .student-img-box {
+                height: 280px;
+            }
+
+            .video-wrapper .ratio {
+                --bs-aspect-ratio: 75%;
+            }
+        }
     </style>
 </head>
 
@@ -452,16 +711,34 @@
                 <div class="position-absolute top-0 start-0 w-100 h-100 d-flex align-items-center hero-overlay">
                     <div class="container">
                         <div class="row justify-content-start">
-                            <div class="col-sm-10 col-lg-8">
+                            <div class="col-sm-11 col-lg-9">
                                 <span class="hero-badge mb-2 animated slideInDown">
                                     <i class="fa fa-atom me-2"></i>PREPARE-SE PARA A OLIMPÍADA DE FÍSICA
                                 </span>
-                                <h1 class="display-5 text-white fw-bold mb-2 animated slideInDown">
+                                <h1 class="hero-title text-white fw-bold mb-2 animated slideInDown">
                                     Plataforma de integração com IA para os estudos de Olimpíada de Física
                                 </h1>
-                                <p class="fs-6 text-light mb-3 opacity-90 animated slideInDown">
+                                <p class="fs-6 text-light mb-4 opacity-90 animated slideInDown">
                                     APRENDA, PRATIQUE E EVOLUA RUMO ÀS OLIMPÍADAS DE FÍSICA
                                 </p>
+                                <div class="hero-stats animated slideInDown">
+                                    <div>
+                                        <span class="stat-num d-block">+120</span>
+                                        <span class="stat-label">Videoaulas</span>
+                                    </div>
+                                    <div>
+                                        <span class="stat-num d-block">+40</span>
+                                        <span class="stat-label">Simulados</span>
+                                    </div>
+                                    <div>
+                                        <span class="stat-num d-block">6</span>
+                                        <span class="stat-label">Módulos</span>
+                                    </div>
+                                    <div>
+                                        <span class="stat-num d-block">24/7</span>
+                                        <span class="stat-label">Acesso</span>
+                                    </div>
+                                </div>
                             </div>
                         </div>
                     </div>
@@ -472,16 +749,34 @@
                 <div class="position-absolute top-0 start-0 w-100 h-100 d-flex align-items-center hero-overlay">
                     <div class="container">
                         <div class="row justify-content-start">
-                            <div class="col-sm-10 col-lg-8">
+                            <div class="col-sm-11 col-lg-9">
                                 <span class="hero-badge mb-2 animated slideInDown">
                                     <i class="fa fa-atom me-2"></i>PREPARE-SE PARA A OLIMPÍADA DE FÍSICA
                                 </span>
-                                <h1 class="display-5 text-white fw-bold mb-2 animated slideInDown">
-                                    Plataforma de integração com IA para os estudos de Olimpíada de Física
+                                <h1 class="hero-title text-white fw-bold mb-2 animated slideInDown">
+                                    Conteúdos organizados, do básico ao avançado
                                 </h1>
-                                <p class="fs-6 text-light mb-3 opacity-90 animated slideInDown">
-                                    APRENDA, PRATIQUE E EVOLUA RUMO ÀS OLIMPÍADAS DE FÍSICA
+                                <p class="fs-6 text-light mb-4 opacity-90 animated slideInDown">
+                                    MECÂNICA, TERMODINÂMICA, ELETROMAGNETISMO, ÓPTICA E MUITO MAIS
                                 </p>
+                                <div class="hero-stats animated slideInDown">
+                                    <div>
+                                        <span class="stat-num d-block">+120</span>
+                                        <span class="stat-label">Videoaulas</span>
+                                    </div>
+                                    <div>
+                                        <span class="stat-num d-block">+40</span>
+                                        <span class="stat-label">Simulados</span>
+                                    </div>
+                                    <div>
+                                        <span class="stat-num d-block">6</span>
+                                        <span class="stat-label">Módulos</span>
+                                    </div>
+                                    <div>
+                                        <span class="stat-num d-block">24/7</span>
+                                        <span class="stat-label">Acesso</span>
+                                    </div>
+                                </div>
                             </div>
                         </div>
                     </div>
@@ -495,6 +790,11 @@
     <!-- Service Start -->
     <div class="container-xxl py-5">
         <div class="container">
+            <div class="text-center wow fadeInUp" data-wow-delay="0.1s" style="max-width: 700px; margin: 0 auto 40px;">
+                <h6 class="text-primary text-uppercase fw-bold mb-2 section-eyebrow">O que você encontra aqui</h6>
+                <h1 class="mb-3 fw-bold" style="color: #0f172a;">Tudo para sua preparação</h1>
+                <p class="text-muted mb-0">Uma trilha completa, do primeiro contato com a Física Olímpica até a resolução de provas de nível internacional.</p>
+            </div>
             <div class="row g-4">
                 <div class="col-lg-3 col-sm-6 wow fadeInUp" data-wow-delay="0.1s">
                     <div class="service-card text-center">
@@ -538,6 +838,42 @@
     <!-- Service End -->
 
 
+    <!-- Stats Strip Start -->
+    <div class="container-xxl">
+        <div class="container">
+            <div class="stats-strip wow fadeInUp" data-wow-delay="0.1s">
+                <div class="row g-4">
+                    <div class="col-6 col-lg-3">
+                        <div class="stat-block">
+                            <span class="num">+1.500</span>
+                            <span class="label">Estudantes ativos</span>
+                        </div>
+                    </div>
+                    <div class="col-6 col-lg-3">
+                        <div class="stat-block">
+                            <span class="num">87</span>
+                            <span class="label">Medalhas conquistadas</span>
+                        </div>
+                    </div>
+                    <div class="col-6 col-lg-3">
+                        <div class="stat-block">
+                            <span class="num">+300</span>
+                            <span class="label">Exercícios comentados</span>
+                        </div>
+                    </div>
+                    <div class="col-6 col-lg-3">
+                        <div class="stat-block">
+                            <span class="num">4,8/5</span>
+                            <span class="label">Avaliação dos alunos</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- Stats Strip End -->
+
+
     <!-- About Start -->
     <div class="container-xxl py-5">
         <div class="container">
@@ -548,7 +884,7 @@
                     </div>
                 </div>
                 <div class="col-lg-6 wow fadeInUp d-flex flex-column justify-content-center" data-wow-delay="0.3s">
-                    <h6 class="text-primary text-uppercase fw-bold mb-2">Apresentação da Plataforma</h6>
+                    <h6 class="text-primary text-uppercase fw-bold mb-2 section-eyebrow">Apresentação da Plataforma</h6>
                     <h1 class="mb-4 fw-bold" style="color: #0f172a;">SOBRE A PEOF</h1>
                     <p class="mb-4 text-secondary" style="line-height: 1.7;">
                         A PEOF - Plataforma de Estudos para Olimpíadas de Física é um ambiente completo, organizado e acessível, criado para apoiar estudantes que desejam se destacar em competições científicas de Física. A plataforma foi desenvolvida com o objetivo de oferecer uma preparação sólida e estratégica, contribuindo para o desenvolvimento do raciocínio lógico, da capacidade de resolver problemas complexos e da interpretação de situações físicas, competências essenciais nas principais olimpíadas científicas. Por meio de conteúdos estruturados por níveis de dificuldade, simulados, listas de exercícios comentadas e materiais de apoio, a PEOF incentiva a autonomia, a disciplina e a constância nos estudos, ao mesmo tempo em que desperta o interesse pela Física e pelas Ciências Exatas.
@@ -605,19 +941,127 @@
     <!-- About End -->
 
 
+    <!-- Trilhas de Conteúdo Start -->
+    <div class="container-xxl py-5 bg-light">
+        <div class="container">
+            <div class="text-center wow fadeInUp" data-wow-delay="0.1s" style="max-width: 700px; margin: 0 auto 40px;">
+                <h6 class="text-primary text-uppercase fw-bold mb-2 section-eyebrow">Trilhas de Estudo</h6>
+                <h1 class="mb-3 fw-bold" style="color: #0f172a;">Conteúdos por área da Física</h1>
+                <p class="text-muted mb-0">Módulos organizados por nível de dificuldade para você avançar no seu ritmo, com teoria, exercícios comentados e simulados.</p>
+            </div>
+            <div class="row g-4">
+                <div class="col-lg-4 col-md-6 wow fadeInUp" data-wow-delay="0.1s">
+                    <div class="topic-card">
+                        <div class="topic-icon"><i class="fa fa-rocket"></i></div>
+                        <span class="topic-level mb-2 d-inline-block">Básico ao avançado</span>
+                        <h5 class="fw-bold mt-2">Mecânica Clássica</h5>
+                        <p class="text-muted mb-0">Cinemática, dinâmica, energia, momento linear e gravitação, com foco em problemas de nível olímpico.</p>
+                    </div>
+                </div>
+                <div class="col-lg-4 col-md-6 wow fadeInUp" data-wow-delay="0.2s">
+                    <div class="topic-card">
+                        <div class="topic-icon"><i class="fa fa-fire"></i></div>
+                        <span class="topic-level mb-2 d-inline-block">Intermediário</span>
+                        <h5 class="fw-bold mt-2">Termodinâmica</h5>
+                        <p class="text-muted mb-0">Leis da termodinâmica, gases ideais, máquinas térmicas e entropia aplicadas a questões de prova.</p>
+                    </div>
+                </div>
+                <div class="col-lg-4 col-md-6 wow fadeInUp" data-wow-delay="0.3s">
+                    <div class="topic-card">
+                        <div class="topic-icon"><i class="fa fa-bolt"></i></div>
+                        <span class="topic-level mb-2 d-inline-block">Avançado</span>
+                        <h5 class="fw-bold mt-2">Eletromagnetismo</h5>
+                        <p class="text-muted mb-0">Campos elétricos e magnéticos, circuitos, indução e equações de Maxwell de forma aplicada.</p>
+                    </div>
+                </div>
+                <div class="col-lg-4 col-md-6 wow fadeInUp" data-wow-delay="0.4s">
+                    <div class="topic-card">
+                        <div class="topic-icon"><i class="fa fa-water"></i></div>
+                        <span class="topic-level mb-2 d-inline-block">Intermediário</span>
+                        <h5 class="fw-bold mt-2">Ondas e Óptica</h5>
+                        <p class="text-muted mb-0">Ondulatória, óptica geométrica e ondulatória, interferência e difração em problemas resolvidos.</p>
+                    </div>
+                </div>
+                <div class="col-lg-4 col-md-6 wow fadeInUp" data-wow-delay="0.5s">
+                    <div class="topic-card">
+                        <div class="topic-icon"><i class="fa fa-atom"></i></div>
+                        <span class="topic-level mb-2 d-inline-block">Avançado</span>
+                        <h5 class="fw-bold mt-2">Física Moderna</h5>
+                        <p class="text-muted mb-0">Relatividade, física quântica introdutória e física de partículas para questões de alto nível.</p>
+                    </div>
+                </div>
+                <div class="col-lg-4 col-md-6 wow fadeInUp" data-wow-delay="0.6s">
+                    <div class="topic-card">
+                        <div class="topic-icon"><i class="fa fa-calculator"></i></div>
+                        <span class="topic-level mb-2 d-inline-block">Todos os níveis</span>
+                        <h5 class="fw-bold mt-2">Métodos e Estratégias</h5>
+                        <p class="text-muted mb-0">Técnicas de resolução, gestão de tempo de prova e estratégias para questões discursivas.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- Trilhas de Conteúdo End -->
+
+
+    <!-- Como Funciona Start -->
+    <div class="container-xxl py-5">
+        <div class="container">
+            <div class="text-center wow fadeInUp" data-wow-delay="0.1s" style="max-width: 700px; margin: 0 auto 40px;">
+                <h6 class="text-primary text-uppercase fw-bold mb-2 section-eyebrow">Como Funciona</h6>
+                <h1 class="mb-3 fw-bold" style="color: #0f172a;">Sua jornada na PEOF</h1>
+                <p class="text-muted mb-0">Um percurso claro, do diagnóstico inicial até a simulação de provas oficiais.</p>
+            </div>
+            <div class="row g-4">
+                <div class="col-lg-3 col-sm-6 wow fadeInUp" data-wow-delay="0.1s">
+                    <div class="journey-step">
+                        <span class="journey-number">01</span>
+                        <h6 class="fw-bold mb-2">Diagnóstico</h6>
+                        <p class="text-muted small mb-0">Avalie seu nível atual e descubra por onde começar.</p>
+                    </div>
+                </div>
+                <div class="col-lg-3 col-sm-6 wow fadeInUp" data-wow-delay="0.2s">
+                    <div class="journey-step">
+                        <span class="journey-number">02</span>
+                        <h6 class="fw-bold mb-2">Estudo guiado</h6>
+                        <p class="text-muted small mb-0">Siga módulos organizados com teoria e videoaulas.</p>
+                    </div>
+                </div>
+                <div class="col-lg-3 col-sm-6 wow fadeInUp" data-wow-delay="0.3s">
+                    <div class="journey-step">
+                        <span class="journey-number">03</span>
+                        <h6 class="fw-bold mb-2">Prática intensiva</h6>
+                        <p class="text-muted small mb-0">Resolva exercícios comentados e provas anteriores.</p>
+                    </div>
+                </div>
+                <div class="col-lg-3 col-sm-6 wow fadeInUp" data-wow-delay="0.4s">
+                    <div class="journey-step">
+                        <span class="journey-number">04</span>
+                        <h6 class="fw-bold mb-2">Simulado final</h6>
+                        <p class="text-muted small mb-0">Teste-se em condições reais de prova antes da olimpíada.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- Como Funciona End -->
+
+
     <!-- Apresentação Video Start -->
     <div class="container-xxl py-5 bg-light my-5" style="border-radius: var(--radius-lg);">
         <div class="container">
             <div class="text-center wow fadeInUp" data-wow-delay="0.1s" style="max-width: 700px; margin: 0 auto;">
-                <h6 class="text-primary text-uppercase fw-bold mb-2">Apresentação</h6>
+                <h6 class="text-primary text-uppercase fw-bold mb-2 section-eyebrow">Apresentação</h6>
                 <h1 class="mb-3 fw-bold" style="color: #0f172a;">Conheça a PEOF</h1>
                 <p class="text-muted mb-5">Apresentação da plataforma: visão geral dos recursos, objetivos e como a PEOF pode ajudar na sua preparação para as Olimpíadas de Física.</p>
             </div>
             <div class="row justify-content-center">
-                <div class="col-lg-9">
-                    <div class="video-wrapper">
-                        <div class="ratio ratio-16x9">
-                            <iframe src="https://www.youtube.com/embed/VIDEO_ID" title="Apresentação PEOF" allowfullscreen></iframe>
+                <div class="col-12">
+                    <div class="video-section-wrapper">
+                        <div class="video-wrapper">
+                            <div class="ratio ratio-16x9">
+                                <iframe src="https://www.youtube.com/embed/VIDEO_ID" title="Apresentação PEOF" allowfullscreen></iframe>
+                            </div>
                         </div>
                     </div>
                 </div>
@@ -631,7 +1075,7 @@
     <div class="container-xxl py-5">
         <div class="container">
             <div class="text-center wow fadeInUp" data-wow-delay="0.1s" style="max-width: 700px; margin: 0 auto;">
-                <h6 class="text-primary text-uppercase fw-bold mb-2">Galeria</h6>
+                <h6 class="text-primary text-uppercase fw-bold mb-2 section-eyebrow">Galeria</h6>
                 <h1 class="mb-3 fw-bold" style="color: #0f172a;">Participações em Olimpíadas de Física</h1>
                 <p class="text-muted mb-5">Fotos dos nossos alunos participando de Olimpíadas, treinamentos e atividades práticas.</p>
             </div>
@@ -672,6 +1116,89 @@
     <!-- Galeria de Alunos End -->
 
 
+    <!-- FAQ Start -->
+    <div class="container-xxl py-5 bg-light">
+        <div class="container">
+            <div class="row g-5">
+                <div class="col-lg-5 wow fadeInUp" data-wow-delay="0.1s">
+                    <h6 class="text-primary text-uppercase fw-bold mb-2 section-eyebrow">Dúvidas Frequentes</h6>
+                    <h1 class="mb-3 fw-bold" style="color: #0f172a;">Perguntas frequentes</h1>
+                    <p class="text-muted mb-0">Não encontrou o que procurava? Fale com a gente pela nossa página de contatos.</p>
+                    <a class="btn btn-outline-primary rounded-pill py-2 px-4 mt-3" href="{% url 'contato' %}">Entrar em contato</a>
+                </div>
+                <div class="col-lg-7 wow fadeInUp" data-wow-delay="0.3s">
+                    <div class="accordion" id="faqAccordion">
+                        <div class="accordion-item">
+                            <h2 class="accordion-header">
+                                <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#faq1">
+                                    Preciso ter experiência prévia em Física Olímpica?
+                                </button>
+                            </h2>
+                            <div id="faq1" class="accordion-collapse collapse show" data-bs-parent="#faqAccordion">
+                                <div class="accordion-body text-muted">
+                                    Não. Os conteúdos são organizados do básico ao avançado, então você pode começar do zero e evoluir no seu próprio ritmo até os módulos mais avançados.
+                                </div>
+                            </div>
+                        </div>
+                        <div class="accordion-item">
+                            <h2 class="accordion-header">
+                                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#faq2">
+                                    Como funcionam os simulados?
+                                </button>
+                            </h2>
+                            <div id="faq2" class="accordion-collapse collapse" data-bs-parent="#faqAccordion">
+                                <div class="accordion-body text-muted">
+                                    Os simulados reproduzem o formato e o tempo das provas oficiais das principais olimpíadas de Física, com correção comentada ao final.
+                                </div>
+                            </div>
+                        </div>
+                        <div class="accordion-item">
+                            <h2 class="accordion-header">
+                                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#faq3">
+                                    Posso acessar os conteúdos pelo celular?
+                                </button>
+                            </h2>
+                            <div id="faq3" class="accordion-collapse collapse" data-bs-parent="#faqAccordion">
+                                <div class="accordion-body text-muted">
+                                    Sim. A plataforma é totalmente responsiva e pode ser acessada de qualquer dispositivo, a qualquer hora.
+                                </div>
+                            </div>
+                        </div>
+                        <div class="accordion-item">
+                            <h2 class="accordion-header">
+                                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#faq4">
+                                    Os materiais de apoio têm custo adicional?
+                                </button>
+                            </h2>
+                            <div id="faq4" class="accordion-collapse collapse" data-bs-parent="#faqAccordion">
+                                <div class="accordion-body text-muted">
+                                    Não, todos os materiais de apoio, listas de exercícios e resumos estão incluídos no acesso à plataforma.
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- FAQ End -->
+
+
+    <!-- CTA Start -->
+    <div class="container-xxl py-5">
+        <div class="container">
+            <div class="cta-band text-center wow fadeInUp" data-wow-delay="0.1s">
+                <h2 class="fw-bold mb-3">Pronto para começar sua preparação?</h2>
+                <p class="mb-4 opacity-90" style="max-width: 560px; margin-left: auto; margin-right: auto;">
+                    Explore os conteúdos, resolva simulados e acompanhe sua evolução rumo às Olimpíadas de Física.
+                </p>
+                <a href="{% url 'conteudos' %}" class="btn btn-light rounded-pill py-3 px-5 fw-bold text-primary">Explorar Conteúdos</a>
+            </div>
+        </div>
+    </div>
+    <!-- CTA End -->
+
+
     <!-- Footer Start -->
     <footer class="footer-custom pt-5 mt-5 wow fadeIn" data-wow-delay="0.1s">
         <div class="container py-5">
@@ -685,7 +1212,7 @@
                 <div class="col-lg-3 col-md-6">
                     <h4 class="footer-title">Contato</h4>
                     <p class="mb-2"><i class="fa fa-map-marker-alt me-3 text-primary"></i>Bahia</p>
-                    <p class="mb-3"><i class="fa fa-envelope me-3 text-primary"></i>info@example.com</p>
+                    <p class="mb-3"><i class="fa fa-envelope me-3 text-primary"></i>plataformapeof@gmail.com</p>
                     <div class="d-flex pt-2">
                         <a class="btn-social" href=""><i class="fab fa-twitter"></i></a>
                         <a class="btn-social" href=""><i class="fab fa-facebook-f"></i></a>
